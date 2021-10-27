@@ -21,11 +21,11 @@ using ProfMon.Base;
 using System.Collections.Generic;
 
 namespace ProfMon.Registry {
-    public interface IWriteableRegistry<T, E> : IReadOnlyRegistry<E> {
-        E Add (T obj);
+    public interface IWriteableRegistry<T> : IReadOnlyRegistry<T> {
+        void Add (T obj);
 
-        E[] AddAll (T[] objs);
-        E[] AddAll (List<T> objs);
+        void AddAll (T[] objs);
+        void AddAll (List<T> objs);
 
         void Remove (ID id);
     }
