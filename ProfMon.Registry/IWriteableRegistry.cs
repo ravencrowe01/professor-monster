@@ -24,8 +24,11 @@ namespace ProfMon.Registry {
     public interface IWriteableRegistry<T> : IReadOnlyRegistry<T> {
         void Add (T obj);
 
-        void AddAll (T[] objs);
         void AddAll (List<T> objs);
+
+        void Update (T obj);
+
+        void UpdateAll (List<T> objs);
 
         void Remove (ID id);
     }
