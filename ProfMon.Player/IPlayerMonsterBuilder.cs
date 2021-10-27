@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -17,16 +17,10 @@
  */
 #endregion
 
-using ProfMon.Base;
-using System.Collections.Generic;
+using ProfMon.Monster;
 
-namespace ProfMon.Registry {
-    public interface IWriteableRegistry<T, E> : IReadOnlyRegistry<E> {
-        E Add (T obj);
-
-        E[] AddAll (T[] objs);
-        E[] AddAll (List<T> objs);
-
-        void Remove (ID id);
+namespace ProfMon.Player {
+    public interface IPlayerMonsterBuilder {
+        PlayerMonster Build (Species species);
     }
 }

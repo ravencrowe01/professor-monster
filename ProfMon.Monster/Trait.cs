@@ -21,7 +21,7 @@ using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
-    public class Trait : BaseProfObj {
+    public class Trait : DescribedProfObj {
         public Trait(DescribedConfig config) : base(config) { }
     }
 }

@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -17,33 +17,24 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
-using ProfMon.Base.ProfObj;
+using System;
 
 namespace ProfMon.Player {
-    public class Player : NamedProfObj {
-        public float Currency { get; private set; }
+    public class PlayerIDGenerator : IPlayerIDGenerator {
+        private int _max = (int) Math.Pow(2, 16);
+        private Random _rng;
 
-        public IReadOnlyCollection<PlayerMonster> Party { get; protected set; }
-
-        public IReadOnlyDictionary<ID, IReadOnlyCollection<ItemMetadata>> Inventory { get; private set; }
-
-        public Player(Config config) : base(config) {
-            Currency = config.Currency;
-
-            Party = config.Party;
-
-            Inventory = (IReadOnlyDictionary<ID, IReadOnlyCollection<ItemMetadata>>) config.Inventory;
+        public PlayerIDGenerator () {
+            _rng = new Random();
         }
 
-        public class Config : NamedConfig {
-            public float Currency { get; set; }
+        public PlayerIDGenerator (Random rng) {
+            _rng = rng;
+        }
 
-            public List<PlayerMonster> Party { get; set; }
-
-            public Dictionary<ID, IList<ItemMetadata>> Inventory { get; set; }
+        public ID Get () {
+            return new ID((uint) _rng.Next(0, _max), (uint) _rng.Next(0, _max));
         }
     }
 }

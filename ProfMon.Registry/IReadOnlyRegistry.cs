@@ -17,14 +17,13 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Registry {
-    public interface IReadOnlyRegistry<T> where T : BaseProfObj {
+    public interface IReadOnlyRegistry<T> {
         T Get (ID id);
-        T[] ToArray();
-        List<T> ToList();
+        T[] ToArray ();
+        List<T> ToList ();
     }
 }

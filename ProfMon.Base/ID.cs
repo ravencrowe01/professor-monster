@@ -19,10 +19,10 @@
 
 namespace ProfMon.Base {
     public class ID {
-        public readonly int Major;
-        public readonly int Minor;
+        public readonly uint Major;
+        public readonly uint Minor;
 
-        public ID (int major, int minor = -1){
+        public ID (uint major, uint minor = 0){
             Major = major;
             Minor = minor;
         }
@@ -38,14 +38,14 @@ namespace ProfMon.Base {
         }
 
         public override int GetHashCode() {
-            return Major ^ Minor;
+            return (int) (Major ^ Minor);
         }
 
         public override string ToString() {
             return Major + GetMinorString();
 
             string GetMinorString() {
-                if(Minor >= 0){
+                if(Minor > 0){
                     return $":{Minor}";
                 }
 

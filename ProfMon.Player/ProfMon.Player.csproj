@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProfMon.Base\ProfMon.Base.csproj" />
+    <ProjectReference Include="..\ProfMon.Monster\ProfMon.Monster.csproj" />
   </ItemGroup>
 
   <ItemGroup>
