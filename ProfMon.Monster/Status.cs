@@ -17,19 +17,22 @@
  */
 #endregion
 
-using ProfMon.Base.Config;
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class Status : DescribedProfObj {
+        public readonly int TurnsActive;
+
         public readonly bool IsMajor;
 
-        public Status(Config config) : base(config) {
-            IsMajor = config.IsMajor;
-        }
-
-        public class Config : DescribedConfig {
-            public bool IsMajor { get; set; }
+        public Status (ID iD,
+                       string name,
+                       string description,
+                       int turnsActive,
+                       bool isMajor) : base(iD, name, description) {
+            TurnsActive = turnsActive;
+            IsMajor = isMajor;
         }
     }
 }

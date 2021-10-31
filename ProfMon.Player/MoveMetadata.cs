@@ -18,7 +18,6 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Player {
@@ -27,22 +26,21 @@ namespace ProfMon.Player {
         public int CurrentUses { get; protected set; }
         public int TimesBoosted { get; protected set; }
 
-        public MoveMetadata(Config config) : base(config) {
-            CurrentUses = config.CurrentUses;
-            TimesBoosted = config.TimesBoosted;
+        public MoveMetadata (ID iD,
+                             ID move,
+                             int currentUses,
+                             int timesBoosted) : base(iD) {
+            Move = move;
+            CurrentUses = currentUses;
+            TimesBoosted = timesBoosted;
         }
 
-        public void UpdateUses(int delta) {
+        public void UpdateUses (int delta) {
             CurrentUses += delta;
         }
 
-        public void UpdateTimesBoosted(int delta) {
+        public void UpdateTimesBoosted (int delta) {
             TimesBoosted += delta;
-        }
-
-        public class Config : BaseConfig {
-            public int CurrentUses { get; set; }
-            public int TimesBoosted { get; set; }
         }
     }
 }

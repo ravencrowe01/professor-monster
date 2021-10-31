@@ -18,7 +18,6 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
@@ -27,15 +26,11 @@ namespace ProfMon.Monster {
 
         public readonly float LevelRequired;
 
-        public LeveledMove(Config config) : base(config) {
-            MoveLearned = config.MoveLearned;
-            LevelRequired = config.LevelRequired;
-        }
-
-        public class Config : BaseConfig {
-            public ID MoveLearned { get; set; }
-
-            public float LevelRequired { get; set; }
+        public LeveledMove (ID iD,
+                            ID moveLearned,
+                            float levelRequired) : base(iD) {
+            MoveLearned = moveLearned;
+            LevelRequired = levelRequired;
         }
     }
 }

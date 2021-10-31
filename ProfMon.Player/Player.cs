@@ -17,33 +17,27 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Player {
     public class Player : NamedProfObj {
+
         public float Currency { get; private set; }
 
-        public IReadOnlyCollection<PlayerMonster> Party { get; protected set; }
+        public IEnumerable<PlayerMonster> Party { get; private set; }
 
-        public IReadOnlyDictionary<ID, IReadOnlyCollection<ItemMetadata>> Inventory { get; private set; }
+        public IDictionary<ID, IEnumerable<ItemMetadata>> Inventory { get; private set; }
 
-        public Player(Config config) : base(config) {
-            Currency = config.Currency;
-
-            Party = config.Party;
-
-            Inventory = (IReadOnlyDictionary<ID, IReadOnlyCollection<ItemMetadata>>) config.Inventory;
-        }
-
-        public class Config : NamedConfig {
-            public float Currency { get; set; }
-
-            public List<PlayerMonster> Party { get; set; }
-
-            public Dictionary<ID, IList<ItemMetadata>> Inventory { get; set; }
+        public Player (ID iD,
+                       string name,
+                       float currency,
+                       IList<PlayerMonster> party,
+                       IDictionary<ID, IEnumerable<ItemMetadata>> inventory) : base(iD, name) {
+            Currency = currency;
+            Party = party;
+            Inventory = inventory;
         }
     }
 }

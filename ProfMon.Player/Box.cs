@@ -17,49 +17,43 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Player {
     public class Box : NamedProfObj {
-        public int MaxSlots { get; private set; }
+        public readonly int MaxSlots;
 
         public PlayerMonster[] _slots;
         public IReadOnlyCollection<PlayerMonster> Slots => _slots;
 
-        public Box(Config config) : base(config) {
-            MaxSlots = config.MaxSlots;
-            _slots = config.Slots?.Length > 0 ? config.Slots : new PlayerMonster[MaxSlots];
+        public Box (ID iD, string name, int maxSlots, PlayerMonster[] monsters = null) : base(iD, name) {
+            MaxSlots = maxSlots;
+            _slots = monsters?.Length > 0 ? monsters : new PlayerMonster[maxSlots];
         }
 
-        public void RemoveMonster(int index) {
+        public void RemoveMonster (int index) {
             _slots[index] = null;
         }
 
-        public void AddMonster(PlayerMonster monster) {
-            for(int i = 0; i < _slots.Length; i++){
-                if(_slots[i] == null){
+        public void AddMonster (PlayerMonster monster) {
+            for (int i = 0; i < _slots.Length; i++) {
+                if (_slots[i] == null) {
                     AddMonster(monster, i);
                     return;
                 }
             }
         }
 
-        public void AddMonster(PlayerMonster monster, int index) {
+        public void AddMonster (PlayerMonster monster, int index) {
             _slots[index] = monster;
         }
 
-        public void SwitchMonster(int indexA, int indexB) {
+        public void SwitchMonster (int indexA, int indexB) {
             var temp = _slots[indexA];
             _slots[indexA] = _slots[indexB];
             _slots[indexB] = temp;
-        }
-
-        public class Config : NamedConfig {
-            public int MaxSlots { get; set; }
-            public PlayerMonster[] Slots { get; set; }
         }
     }
 }

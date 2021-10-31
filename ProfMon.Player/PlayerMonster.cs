@@ -17,10 +17,9 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Player {
     public class PlayerMonster : NamedProfObj {
@@ -41,46 +40,56 @@ namespace ProfMon.Player {
         public readonly ID Nature;
         public readonly ID Trait;
 
-        private int _maxMoves;
         private MoveMetadata[] _moves;
         public IReadOnlyList<MoveMetadata> Moves => _moves;
 
-        public PlayerMonster(Config config) : base(config) {
-            Species = config.Species;
-            Nicknamed = config.Nicknamed;
-            Happiness = config.Happiness;
-            Status = config.Status;
-            StatTraining = config.StatTraining;
-            UniqueStats = config.UnqiueStats;
-            CurrentHealth = config.CurrentHealth;
-            MaxHealth = config.MaxHealth;
-            Nature = config.Nature;
-            Trait = config.Trait;
-            _maxMoves = config.MaxMoves;
-            _moves = config.Moves.Length > 0 ? config.Moves : new MoveMetadata[_maxMoves];
+        public PlayerMonster (ID iD,
+                              string name,
+                              ID species,
+                              bool nicknamed,
+                              float happiness,
+                              ID status,
+                              Stats statTraining,
+                              ReadonlyStats uniqueStats,
+                              float currentHealth,
+                              float maxHealth,
+                              ID nature,
+                              ID trait,
+                              MoveMetadata[] moves) : base(iD, name) {
+            Species = species;
+            Nicknamed = nicknamed;
+            Happiness = happiness;
+            Status = status;
+            StatTraining = statTraining;
+            UniqueStats = uniqueStats;
+            CurrentHealth = currentHealth;
+            MaxHealth = maxHealth;
+            Nature = nature;
+            Trait = trait;
+            _moves = moves;
         }
 
-        public void Heal(float amount) {
+        public void Heal (float amount) {
             ModifyHealth(amount);
         }
 
-        public void Damage(float amount) {
+        public void Damage (float amount) {
             ModifyHealth(-amount);
         }
 
-        private void ModifyHealth(float delta) {
+        private void ModifyHealth (float delta) {
             CurrentHealth += delta;
         }
 
-        public void Rename(string name) {
+        public void Rename (string name) {
             Name = name;
         }
 
-        public bool CanRemoveMove() {
+        public bool CanRemoveMove () {
             int moveCount = 0;
 
-            foreach(var move in _moves) {
-                if(move != null) {
+            foreach (var move in _moves) {
+                if (move != null) {
                     moveCount++;
                 }
             }
@@ -88,12 +97,12 @@ namespace ProfMon.Player {
             return moveCount > 1;
         }
 
-        public void RemoveMove(int index) {
+        public void RemoveMove (int index) {
             _moves[index] = null;
 
             ShiftNullElements();
 
-            void ShiftNullElements() {
+            void ShiftNullElements () {
                 for (int x = 0; x < _moves.Length; x++) {
                     if (_moves[x] == null) {
                         for (int y = x + 1; y < _moves.Length; y++) {
@@ -107,9 +116,9 @@ namespace ProfMon.Player {
             }
         }
 
-        public bool CanAddMove() {
-            foreach(var move in _moves){
-                if(move == null){
+        public bool CanAddMove () {
+            foreach (var move in _moves) {
+                if (move == null) {
                     return true;
                 }
             }
@@ -117,15 +126,15 @@ namespace ProfMon.Player {
             return false;
         }
 
-        public void AddMove(MoveMetadata newMove) {
-            for(int i = 0; i < _moves.Length; i++) {
-                if(_moves[i] == null){
+        public void AddMove (MoveMetadata newMove) {
+            for (int i = 0; i < _moves.Length; i++) {
+                if (_moves[i] == null) {
                     _moves[i] = newMove;
                 }
             }
         }
 
-        public void ReplaceMove(int index, MoveMetadata move) {
+        public void ReplaceMove (int index, MoveMetadata move) {
             RemoveMove(index);
             AddMove(move);
         }
@@ -142,28 +151,6 @@ namespace ProfMon.Player {
 
         public void UpdateMoveBoosted (int index, int delta) {
             _moves[index].UpdateTimesBoosted(delta);
-        }
-
-        public class Config : NamedConfig {
-            public ID Species { get; set; }
-
-            public bool Nicknamed { get; set; }
-
-            public float Happiness { get; set; }
-
-            public ID Status { get; set; }
-
-            public Stats StatTraining { get; set; }
-            public ReadonlyStats UnqiueStats { get; set; }
-
-            public float CurrentHealth { get; set; }
-            public float MaxHealth { get; set; }
-
-            public ID Nature { get; set; }
-            public ID Trait { get; set; }
-
-            public MoveMetadata[] Moves { get; set; }
-            public int MaxMoves { get; set; }
         }
     }
 }

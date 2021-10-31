@@ -17,24 +17,21 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Element : NamedProfObj {
         public readonly IReadOnlyList<ID> Weaknesses;
         public readonly IReadOnlyList<ID> Resistences;
 
-        public Element(Config config) : base(config) {
-            Weaknesses = config.Weaknesses;
-            Resistences = config.Resistencs;
-        }
-
-        public class Config : NamedConfig {
-            public List<ID> Weaknesses { get; set; }
-            public List<ID> Resistencs { get; set; }
+        public Element (ID iD,
+                       string name,
+                       IEnumerable<ID> weaknesses,
+                       IEnumerable<ID> resistences) : base(iD, name) {
+            Weaknesses = (IReadOnlyList<ID>) weaknesses;
+            Resistences = (IReadOnlyList<ID>) resistences;
         }
     }
 }

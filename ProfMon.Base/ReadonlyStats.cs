@@ -28,14 +28,14 @@ namespace ProfMon.Base {
         public float NonphysicalDefense => _stats.NonphysicalDefense;
         public float Speed => _stats.Speed;
 
-        public ReadonlyStats() {
+        public ReadonlyStats () {
             _stats = new Stats();
         }
 
-        public ReadonlyStats(Stats stats) {
+        public ReadonlyStats (Stats stats) {
             _stats = stats;
         }
 
-        public static implicit operator ReadonlyStats(Stats stats) => new ReadonlyStats(stats);
+        public static implicit operator ReadonlyStats (Stats stats) => new(stats);
     }
 }

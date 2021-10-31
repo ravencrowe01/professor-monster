@@ -17,11 +17,12 @@
  */
 #endregion
 
-using ProfMon.Base.Config;
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class Trait : DescribedProfObj {
-        public Trait(DescribedConfig config) : base(config) { }
+        public Trait (ID iD, string name, string description) : base(iD, name, description) {
+        }
     }
 }

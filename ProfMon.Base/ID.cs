@@ -22,30 +22,30 @@ namespace ProfMon.Base {
         public readonly uint Major;
         public readonly uint Minor;
 
-        public ID (uint major, uint minor = 0){
+        public ID (uint major, uint minor = 0) {
             Major = major;
             Minor = minor;
         }
 
-        public override bool Equals(object obj) {
+        public override bool Equals (object obj) {
             var other = obj as ID;
 
-            if(Major == other?.Major && Minor == other?.Minor){
+            if (Major == other?.Major && Minor == other?.Minor) {
                 return true;
             }
 
             return false;
         }
 
-        public override int GetHashCode() {
+        public override int GetHashCode () {
             return (int) (Major ^ Minor);
         }
 
-        public override string ToString() {
+        public override string ToString () {
             return Major + GetMinorString();
 
-            string GetMinorString() {
-                if(Minor > 0){
+            string GetMinorString () {
+                if (Minor > 0) {
                     return $":{Minor}";
                 }
 

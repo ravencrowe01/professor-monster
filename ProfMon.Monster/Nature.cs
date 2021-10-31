@@ -18,19 +18,14 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class Nature : NamedProfObj {
         public readonly ReadonlyStats StatModifiers;
 
-        public Nature(Config config) : base(config){
-            StatModifiers = config.StatModifiers;
+        public Nature (ID iD, string name, Stats statModifiers) : base(iD, name) {
+            StatModifiers = statModifiers;
         }
-    }
-
-    public class Config : NamedConfig {
-        public Stats StatModifiers { get; set; }
     }
 }

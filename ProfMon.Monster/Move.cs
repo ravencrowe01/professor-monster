@@ -17,9 +17,9 @@
  */
 #endregion
 
-using System.Collections.Generic;
-using ProfMon.Base.Config;
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Move : DescribedProfObj {
@@ -28,18 +28,15 @@ namespace ProfMon.Monster {
 
         public IReadOnlyList<StatChange> StatChanges;
 
-        public Move(Config config) : base(config) {
-            Power = config.Power;
-            Accurecy = config.Accurecy;
-
-            StatChanges = config.StatChanges;
-        }
-
-        public class Config : DescribedConfig {
-            public float Power { get; set; }
-            public float Accurecy { get; set; }
-
-            public List<StatChange> StatChanges { get; set; } = null;
+        public Move (ID iD,
+                     string name,
+                     string description,
+                     float power,
+                     float accurecy,
+                     IReadOnlyList<StatChange> statChanges) : base(iD, name, description) {
+            Power = power;
+            Accurecy = accurecy;
+            StatChanges = statChanges;
         }
     }
 }

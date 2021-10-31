@@ -17,21 +17,19 @@
  */
 #endregion
 
-using ProfMon.Base.Config;
-
 namespace ProfMon.Base.ProfObj {
     public class BaseProfObj : IIDed {
-        public ID ID { get; private set; }
+        public ID ID { get; protected set; }
 
-        public BaseProfObj(BaseConfig config) {
-            ID = config.ID;
+        public BaseProfObj (ID iD) {
+            ID = iD;
         }
 
-        public override int GetHashCode() {
+        public override int GetHashCode () {
             return ID.GetHashCode();
         }
 
-        public override bool Equals(object obj) {
+        public override bool Equals (object obj) {
             var other = obj as BaseProfObj;
 
             return other?.ID == ID;

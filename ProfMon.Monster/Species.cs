@@ -17,10 +17,9 @@
  */
 #endregion
 
-using System.Collections.Generic;
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Species : DescribedProfObj {
@@ -47,49 +46,41 @@ namespace ProfMon.Monster {
         public readonly IReadOnlyList<ID> BreedingGroups;
         public readonly float FemaleChance;
 
-        public Species(Config config) : base(config) {
-            Traits = config.Traits;
-            Primary = config.Primary;
-            Secondary = config.Secondary;
-            BaseHealth = config.BaseHealth;
-            BasePhysicalAttack = config.BasePhysicalAttack;
-            BasePhysicalDefense = config.BasePhysicalDefense;
-            BaseNonphysicalAttack = config.BaseNonphysicalAttack;
-            BaseNonphysicalDefense = config.BaseNonphysicalDefense;
-            BaseSpeed = config.BaseSpeed;
-            TrainingStat = config.TrainingStat;
-            TrainingAmount = config.TrainingAmount;
-            EvolutionList = config.EvolutionList;
-            LeveledMoves = config.LeveledMoves;
-            BreedMoves = config.BreedMoves;
-            BreedingGroups = config.BreedingGroups;
-            FemaleChance = config.FemaleChance;
-        }
-
-        public class Config : DescribedConfig {
-            public List<ID> Traits { get; set; }
-
-            public Element Primary { get; set; }
-            public Element Secondary { get; set; }
-
-            public float BaseHealth { get; set; }
-            public float BasePhysicalAttack { get; set; }
-            public float BasePhysicalDefense { get; set; }
-            public float BaseNonphysicalAttack { get; set; }
-            public float BaseNonphysicalDefense { get; set; }
-            public float BaseSpeed { get; set; }
-
-            public int TrainingStat { get; set; }
-            public float TrainingAmount { get; set; }
-
-            public List<ID> EvolutionList { get; set; }
-
-            public List<ID> LeveledMoves { get; set; }
-            public List<ID> BreedMoves { get; set; }
-            public List<ID> LearnableMoves { get; set; }
-
-            public List<ID> BreedingGroups { get; set; }
-            public float FemaleChance { get; set; }
+        public Species (ID iD,
+                        string name,
+                        string description,
+                        IReadOnlyList<ID> traits,
+                        Element primary,
+                        Element secondary,
+                        float baseHealth,
+                        float basePhysicalAttack,
+                        float basePhysicalDefense,
+                        float baseNonphysicalAttack,
+                        float baseNonphysicalDefense,
+                        float baseSpeed,
+                        int trainingStat,
+                        float trainingAmount,
+                        IEnumerable<ID> evolutionList,
+                        IEnumerable<ID> leveledMoves,
+                        IEnumerable<ID> breedMoves,
+                        IEnumerable<ID> breedingGroups,
+                        float femaleChance) : base(iD, name, description) {
+            Traits = traits;
+            Primary = primary;
+            Secondary = secondary;
+            BaseHealth = baseHealth;
+            BasePhysicalAttack = basePhysicalAttack;
+            BasePhysicalDefense = basePhysicalDefense;
+            BaseNonphysicalAttack = baseNonphysicalAttack;
+            BaseNonphysicalDefense = baseNonphysicalDefense;
+            BaseSpeed = baseSpeed;
+            TrainingStat = trainingStat;
+            TrainingAmount = trainingAmount;
+            EvolutionList = (IReadOnlyList<ID>) evolutionList;
+            LeveledMoves = (IReadOnlyList<ID>) leveledMoves;
+            BreedMoves = (IReadOnlyList<ID>) breedMoves;
+            BreedingGroups = (IReadOnlyList<ID>) breedingGroups;
+            FemaleChance = femaleChance;
         }
     }
 }

@@ -17,7 +17,7 @@
  */
 #endregion
 
-using ProfMon.Base.Config;
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
@@ -33,30 +33,23 @@ namespace ProfMon.Monster {
         public readonly float Accurecy;
         public readonly float Dodge;
 
-        public StatChange(Config config) : base(config) {
-            Chance = config.Chance;
-
-            PhysAtk = config.PhysAtk;
-            PhysDef = config.PhysDef;
-            NonPhysAtk = config.NonPhysAtk;
-            NonPhysDef = config.NonPhysDef;
-            Speed = config.Speed;
-
-            Accurecy = config.Accurecy;
-            Dodge = config.Dodge;
-        }
-
-        public class Config : BaseConfig {
-            public float Chance { get; set; }
-
-            public float PhysAtk { get; set; }
-            public float PhysDef { get; set; }
-            public float NonPhysAtk { get; set; }
-            public float NonPhysDef { get; set; }
-            public float Speed { get; set; }
-
-            public float Accurecy { get; set; }
-            public float Dodge { get; set; }
+        public StatChange (ID iD,
+                           float chance,
+                           float physAtk,
+                           float physDef,
+                           float nonPhysAtk,
+                           float nonPhysDef,
+                           float speed,
+                           float accurecy,
+                           float dodge) : base(iD) {
+            Chance = chance;
+            PhysAtk = physAtk;
+            PhysDef = physDef;
+            NonPhysAtk = nonPhysAtk;
+            NonPhysDef = nonPhysDef;
+            Speed = speed;
+            Accurecy = accurecy;
+            Dodge = dodge;
         }
     }
 }

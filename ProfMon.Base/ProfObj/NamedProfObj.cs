@@ -17,14 +17,12 @@
  */
 #endregion
 
-using ProfMon.Base.Config;
-
 namespace ProfMon.Base.ProfObj {
     public class NamedProfObj : BaseProfObj, INamed {
-        public string Name { get; protected set;}
+        public string Name { get; protected set; }
 
-        public NamedProfObj(NamedConfig config) : base(config) {
-            Name = config.Name;
+        public NamedProfObj (ID iD, string name) : base(iD) {
+            Name = name;
         }
     }
 }

@@ -18,7 +18,6 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.Config;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Player {
@@ -33,26 +32,21 @@ namespace ProfMon.Player {
         public readonly bool Stackable;
         public readonly int MaxStack;
 
-        public Item(Config config) : base(config) {
-            ItemType = config.ItemType;
-            SellValue = config.SellValue;
-            BuyValue = config.BuyValue;
-            Sellable = config.Sellable;
-            Stackable = config.Stackable;
-            MaxStack = config.MaxStack;
-        }
-
-        public class Config : DescribedConfig {
-            public ID ItemType { get; set; }
-
-            public float SellValue { get; set; }
-            public float BuyValue { get; set; }
-
-            public bool Sellable { get; set; }
-
-            public bool Stackable { get; set; }
-
-            public int MaxStack { get; set; }
+        public Item (ID iD,
+                     string name,
+                     string description,
+                     ID itemType,
+                     float sellValue,
+                     float buyValue,
+                     bool sellable,
+                     bool stackable,
+                     int maxStack) : base(iD, name, description) {
+            ItemType = itemType;
+            SellValue = sellValue;
+            BuyValue = buyValue;
+            Sellable = sellable;
+            Stackable = stackable;
+            MaxStack = maxStack;
         }
     }
 }
