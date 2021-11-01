@@ -19,24 +19,23 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
-using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Move : DescribedProfObj {
         public readonly float Power;
         public readonly float Accurecy;
 
-        public IReadOnlyList<StatChange> StatChanges;
+        public ID StatChangesID;
 
         public Move (ID iD,
                      string name,
                      string description,
                      float power,
                      float accurecy,
-                     IReadOnlyList<StatChange> statChanges) : base(iD, name, description) {
+                     ID statChangesID) : base(iD, name, description) {
             Power = power;
             Accurecy = accurecy;
-            StatChanges = statChanges;
+            StatChangesID = statChangesID;
         }
     }
 }

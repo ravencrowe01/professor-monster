@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Species : DescribedProfObj {
-        public readonly IReadOnlyList<ID> Traits;
+        public readonly IReadOnlyList<ID> TraitIDs;
 
         public readonly Element Primary;
         public readonly Element Secondary;
@@ -38,18 +38,18 @@ namespace ProfMon.Monster {
         public readonly int TrainingStat;
         public readonly float TrainingAmount;
 
-        public readonly IReadOnlyList<ID> EvolutionList;
+        public readonly IReadOnlyList<ID> EvolutionListIDs;
 
-        public readonly IReadOnlyList<ID> LeveledMoves;
-        public readonly IReadOnlyList<ID> BreedMoves;
+        public readonly IReadOnlyList<ID> LeveledMoveIDs;
+        public readonly IReadOnlyList<ID> BreedMoveIDs;
 
-        public readonly IReadOnlyList<ID> BreedingGroups;
+        public readonly IReadOnlyList<ID> BreedingGroupIDs;
         public readonly float FemaleChance;
 
         public Species (ID iD,
                         string name,
                         string description,
-                        IReadOnlyList<ID> traits,
+                        IReadOnlyList<ID> traitIDs,
                         Element primary,
                         Element secondary,
                         float baseHealth,
@@ -60,12 +60,12 @@ namespace ProfMon.Monster {
                         float baseSpeed,
                         int trainingStat,
                         float trainingAmount,
-                        IEnumerable<ID> evolutionList,
-                        IEnumerable<ID> leveledMoves,
-                        IEnumerable<ID> breedMoves,
-                        IEnumerable<ID> breedingGroups,
+                        IEnumerable<ID> evolutionListIDs,
+                        IEnumerable<ID> leveledMoveIDs,
+                        IEnumerable<ID> breedMoveIDs,
+                        IEnumerable<ID> breedingGroupIDs,
                         float femaleChance) : base(iD, name, description) {
-            Traits = traits;
+            TraitIDs = traitIDs;
             Primary = primary;
             Secondary = secondary;
             BaseHealth = baseHealth;
@@ -76,10 +76,10 @@ namespace ProfMon.Monster {
             BaseSpeed = baseSpeed;
             TrainingStat = trainingStat;
             TrainingAmount = trainingAmount;
-            EvolutionList = (IReadOnlyList<ID>) evolutionList;
-            LeveledMoves = (IReadOnlyList<ID>) leveledMoves;
-            BreedMoves = (IReadOnlyList<ID>) breedMoves;
-            BreedingGroups = (IReadOnlyList<ID>) breedingGroups;
+            EvolutionListIDs = (IReadOnlyList<ID>) evolutionListIDs;
+            LeveledMoveIDs = (IReadOnlyList<ID>) leveledMoveIDs;
+            BreedMoveIDs = (IReadOnlyList<ID>) breedMoveIDs;
+            BreedingGroupIDs = (IReadOnlyList<ID>) breedingGroupIDs;
             FemaleChance = femaleChance;
         }
     }

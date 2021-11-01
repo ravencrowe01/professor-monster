@@ -23,26 +23,26 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Evolution : BaseProfObj {
-        public readonly ID TargetSpecies;
+        public readonly ID TargetSpeciesID;
         public readonly int LevelRequired;
-        public readonly ID ItemRequired;
-        public readonly ID WeatherRequired;
-        public readonly ID TerrainRequired;
-        public readonly IReadOnlyList<ID> PartnersRequired;
+        public readonly ID ItemRequiredID;
+        public readonly ID WeatherRequiredID;
+        public readonly ID TerrainRequiredID;
+        public readonly IReadOnlyList<ID> PartnersRequiredIDs;
 
         public Evolution (ID iD,
-                          ID targetSpecies,
+                          ID targetSpeciesID,
                           int levelRequired,
-                          ID itemRequired,
-                          ID weatherRequired,
-                          ID terrainRequired,
-                          IEnumerable<ID> partnersRequired) : base(iD) {
-            TargetSpecies = targetSpecies;
+                          ID itemRequiredID,
+                          ID weatherRequiredID,
+                          ID terrainRequiredID,
+                          IEnumerable<ID> partnersRequiredIDs) : base(iD) {
+            TargetSpeciesID = targetSpeciesID;
             LevelRequired = levelRequired;
-            ItemRequired = itemRequired;
-            WeatherRequired = weatherRequired;
-            TerrainRequired = terrainRequired;
-            PartnersRequired = (IReadOnlyList<ID>) partnersRequired;
+            ItemRequiredID = itemRequiredID;
+            WeatherRequiredID = weatherRequiredID;
+            TerrainRequiredID = terrainRequiredID;
+            PartnersRequiredIDs = (IReadOnlyList<ID>) partnersRequiredIDs;
         }
     }
 }

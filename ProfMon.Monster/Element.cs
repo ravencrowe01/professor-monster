@@ -23,15 +23,15 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Element : NamedProfObj {
-        public readonly IReadOnlyList<ID> Weaknesses;
-        public readonly IReadOnlyList<ID> Resistences;
+        public readonly IReadOnlyList<ID> WeaknessIDs;
+        public readonly IReadOnlyList<ID> ResistenceIDs;
 
         public Element (ID iD,
                        string name,
-                       IEnumerable<ID> weaknesses,
-                       IEnumerable<ID> resistences) : base(iD, name) {
-            Weaknesses = (IReadOnlyList<ID>) weaknesses;
-            Resistences = (IReadOnlyList<ID>) resistences;
+                       IEnumerable<ID> weaknessIDs,
+                       IEnumerable<ID> resistenceIDs) : base(iD, name) {
+            WeaknessIDs = (IReadOnlyList<ID>) weaknessIDs;
+            ResistenceIDs = (IReadOnlyList<ID>) resistenceIDs;
         }
     }
 }

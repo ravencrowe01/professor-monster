@@ -22,14 +22,14 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class LeveledMove : BaseProfObj {
-        public readonly ID MoveLearned;
+        public readonly ID MoveLearnedID;
 
         public readonly float LevelRequired;
 
         public LeveledMove (ID iD,
-                            ID moveLearned,
+                            ID moveLearnedID,
                             float levelRequired) : base(iD) {
-            MoveLearned = moveLearned;
+            MoveLearnedID = moveLearnedID;
             LevelRequired = levelRequired;
         }
     }

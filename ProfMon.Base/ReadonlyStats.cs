@@ -28,9 +28,7 @@ namespace ProfMon.Base {
         public float NonphysicalDefense => _stats.NonphysicalDefense;
         public float Speed => _stats.Speed;
 
-        public ReadonlyStats () {
-            _stats = new Stats();
-        }
+        private ReadonlyStats () { }
 
         public ReadonlyStats (Stats stats) {
             _stats = stats;

@@ -22,7 +22,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Game Development, Game Library</PackageTags>
     <Description>Professor Monster player object library</Description>
-    <Version>0.1.0</Version>
+    <Version>0.5.0</Version>
   </PropertyGroup>
 
 </Project>

@@ -20,21 +20,24 @@
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProfMon.Player {
     public class Box : NamedProfObj {
         public readonly int MaxSlots;
 
-        public PlayerMonster[] _slots;
+        private PlayerMonster[] _slots;
         public IReadOnlyCollection<PlayerMonster> Slots => _slots;
 
-        public Box (ID iD, string name, int maxSlots, PlayerMonster[] monsters = null) : base(iD, name) {
+        public Box (ID iD, string name, int maxSlots, IList<PlayerMonster> monsters = null) : base(iD, name) {
             MaxSlots = maxSlots;
-            _slots = monsters?.Length > 0 ? monsters : new PlayerMonster[maxSlots];
+            _slots = monsters?.Count > 0 ? monsters.ToArray() : new PlayerMonster[maxSlots];
         }
 
-        public void RemoveMonster (int index) {
+        public PlayerMonster RemoveMonster (int index) {
+            var temp = _slots[index];
             _slots[index] = null;
+            return temp;
         }
 
         public void AddMonster (PlayerMonster monster) {

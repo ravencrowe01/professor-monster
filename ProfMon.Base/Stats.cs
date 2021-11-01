@@ -26,15 +26,18 @@ namespace ProfMon.Base {
         public float NonphysicalDefense { get; private set; }
         public float Speed { get; private set; }
 
-        public Stats(Config config = null) {
-            if (config != null) {
-                Health = config.Health;
-                PhysicalAttack = config.PhysicalAttack;
-                PhysicalDefense = config.PhysicalDefense;
-                NonphysicalAttack = config.NonphysicalAttack;
-                NonphysicalDefense = config.NonphysicalDefense;
-                Speed = config.Speed;
-            }
+        public Stats (float health,
+                      float physicalAttack,
+                      float physicalDefense,
+                      float nonphysicalAttack,
+                      float nonphysicalDefense,
+                      float speed) {
+            Health = health;
+            PhysicalAttack = physicalAttack;
+            PhysicalDefense = physicalDefense;
+            NonphysicalAttack = nonphysicalAttack;
+            NonphysicalDefense = nonphysicalDefense;
+            Speed = speed;
         }
 
         public void UpdateHealth(float delta) {
@@ -61,33 +64,18 @@ namespace ProfMon.Base {
             Speed += delta;
         }
 
-        public void UpdateStats(Config config) {
-            UpdateHealth(config.Health);
-            UpdatePhysicalAttack(config.PhysicalAttack);
-            UpdatePhysicalDefense(config.PhysicalDefense);
-            UpdateNonphysicalAttack(config.NonphysicalAttack);
-            UpdateNonphysicalDefense(config.NonphysicalDefense);
-            UpdateSpeed(config.Speed);
-        }
-
-        public class Config {
-            public float Health { get; set; }
-            public float PhysicalAttack { get; set; }
-            public float PhysicalDefense { get; set; }
-            public float NonphysicalAttack { get; set; }
-            public float NonphysicalDefense { get; set; }
-            public float Speed { get; set; }
-
-            public Config() { }
-
-            public Config(Stats stats) {
-                Health = stats.Health;
-                PhysicalAttack = stats.PhysicalAttack;
-                PhysicalDefense = stats.PhysicalDefense;
-                NonphysicalAttack = stats.NonphysicalAttack;
-                NonphysicalDefense = stats.NonphysicalDefense;
-                Speed = stats.Speed;
-            }
+        public void UpdateStats(float health,
+                                float physicalAttack,
+                                float physicalDefense,
+                                float nonphysicalAttack,
+                                float nonphysicalDefense,
+                                float speed) {
+            UpdateHealth(health);
+            UpdatePhysicalAttack(physicalAttack);
+            UpdatePhysicalDefense(physicalDefense);
+            UpdateNonphysicalAttack(nonphysicalAttack);
+            UpdateNonphysicalDefense(nonphysicalDefense);
+            UpdateSpeed(speed);
         }
     }
 }

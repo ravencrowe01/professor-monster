@@ -26,7 +26,7 @@ namespace ProfMon.Player {
 
         public float Currency { get; private set; }
 
-        public IEnumerable<PlayerMonster> Party { get; private set; }
+        public IList<PlayerMonster> Party { get; private set; }
 
         public IDictionary<ID, IEnumerable<ItemMetadata>> Inventory { get; private set; }
 

@@ -86,15 +86,13 @@ namespace ProfMon.Player {
         }
 
         public bool CanRemoveMove () {
-            int moveCount = 0;
-
             foreach (var move in _moves) {
                 if (move != null) {
-                    moveCount++;
+                    return true;
                 }
             }
 
-            return moveCount > 1;
+            return false;
         }
 
         public void RemoveMove (int index) {

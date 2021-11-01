@@ -27,6 +27,11 @@ namespace ProfMon.Base {
             Minor = minor;
         }
 
+        public ulong ToLong () { 
+            var major = (ulong) Major << 32;
+            return major + Minor;
+        }
+
         public override bool Equals (object obj) {
             var other = obj as ID;
 

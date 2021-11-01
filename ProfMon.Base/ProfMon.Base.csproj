@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
     <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <Version>0.1.0</Version>
+    <Version>0.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
