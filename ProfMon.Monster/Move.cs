@@ -25,7 +25,9 @@ namespace ProfMon.Monster {
         public readonly float Power;
         public readonly float Accurecy;
 
-        public ID StatChangesID;
+        public readonly ID StatChangesID;
+
+        public readonly ID ELement;
 
         public Move (ID iD,
                      string name,
