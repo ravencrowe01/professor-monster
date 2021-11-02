@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -19,16 +19,15 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
-using System.Collections.Generic;
 
 namespace ProfMon.Monster {
-    public class Element : NamedProfObj {
-        public readonly IReadOnlyList<ID> ElementModifierIDs;
+    public class ElementModifier : BaseProfObj {
+        public readonly ID ElementID;
+        public readonly float Modifier;
 
-        public Element (ID iD,
-                       string name,
-                       IEnumerable<ID> elementModifierIDs) : base(iD, name) {
-            ElementModifierIDs = (IReadOnlyList<ID>) elementModifierIDs;
+        public ElementModifier (ID iD, ID elementID, float modifier) : base(iD) {
+            ElementID = elementID;
+            Modifier = modifier;
         }
     }
 }
