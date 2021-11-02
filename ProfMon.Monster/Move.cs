@@ -22,19 +22,21 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class Move : DescribedProfObj {
+        public readonly ID Element;
+
         public readonly float Power;
         public readonly float Accurecy;
 
         public readonly ID StatChangesID;
 
-        public readonly ID ELement;
-
         public Move (ID iD,
                      string name,
                      string description,
+                     ID element,
                      float power,
                      float accurecy,
                      ID statChangesID) : base(iD, name, description) {
+            Element = element;
             Power = power;
             Accurecy = accurecy;
             StatChangesID = statChangesID;
