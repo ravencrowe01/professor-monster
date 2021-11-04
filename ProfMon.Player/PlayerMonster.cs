@@ -23,6 +23,8 @@ using System.Collections.Generic;
 
 namespace ProfMon.Player {
     public class PlayerMonster : NamedProfObj {
+        public readonly ID OwnerID;
+
         public readonly ID Species;
 
         public bool Nicknamed { get; private set; }
@@ -45,6 +47,7 @@ namespace ProfMon.Player {
 
         public PlayerMonster (ID iD,
                               string name,
+                              ID ownerID,
                               ID species,
                               bool nicknamed,
                               float happiness,
@@ -56,6 +59,7 @@ namespace ProfMon.Player {
                               ID nature,
                               ID trait,
                               MoveMetadata[] moves) : base(iD, name) {
+            OwnerID = ownerID;
             Species = species;
             Nicknamed = nicknamed;
             Happiness = happiness;
@@ -78,7 +82,15 @@ namespace ProfMon.Player {
         }
 
         private void ModifyHealth (float delta) {
-            CurrentHealth += delta;
+            if (CurrentHealth + delta < 0) {
+                CurrentHealth = 0;
+            }
+            else if (CurrentHealth + delta > MaxHealth) {
+                CurrentHealth = MaxHealth;
+            }
+            else {
+                CurrentHealth += delta;
+            }
         }
 
         public void Rename (string name) {

@@ -17,8 +17,10 @@
  */
 #endregion
 
+using ProfMon.Base.ProfObj;
+
 namespace ProfMon.Base {
-    public class Stats {
+    public class Stats : BaseProfObj{
         public float Health { get; private set; }
         public float PhysicalAttack { get; private set; }
         public float PhysicalDefense { get; private set; }
@@ -26,12 +28,13 @@ namespace ProfMon.Base {
         public float NonphysicalDefense { get; private set; }
         public float Speed { get; private set; }
 
-        public Stats (float health,
+        public Stats (ID iD,
+                      float health,
                       float physicalAttack,
                       float physicalDefense,
                       float nonphysicalAttack,
                       float nonphysicalDefense,
-                      float speed) {
+                      float speed) : base(iD) {
             Health = health;
             PhysicalAttack = physicalAttack;
             PhysicalDefense = physicalDefense;

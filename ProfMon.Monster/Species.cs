@@ -25,8 +25,8 @@ namespace ProfMon.Monster {
     public class Species : DescribedProfObj {
         public readonly IReadOnlyList<ID> TraitIDs;
 
-        public readonly Element Primary;
-        public readonly Element Secondary;
+        public readonly ID PrimaryElementID;
+        public readonly ID SecondaryElementID;
 
         public readonly float BaseHealth;
         public readonly float BasePhysicalAttack;
@@ -50,8 +50,8 @@ namespace ProfMon.Monster {
                         string name,
                         string description,
                         IReadOnlyList<ID> traitIDs,
-                        Element primary,
-                        Element secondary,
+                        ID primaryElementID,
+                        ID secondaryElementID,
                         float baseHealth,
                         float basePhysicalAttack,
                         float basePhysicalDefense,
@@ -66,8 +66,8 @@ namespace ProfMon.Monster {
                         IEnumerable<ID> breedingGroupIDs,
                         float femaleChance) : base(iD, name, description) {
             TraitIDs = traitIDs;
-            Primary = primary;
-            Secondary = secondary;
+            PrimaryElementID = primaryElementID;
+            SecondaryElementID = secondaryElementID;
             BaseHealth = baseHealth;
             BasePhysicalAttack = basePhysicalAttack;
             BasePhysicalDefense = basePhysicalDefense;

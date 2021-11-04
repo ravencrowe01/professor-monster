@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Player", "ProfMon.Player\ProfMon.Player.csproj", "{C81C3B18-148C-4D41-B56E-B17143417999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Player", "ProfMon.Player\ProfMon.Player.csproj", "{C81C3B18-148C-4D41-B56E-B17143417999}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Base", "ProfMon.Base\ProfMon.Base.csproj", "{9B0CAA07-60C9-4D6E-92ED-981ECA456DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Base", "ProfMon.Base\ProfMon.Base.csproj", "{9B0CAA07-60C9-4D6E-92ED-981ECA456DD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Combat", "ProfMon.Combat\ProfMon.Combat.csproj", "{EC0CDD5D-972A-43B2-866D-0FCE727F69DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Combat", "ProfMon.Combat\ProfMon.Combat.csproj", "{EC0CDD5D-972A-43B2-866D-0FCE727F69DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Monster", "ProfMon.Monster\ProfMon.Monster.csproj", "{07E65FD4-EDB9-4C14-BA3C-3AF1071B4D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Monster", "ProfMon.Monster\ProfMon.Monster.csproj", "{07E65FD4-EDB9-4C14-BA3C-3AF1071B4D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Registry", "ProfMon.Registry\ProfMon.Registry.csproj", "{5FAF11A7-98AD-404D-9C4C-F14F7FC988CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Registry", "ProfMon.Registry\ProfMon.Registry.csproj", "{5FAF11A7-98AD-404D-9C4C-F14F7FC988CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Environment", "ProfMon.Environment\ProfMon.Environment.csproj", "{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C81C3B18-148C-4D41-B56E-B17143417999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -86,5 +85,23 @@ Global
 		{5FAF11A7-98AD-404D-9C4C-F14F7FC988CA}.Release|x64.Build.0 = Release|Any CPU
 		{5FAF11A7-98AD-404D-9C4C-F14F7FC988CA}.Release|x86.ActiveCfg = Release|Any CPU
 		{5FAF11A7-98AD-404D-9C4C-F14F7FC988CA}.Release|x86.Build.0 = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Debug|x86.Build.0 = Debug|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|x64.Build.0 = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|x86.ActiveCfg = Release|Any CPU
+		{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D7C4623-AE74-4EEE-9B0E-C58794481EBC}
 	EndGlobalSection
 EndGlobal

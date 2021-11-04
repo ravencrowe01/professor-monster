@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -20,30 +20,9 @@
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
-namespace ProfMon.Player {
-    public class ItemMetadata : BaseProfObj {
-        public readonly ID OwnerID;
-
-        public readonly Item Item;
-
-        public int Stack { get; private set; }
-
-        public ItemMetadata (ID iD, ID ownerID, Item item, int stack = 0) : base(iD) {
-            OwnerID = ownerID;
-            Item = item;
-            Stack = stack;
-        }
-
-        public void ModifyStack (int count) {
-            Stack += count;
-
-            if (Stack < 0) {
-                Stack = 0;
-            }
-
-            if (Stack > 999) {
-                Stack = 999;
-            }
+namespace ProfMon.Environment {
+    public class Terrain : DescribedProfObj {
+        public Terrain (ID iD, string name, string description) : base(iD, name, description) {
         }
     }
 }

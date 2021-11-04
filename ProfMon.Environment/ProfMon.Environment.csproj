@@ -1,17 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Version>0.1.0</Version>
     <Authors>Raven Crowe</Authors>
-    <Description>Professor Monster base objects library</Description>
-    <Copyright>Copyright (c) Raven Crowe 2021</Copyright>
+    <Description>Professor Monster monster environment library</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/ravencrowe01/professor-monster</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
-    <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <Version>0.4.1</Version>
+    <PackageTags>Game Development, Game Library</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfMon.Base\ProfMon.Base.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\LICENSE">

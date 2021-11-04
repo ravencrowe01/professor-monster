@@ -24,14 +24,33 @@ using System.Linq;
 
 namespace ProfMon.Player {
     public class Box : NamedProfObj {
+        public readonly ID OwnerID;
+
+        public readonly bool Visable;
+
         public readonly int MaxSlots;
 
         private PlayerMonster[] _slots;
         public IReadOnlyCollection<PlayerMonster> Slots => _slots;
 
-        public Box (ID iD, string name, int maxSlots, IList<PlayerMonster> monsters = null) : base(iD, name) {
+        public Box (ID iD,
+                   string name,
+                   ID ownerID,
+                   IEnumerable<PlayerMonster> monsters) : this(iD, name, ownerID) {
+            _slots = monsters.ToArray();
+        }
+
+        public Box (ID iD,
+                    string name,
+                    ID ownerID,
+                    int maxSlots) : this(iD, name, ownerID) {
             MaxSlots = maxSlots;
-            _slots = monsters?.Count > 0 ? monsters.ToArray() : new PlayerMonster[maxSlots];
+        }
+
+        private Box (ID iD,
+                    string name,
+                    ID ownerID) : base(iD, name) {
+            OwnerID = ownerID;
         }
 
         public PlayerMonster RemoveMonster (int index) {
