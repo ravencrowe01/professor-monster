@@ -22,11 +22,11 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class ElementModifier : BaseProfObj {
-        public readonly ID ElementID;
+        public readonly ElementModifier Element;
         public readonly float Modifier;
 
-        public ElementModifier (ID iD, ID elementID, float modifier) : base(iD) {
-            ElementID = elementID;
+        public ElementModifier (ID iD, ElementModifier element, float modifier) : base(iD) {
+            Element = element;
             Modifier = modifier;
         }
     }
