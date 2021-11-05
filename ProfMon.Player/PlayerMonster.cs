@@ -25,7 +25,7 @@ namespace ProfMon.Player {
     public class PlayerMonster : NamedProfObj {
         public readonly ID OwnerID;
 
-        public readonly ID Species;
+        public readonly ID SpeciesID;
 
         public bool Nicknamed { get; private set; }
 
@@ -48,7 +48,7 @@ namespace ProfMon.Player {
         public PlayerMonster (ID iD,
                               string name,
                               ID ownerID,
-                              ID species,
+                              ID speciesID,
                               bool nicknamed,
                               float happiness,
                               ID status,
@@ -60,7 +60,7 @@ namespace ProfMon.Player {
                               ID trait,
                               MoveMetadata[] moves) : base(iD, name) {
             OwnerID = ownerID;
-            Species = species;
+            SpeciesID = speciesID;
             Nicknamed = nicknamed;
             Happiness = happiness;
             Status = status;

@@ -30,13 +30,13 @@ namespace ProfMon.Player {
 
         public readonly int MaxSlots;
 
-        private PlayerMonster[] _slots;
-        public IReadOnlyCollection<PlayerMonster> Slots => _slots;
+        private BoxSlot[] _slots;
+        public IReadOnlyCollection<BoxSlot> Slots => _slots;
 
         public Box (ID iD,
                    string name,
                    ID ownerID,
-                   IEnumerable<PlayerMonster> monsters) : this(iD, name, ownerID) {
+                   IEnumerable<BoxSlot> monsters) : this(iD, name, ownerID) {
             _slots = monsters.ToArray();
         }
 
@@ -45,6 +45,11 @@ namespace ProfMon.Player {
                     ID ownerID,
                     int maxSlots) : this(iD, name, ownerID) {
             MaxSlots = maxSlots;
+            _slots = new BoxSlot[MaxSlots];
+
+            for(int i = 0; i < MaxSlots; i++) {
+                _slots[i] = new BoxSlot(new ID(ID.Major, (uint) i + 1), this);
+            }
         }
 
         private Box (ID iD,
@@ -54,8 +59,8 @@ namespace ProfMon.Player {
         }
 
         public PlayerMonster RemoveMonster (int index) {
-            var temp = _slots[index];
-            _slots[index] = null;
+            var temp = _slots[index].Monster;
+            _slots[index].Remove();
             return temp;
         }
 
@@ -69,13 +74,15 @@ namespace ProfMon.Player {
         }
 
         public void AddMonster (PlayerMonster monster, int index) {
-            _slots[index] = monster;
+            _slots[index].Add(monster);
         }
 
         public void SwitchMonster (int indexA, int indexB) {
-            var temp = _slots[indexA];
-            _slots[indexA] = _slots[indexB];
-            _slots[indexB] = temp;
+            var temp = _slots[indexA].Monster;
+            _slots[indexA].Remove();
+            _slots[indexA].Add(_slots[indexB].Monster);
+            _slots[indexB].Remove();
+            _slots[indexB].Add(temp);
         }
     }
 }
