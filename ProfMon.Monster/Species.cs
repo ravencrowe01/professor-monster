@@ -23,6 +23,8 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Species : DescribedProfObj {
+        public readonly bool Starter;
+
         public readonly IReadOnlyList<Trait> Traits;
 
         public readonly Element PrimaryElement;
@@ -51,6 +53,7 @@ namespace ProfMon.Monster {
         public Species (ID iD,
                         string name,
                         string description,
+                        bool starter,
                         IEnumerable<Trait> traits,
                         Element primaryElement,
                         Element secondaryElement,
@@ -67,6 +70,7 @@ namespace ProfMon.Monster {
                         IEnumerable<Move> breedMoves,
                         IEnumerable<BreedingGroup> breedingGroups,
                         float femaleChance) : base (iD, name, description) {
+            Starter = starter;
             Traits = (IReadOnlyList<Trait>) traits;
             PrimaryElement = primaryElement;
             SecondaryElement = secondaryElement;

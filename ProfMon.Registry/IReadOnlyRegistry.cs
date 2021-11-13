@@ -22,8 +22,12 @@ using System.Collections.Generic;
 
 namespace ProfMon.Registry {
     public interface IReadOnlyRegistry<T> {
-        T Get (ID id);
-        T[] ToArray ();
-        List<T> ToList ();
+        T GetByID (ID id);
+
+        T GetByName (string name);
+
+        T GetByDescription (string description);
+
+        IEnumerable<T> Filter (RegistryFilter registryFilter);
     }
 }
