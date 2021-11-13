@@ -20,9 +20,9 @@
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
-namespace ProfMon.Player {
+namespace ProfMon.Inventory {
     public class Item : DescribedProfObj {
-        public readonly ID ItemType;
+        public readonly ItemCatagory Catagory;
 
         public readonly float SellValue;
         public readonly float BuyValue;
@@ -32,16 +32,18 @@ namespace ProfMon.Player {
         public readonly bool Stackable;
         public readonly int MaxStack;
 
+        public Item () : base (null, null, null) { }
+
         public Item (ID iD,
                      string name,
                      string description,
-                     ID itemType,
+                     ItemCatagory catagory,
                      float sellValue,
                      float buyValue,
                      bool sellable,
                      bool stackable,
-                     int maxStack) : base(iD, name, description) {
-            ItemType = itemType;
+                     int maxStack) : base (iD, name, description) {
+            Catagory = catagory;
             SellValue = sellValue;
             BuyValue = buyValue;
             Sellable = sellable;

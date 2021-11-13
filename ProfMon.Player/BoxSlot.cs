@@ -7,11 +7,13 @@ namespace ProfMon.Player {
         public readonly Box Parent;
         public PlayerMonster Monster { get; private set; }
 
-        public BoxSlot (ID iD, Box parent, PlayerMonster monster) : this(iD, parent) {
+        public BoxSlot () : base (null) { }
+
+        public BoxSlot (ID iD, Box parent, PlayerMonster monster) : this (iD, parent) {
             Monster = monster;
         }
 
-        public BoxSlot(ID iD, Box parent) :base(iD) {
+        public BoxSlot (ID iD, Box parent) : base (iD) {
             Parent = parent;
         }
 
@@ -20,7 +22,7 @@ namespace ProfMon.Player {
                 Monster = monster;
             }
             else {
-                throw new Exception("Tried to add a monster to a filled box slot");
+                throw new Exception ("Tried to add a monster to a filled box slot");
             }
         }
 

@@ -26,9 +26,11 @@ namespace ProfMon.Monster {
 
         public readonly float LevelRequired;
 
+        public LeveledMove () : base (null) { }
+
         public LeveledMove (ID iD,
                             Move moveLearned,
-                            float levelRequired) : base(iD) {
+                            float levelRequired) : base (iD) {
             MoveLearned = moveLearned;
             LevelRequired = levelRequired;
         }

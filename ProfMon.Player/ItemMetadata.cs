@@ -24,11 +24,13 @@ namespace ProfMon.Player {
     public class ItemMetadata : BaseProfObj {
         public readonly ID OwnerID;
 
-        public readonly Item Item;
+        public readonly ID Item;
 
         public int Stack { get; private set; }
 
-        public ItemMetadata (ID iD, ID ownerID, Item item, int stack = 0) : base(iD) {
+        public ItemMetadata () : base (null) { }
+
+        public ItemMetadata (ID iD, ID ownerID, ID item, int stack = 0) : base (iD) {
             OwnerID = ownerID;
             Item = item;
             Stack = stack;

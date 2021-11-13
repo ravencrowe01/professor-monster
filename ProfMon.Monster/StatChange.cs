@@ -33,6 +33,8 @@ namespace ProfMon.Monster {
         public readonly float Accurecy;
         public readonly float Dodge;
 
+        public StatChange () : base (null) { }
+
         public StatChange (ID iD,
                            float chance,
                            float physAtk,
@@ -41,7 +43,7 @@ namespace ProfMon.Monster {
                            float nonPhysDef,
                            float speed,
                            float accurecy,
-                           float dodge) : base(iD) {
+                           float dodge) : base (iD) {
             Chance = chance;
             PhysAtk = physAtk;
             PhysDef = physDef;

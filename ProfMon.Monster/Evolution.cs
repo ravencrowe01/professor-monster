@@ -30,13 +30,15 @@ namespace ProfMon.Monster {
         public readonly ID TerrainRequiredID;
         public readonly IReadOnlyList<Species> PartnersRequired;
 
+        public Evolution () : base (null) { }
+
         public Evolution (ID iD,
                           Species targetSpecies,
                           int levelRequired,
                           ID itemRequiredID,
                           ID weatherRequiredID,
                           ID terrainRequiredID,
-                          IEnumerable<Species> partnersRequired) : base(iD) {
+                          IEnumerable<Species> partnersRequired) : base (iD) {
             TargetSpecies = targetSpecies;
             LevelRequired = levelRequired;
             ItemRequiredID = itemRequiredID;

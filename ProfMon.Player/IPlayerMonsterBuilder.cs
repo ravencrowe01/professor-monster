@@ -21,6 +21,6 @@ using ProfMon.Monster;
 
 namespace ProfMon.Player {
     public interface IPlayerMonsterBuilder {
-        PlayerMonster Build (Species species);
+        PlayerMonster Build (Player player, Species species);
     }
 }

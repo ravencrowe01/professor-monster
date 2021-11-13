@@ -29,13 +29,15 @@ namespace ProfMon.Monster {
 
         public readonly StatChange StatChange;
 
+        public Move () : base (null, null, null) { }
+
         public Move (ID iD,
                      string name,
                      string description,
                      Move elementID,
                      float power,
                      float accurecy,
-                     StatChange statChange) : base(iD, name, description) {
+                     StatChange statChange) : base (iD, name, description) {
             Element = elementID;
             Power = power;
             Accurecy = accurecy;

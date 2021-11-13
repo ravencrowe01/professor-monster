@@ -27,7 +27,14 @@ namespace ProfMon.Base {
             Minor = minor;
         }
 
-        public ulong ToLong () { 
+        public ID (ulong id) {
+            Major = (uint) id >> 32;
+            Minor = (uint) id;
+        }
+
+        public ID () { }
+
+        public ulong ToLong () {
             var major = (ulong) Major << 32;
             return major + Minor;
         }
@@ -47,7 +54,7 @@ namespace ProfMon.Base {
         }
 
         public override string ToString () {
-            return Major + GetMinorString();
+            return Major + GetMinorString ();
 
             string GetMinorString () {
                 if (Minor > 0) {

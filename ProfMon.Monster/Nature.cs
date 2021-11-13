@@ -24,7 +24,9 @@ namespace ProfMon.Monster {
     public class Nature : NamedProfObj {
         public readonly ReadonlyStats StatModifiers;
 
-        public Nature (ID iD, string name, Stats statModifiers) : base(iD, name) {
+        public Nature () : base (null, null) { }
+
+        public Nature (ID iD, string name, Stats statModifiers) : base (iD, name) {
             StatModifiers = statModifiers;
         }
     }

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>0.1.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Raven Crowe</Authors>
     <Description>Professor Monster monster environment library</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Game Development, Game Library</PackageTags>
+    <Copyright>Copyright (c) Raven Crowe 2021</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

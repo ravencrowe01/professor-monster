@@ -31,7 +31,7 @@ namespace ProfMon.Player {
 
         public float Happiness { get; private set; }
 
-        public ID Status { get; private set; }
+        public ID StatusID { get; private set; }
 
         public Stats StatTraining { get; private set; }
         public readonly ReadonlyStats UniqueStats;
@@ -39,11 +39,13 @@ namespace ProfMon.Player {
         public float CurrentHealth { get; private set; }
         public float MaxHealth { get; private set; }
 
-        public readonly ID Nature;
-        public readonly ID Trait;
+        public readonly ID NatureID;
+        public readonly ID TraitID;
 
-        private MoveMetadata[] _moves;
+        private MoveMetadata [] _moves;
         public IReadOnlyList<MoveMetadata> Moves => _moves;
+
+        public PlayerMonster () : base (null, null) { }
 
         public PlayerMonster (ID iD,
                               string name,
@@ -51,34 +53,34 @@ namespace ProfMon.Player {
                               ID speciesID,
                               bool nicknamed,
                               float happiness,
-                              ID status,
+                              ID statusID,
                               Stats statTraining,
                               ReadonlyStats uniqueStats,
                               float currentHealth,
                               float maxHealth,
-                              ID nature,
-                              ID trait,
-                              MoveMetadata[] moves) : base(iD, name) {
+                              ID natureID,
+                              ID traitID,
+                              MoveMetadata [] moves) : base (iD, name) {
             OwnerID = ownerID;
             SpeciesID = speciesID;
             Nicknamed = nicknamed;
             Happiness = happiness;
-            Status = status;
+            StatusID = statusID;
             StatTraining = statTraining;
             UniqueStats = uniqueStats;
             CurrentHealth = currentHealth;
             MaxHealth = maxHealth;
-            Nature = nature;
-            Trait = trait;
+            NatureID = natureID;
+            TraitID = traitID;
             _moves = moves;
         }
 
         public void Heal (float amount) {
-            ModifyHealth(amount);
+            ModifyHealth (amount);
         }
 
         public void Damage (float amount) {
-            ModifyHealth(-amount);
+            ModifyHealth (-amount);
         }
 
         private void ModifyHealth (float delta) {
@@ -108,17 +110,17 @@ namespace ProfMon.Player {
         }
 
         public void RemoveMove (int index) {
-            _moves[index] = null;
+            _moves [index] = null;
 
-            ShiftNullElements();
+            ShiftNullElements ();
 
             void ShiftNullElements () {
                 for (int x = 0; x < _moves.Length; x++) {
-                    if (_moves[x] == null) {
+                    if (_moves [x] == null) {
                         for (int y = x + 1; y < _moves.Length; y++) {
-                            if (_moves[y] != null) {
-                                _moves[x] = _moves[y];
-                                _moves[y] = null;
+                            if (_moves [y] != null) {
+                                _moves [x] = _moves [y];
+                                _moves [y] = null;
                             }
                         }
                     }
@@ -138,29 +140,29 @@ namespace ProfMon.Player {
 
         public void AddMove (MoveMetadata newMove) {
             for (int i = 0; i < _moves.Length; i++) {
-                if (_moves[i] == null) {
-                    _moves[i] = newMove;
+                if (_moves [i] == null) {
+                    _moves [i] = newMove;
                 }
             }
         }
 
         public void ReplaceMove (int index, MoveMetadata move) {
-            RemoveMove(index);
-            AddMove(move);
+            RemoveMove (index);
+            AddMove (move);
         }
 
         public void SwitchMoves (int from, int to) {
-            var temp = _moves[from];
-            _moves[from] = _moves[to];
-            _moves[to] = temp;
+            var temp = _moves [from];
+            _moves [from] = _moves [to];
+            _moves [to] = temp;
         }
 
         public void UpdateMoveUses (int index, int delta) {
-            _moves[index].UpdateUses(delta);
+            _moves [index].UpdateUses (delta);
         }
 
         public void UpdateMoveBoosted (int index, int delta) {
-            _moves[index].UpdateTimesBoosted(delta);
+            _moves [index].UpdateTimesBoosted (delta);
         }
     }
 }

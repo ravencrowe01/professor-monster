@@ -46,6 +46,8 @@ namespace ProfMon.Monster {
         public readonly IReadOnlyList<BreedingGroup> BreedingGroups;
         public readonly float FemaleChance;
 
+        public Species () : base (null, null, null) { }
+
         public Species (ID iD,
                         string name,
                         string description,
@@ -64,7 +66,7 @@ namespace ProfMon.Monster {
                         IEnumerable<LeveledMove> leveledMoves,
                         IEnumerable<Move> breedMoves,
                         IEnumerable<BreedingGroup> breedingGroups,
-                        float femaleChance) : base(iD, name, description) {
+                        float femaleChance) : base (iD, name, description) {
             Traits = (IReadOnlyList<Trait>) traits;
             PrimaryElement = primaryElement;
             SecondaryElement = secondaryElement;

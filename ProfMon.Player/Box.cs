@@ -30,59 +30,61 @@ namespace ProfMon.Player {
 
         public readonly int MaxSlots;
 
-        private BoxSlot[] _slots;
+        private BoxSlot [] _slots;
         public IReadOnlyCollection<BoxSlot> Slots => _slots;
 
         public Box (ID iD,
                    string name,
                    ID ownerID,
-                   IEnumerable<BoxSlot> monsters) : this(iD, name, ownerID) {
-            _slots = monsters.ToArray();
+                   IEnumerable<BoxSlot> monsters) : this (iD, name, ownerID) {
+            _slots = monsters.ToArray ();
         }
+
+        public Box () : base (null, null) { }
 
         public Box (ID iD,
                     string name,
                     ID ownerID,
-                    int maxSlots) : this(iD, name, ownerID) {
+                    int maxSlots) : this (iD, name, ownerID) {
             MaxSlots = maxSlots;
-            _slots = new BoxSlot[MaxSlots];
+            _slots = new BoxSlot [MaxSlots];
 
-            for(int i = 0; i < MaxSlots; i++) {
-                _slots[i] = new BoxSlot(new ID(ID.Major, (uint) i + 1), this);
+            for (int i = 0; i < MaxSlots; i++) {
+                _slots [i] = new BoxSlot (new ID (ID.Major, (uint) i + 1), this);
             }
         }
 
         private Box (ID iD,
                     string name,
-                    ID ownerID) : base(iD, name) {
+                    ID ownerID) : base (iD, name) {
             OwnerID = ownerID;
         }
 
         public PlayerMonster RemoveMonster (int index) {
-            var temp = _slots[index].Monster;
-            _slots[index].Remove();
+            var temp = _slots [index].Monster;
+            _slots [index].Remove ();
             return temp;
         }
 
         public void AddMonster (PlayerMonster monster) {
             for (int i = 0; i < _slots.Length; i++) {
-                if (_slots[i] == null) {
-                    AddMonster(monster, i);
+                if (_slots [i] == null) {
+                    AddMonster (monster, i);
                     return;
                 }
             }
         }
 
         public void AddMonster (PlayerMonster monster, int index) {
-            _slots[index].Add(monster);
+            _slots [index].Add (monster);
         }
 
         public void SwitchMonster (int indexA, int indexB) {
-            var temp = _slots[indexA].Monster;
-            _slots[indexA].Remove();
-            _slots[indexA].Add(_slots[indexB].Monster);
-            _slots[indexB].Remove();
-            _slots[indexB].Add(temp);
+            var temp = _slots [indexA].Monster;
+            _slots [indexA].Remove ();
+            _slots [indexA].Add (_slots [indexB].Monster);
+            _slots [indexB].Remove ();
+            _slots [indexB].Add (temp);
         }
     }
 }

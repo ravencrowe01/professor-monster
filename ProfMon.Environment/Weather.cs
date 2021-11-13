@@ -22,7 +22,9 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Environment {
     public class Weather : DescribedProfObj {
-        public Weather (ID iD, string name, string description) : base(iD, name, description) {
+        public Weather () : base (null, null, null) { }
+
+        public Weather (ID iD, string name, string description) : base (iD, name, description) {
         }
     }
 }

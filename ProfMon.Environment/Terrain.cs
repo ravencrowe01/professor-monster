@@ -22,7 +22,9 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Environment {
     public class Terrain : DescribedProfObj {
-        public Terrain (ID iD, string name, string description) : base(iD, name, description) {
+        public Terrain () : base (null, null, null) { }
+
+        public Terrain (ID iD, string name, string description) : base (iD, name, description) {
         }
     }
 }

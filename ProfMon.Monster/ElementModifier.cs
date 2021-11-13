@@ -25,7 +25,9 @@ namespace ProfMon.Monster {
         public readonly ElementModifier Element;
         public readonly float Modifier;
 
-        public ElementModifier (ID iD, ElementModifier element, float modifier) : base(iD) {
+        public ElementModifier () : base (null) { }
+
+        public ElementModifier (ID iD, ElementModifier element, float modifier) : base (iD) {
             Element = element;
             Modifier = modifier;
         }
