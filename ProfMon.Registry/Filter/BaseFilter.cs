@@ -18,16 +18,9 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.ProfObj;
-using ProfMon.Registry.Filter;
-using System.Collections.Generic;
 
-namespace ProfMon.Registry {
-    public interface IReadOnlyRegistry<T> where T : BaseProfObj {
-        T GetByID (ID id);
-
-        IEnumerable<T> Filter (BaseFilter registryFilter);
-
-        IEnumerable<T> GetAll ();
+namespace ProfMon.Registry.Filter {
+    public class BaseFilter {
+        public ID ID { get; set; }
     }
 }

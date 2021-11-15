@@ -18,17 +18,18 @@
 #endregion
 
 using ProfMon.Base;
+using ProfMon.Base.ProfObj;
 using System.Collections.Generic;
 
 namespace ProfMon.Registry {
-    public interface IWriteableRegistry<T> : IReadOnlyRegistry<T> {
+    public interface IWriteableRegistry<T> : IReadOnlyRegistry<T> where T : BaseProfObj {
         void Add (T obj);
 
-        void AddAll (List<T> objs);
+        void AddAll (IEnumerable<T> objs);
 
         void Update (T obj);
 
-        void UpdateAll (List<T> objs);
+        void UpdateAll (IEnumerable<T> objs);
 
         void Remove (ID id);
     }
