@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfMon.Environment\ProfMon.Environment.csproj" />
+    <ProjectReference Include="..\ProfMon.Inventory\ProfMon.Inventory.csproj" />
+    <ProjectReference Include="..\ProfMon.Monster\ProfMon.Monster.csproj" />
+  </ItemGroup>
+
+</Project>

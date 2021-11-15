@@ -2,6 +2,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProfMon.Base\ProfMon.Base.csproj" />
+    <ProjectReference Include="..\ProfMon.Environment\ProfMon.Environment.csproj" />
+    <ProjectReference Include="..\ProfMon.Inventory\ProfMon.Inventory.csproj" />
     <ProjectReference Include="..\ProfMon.Registry\ProfMon.Registry.csproj" />
   </ItemGroup>
 
@@ -21,7 +23,7 @@
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
     <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <Version>0.7.1</Version>
+    <Version>0.8.0</Version>
     <Description>Professor Monster monster object library</Description>
   </PropertyGroup>
 

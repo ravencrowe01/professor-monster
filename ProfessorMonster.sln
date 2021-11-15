@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Player", "ProfMon.Player\ProfMon.Player.csproj", "{C81C3B18-148C-4D41-B56E-B17143417999}"
 EndProject
@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Registry", "ProfMon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Environment", "ProfMon.Environment\ProfMon.Environment.csproj", "{EEABD2E4-1181-4CCD-A4D2-E14453903B2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.Inventory", "ProfMon.Inventory\ProfMon.Inventory.csproj", "{F5389389-E8C5-4EDA-8EEB-EA7CF9764140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfMon.Inventory", "ProfMon.Inventory\ProfMon.Inventory.csproj", "{F5389389-E8C5-4EDA-8EEB-EA7CF9764140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfMon.DataLoading", "ProfMon.DataLoading\ProfMon.DataLoading.csproj", "{4E79FAE9-2703-4093-B3E3-4252C260DE23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,18 @@ Global
 		{F5389389-E8C5-4EDA-8EEB-EA7CF9764140}.Release|x64.Build.0 = Release|Any CPU
 		{F5389389-E8C5-4EDA-8EEB-EA7CF9764140}.Release|x86.ActiveCfg = Release|Any CPU
 		{F5389389-E8C5-4EDA-8EEB-EA7CF9764140}.Release|x86.Build.0 = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|x64.Build.0 = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Debug|x86.Build.0 = Debug|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|x64.ActiveCfg = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|x64.Build.0 = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E79FAE9-2703-4093-B3E3-4252C260DE23}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

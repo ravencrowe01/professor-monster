@@ -19,15 +19,17 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using ProfMon.Environment;
+using ProfMon.Inventory;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Evolution : BaseProfObj {
         public readonly Species TargetSpecies;
         public readonly int LevelRequired;
-        public readonly ID ItemRequiredID;
-        public readonly ID WeatherRequiredID;
-        public readonly ID TerrainRequiredID;
+        public readonly Item ItemRequired;
+        public readonly Weather WeatherRequired;
+        public readonly Terrain TerrainRequired;
         public readonly IReadOnlyList<Species> PartnersRequired;
 
         public Evolution () : base (null) { }
@@ -35,15 +37,15 @@ namespace ProfMon.Monster {
         public Evolution (ID iD,
                           Species targetSpecies,
                           int levelRequired,
-                          ID itemRequiredID,
-                          ID weatherRequiredID,
-                          ID terrainRequiredID,
+                          Item itemRequired,
+                          Weather weatherRequired,
+                          Terrain terrainRequired,
                           IEnumerable<Species> partnersRequired) : base (iD) {
             TargetSpecies = targetSpecies;
             LevelRequired = levelRequired;
-            ItemRequiredID = itemRequiredID;
-            WeatherRequiredID = weatherRequiredID;
-            TerrainRequiredID = terrainRequiredID;
+            ItemRequired = itemRequired;
+            WeatherRequired = weatherRequired;
+            TerrainRequired = terrainRequired;
             PartnersRequired = (IReadOnlyList<Species>) partnersRequired;
         }
     }
