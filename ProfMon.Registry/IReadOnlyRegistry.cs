@@ -19,14 +19,12 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
-using ProfMon.Registry.Filter;
 using System.Collections.Generic;
 
+#nullable enable
 namespace ProfMon.Registry {
     public interface IReadOnlyRegistry<T> where T : BaseProfObj {
-        T GetByID (ID id);
-
-        IEnumerable<T> Filter (BaseFilter registryFilter);
+        T? GetByID (ID id);
 
         IEnumerable<T> GetAll ();
     }

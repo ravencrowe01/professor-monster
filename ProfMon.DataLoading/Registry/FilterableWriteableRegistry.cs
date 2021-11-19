@@ -17,8 +17,22 @@
  */
 #endregion
 
-namespace ProfMon.Registry.Filter {
-    public class NamedFilter : BaseFilter {
-        public string Name { get; set; }
+using Microsoft.EntityFrameworkCore;
+using ProfMon.Base.ProfObj;
+using ProfMon.Registry;
+using ProfMon.Registry.Filter;
+
+namespace ProfMon.DataLoading.Registry {
+    public class FilterableWriteableRegistry<T> : WriteableRegistry<T>, IFilterableRegistry<T> where T : NamedProfObj {
+        public FilterableWriteableRegistry (DbContext dbContext, DbSet<T> dbSet) : base (dbContext, dbSet) {
+        }
+
+        public IEnumerable<T> Filter (IBaseFilter registryFilter) {
+            if (registryFilter is INamedFilter namedFilter) {
+                return (IEnumerable<T>) _dbSet.Where (e => e.Name == namedFilter.Name).Select (e => e.ID);
+            }
+
+            return _dbSet;
+        }
     }
 }

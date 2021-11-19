@@ -17,17 +17,10 @@
  */
 #endregion
 
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProfMon.Monster;
+using ProfMon.Base;
 
-namespace ProfMon.DataLoading {
-    public class EvolutionConfig : EntityConfig<Evolution> {
-        public override void Configure (EntityTypeBuilder<Evolution> builder) {
-            base.Configure (builder);
-
-            builder.HasOne (evolution => evolution.ItemRequired).WithMany ();
-            builder.HasOne (evolution => evolution.WeatherRequired).WithMany ();
-            builder.HasOne (evolution => evolution.TerrainRequired).WithMany ();
-        }
+namespace ProfMon.Registry.Filter {
+    public interface IBaseFilter {
+        public ID ID { get; set; }
     }
 }

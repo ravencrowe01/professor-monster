@@ -17,10 +17,27 @@
  */
 #endregion
 
+using Microsoft.EntityFrameworkCore;
 using ProfMon.Base;
+using ProfMon.Base.ProfObj;
+using ProfMon.Registry;
 
-namespace ProfMon.Registry.Filter {
-    public class BaseFilter {
-        public ID ID { get; set; }
+namespace ProfMon.DataLoading.Registry {
+    public class ReadOnlyRegistry<T> : IReadOnlyRegistry<T> where T : BaseProfObj {
+        protected DbContext _dbContext;
+        protected DbSet<T> _dbSet;
+
+        public ReadOnlyRegistry (DbContext dbContext, DbSet<T> dbSet) {
+            _dbContext = dbContext;
+            _dbSet = dbSet;
+        }
+
+        public IEnumerable<T> GetAll () {
+            return _dbSet;
+        }
+
+        public T? GetByID (ID id) {
+            return _dbSet.Find (id);
+        }
     }
 }

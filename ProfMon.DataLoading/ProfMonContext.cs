@@ -35,19 +35,19 @@ namespace ProfMon.DataLoading {
             ConfigEntity<Element> (builder);
             ConfigEntity<ElementModifier> (builder);
             ConfigEntity<Move> (builder);
-            ConfigEntity<LeveledMove>(builder);
+            ConfigEntity<LeveledMove> (builder);
             ConfigEntity<Nature> (builder);
-            ConfigEntity <Species> (builder);
+            ConfigEntity<Species> (builder);
             ConfigEntity<StatChange> (builder);
             ConfigEntity<Status> (builder);
             ConfigEntity<Trait> (builder);
 
-            ConfigEntity<Terrain>(builder);
+            ConfigEntity<Terrain> (builder);
             ConfigEntity<Weather> (builder);
 
-            new EvolutionConfig().Configure(builder.Entity<Evolution>());
+            new EvolutionConfig ().Configure (builder.Entity<Evolution> ());
         }
 
-        private void ConfigEntity<T> (ModelBuilder builder) where T : BaseProfObj => new EntityConfig<T> ().Configure (builder.Entity<T> ());
+        private static void ConfigEntity<T> (ModelBuilder builder) where T : BaseProfObj => new EntityConfig<T> ().Configure (builder.Entity<T> ());
     }
 }

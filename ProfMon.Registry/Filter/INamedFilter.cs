@@ -18,7 +18,7 @@
 #endregion
 
 namespace ProfMon.Registry.Filter {
-    public class DescribedFilter : NamedFilter {
-        public string Description { get; set; }
+    public interface INamedFilter : IBaseFilter {
+        public string Name { get; set; }
     }
 }
