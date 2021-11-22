@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Raven Crowe</Authors>
     <Description>ProfMon inventory library.</Description>
     <Copyright>Copyright (c) Raven Crowe 2021</Copyright>

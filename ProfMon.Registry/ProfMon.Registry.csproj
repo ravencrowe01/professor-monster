@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Raven Crowe</Authors>
     <Description>Professor Monster registry library.</Description>
     <PackageProjectUrl>https://github.com/ravencrowe01/professor-monster</PackageProjectUrl>
