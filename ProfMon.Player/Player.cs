@@ -61,7 +61,8 @@ namespace ProfMon.Player {
                 var boxes = new Box [monsterStorageSize];
 
                 for (int i = 0; i < monsterStorageSize; i++) {
-                    boxes [i] = new Box (null, $"Box {i + 1}", ID, boxSize);
+                    var id = new ID ((uint) ID.GetHashCode(), (uint) i);
+                    boxes [i] = new Box (id, $"Box {i + 1}", ID, boxSize);
                 }
 
                 return boxes;

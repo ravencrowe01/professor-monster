@@ -15,6 +15,7 @@
     <ProjectReference Include="..\ProfMon.Environment\ProfMon.Environment.csproj" />
     <ProjectReference Include="..\ProfMon.Inventory\ProfMon.Inventory.csproj" />
     <ProjectReference Include="..\ProfMon.Monster\ProfMon.Monster.csproj" />
+    <ProjectReference Include="..\ProfMon.Registry\ProfMon.Registry.csproj" />
   </ItemGroup>
 
 </Project>

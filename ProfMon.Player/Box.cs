@@ -50,7 +50,7 @@ namespace ProfMon.Player {
             _slots = new BoxSlot [MaxSlots];
 
             for (int i = 0; i < MaxSlots; i++) {
-                _slots [i] = new BoxSlot (new ID (ID.Major, (uint) i + 1), this);
+                _slots [i] = new BoxSlot (new ID (ID.Identifier, (uint) i + 1), this);
             }
         }
 

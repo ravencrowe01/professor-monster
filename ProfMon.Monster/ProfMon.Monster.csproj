@@ -1,17 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\ProfMon.Base\ProfMon.Base.csproj" />
-    <ProjectReference Include="..\ProfMon.Environment\ProfMon.Environment.csproj" />
-    <ProjectReference Include="..\ProfMon.Inventory\ProfMon.Inventory.csproj" />
-    <ProjectReference Include="..\ProfMon.Registry\ProfMon.Registry.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfMon.Base\ProfMon.Base.csproj" />
+    <ProjectReference Include="..\ProfMon.Environment\ProfMon.Environment.csproj" />
+    <ProjectReference Include="..\ProfMon.Inventory\ProfMon.Inventory.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

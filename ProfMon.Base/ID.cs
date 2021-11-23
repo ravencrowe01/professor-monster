@@ -19,30 +19,30 @@
 
 namespace ProfMon.Base {
     public class ID {
-        public readonly uint Major;
-        public readonly uint Minor;
+        public readonly uint Identifier = 0;
+        public readonly uint Descriminator = 0;
 
-        public ID (uint major, uint minor = 0) {
-            Major = major;
-            Minor = minor;
+        public ID (uint identifier, uint descriminator = 0) {
+            Identifier = identifier;
+            Descriminator = descriminator;
         }
 
         public ID (ulong id) {
-            Major = (uint) id >> 32;
-            Minor = (uint) id;
+            Identifier = (uint) id >> 32;
+            Descriminator = (uint) id;
         }
 
         public ID () { }
 
         public ulong ToLong () {
-            var major = (ulong) Major << 32;
-            return major + Minor;
+            var major = (ulong) Identifier << 32;
+            return major + Descriminator;
         }
 
         public override bool Equals (object obj) {
             var other = obj as ID;
 
-            if (Major == other?.Major && Minor == other?.Minor) {
+            if (Identifier == other?.Identifier && Descriminator == other?.Descriminator) {
                 return true;
             }
 
@@ -50,15 +50,15 @@ namespace ProfMon.Base {
         }
 
         public override int GetHashCode () {
-            return (int) (Major ^ Minor);
+            return (int) (Identifier ^ Descriminator);
         }
 
         public override string ToString () {
-            return Major + GetMinorString ();
+            return Identifier + GetDescriminatorString ();
 
-            string GetMinorString () {
-                if (Minor > 0) {
-                    return $":{Minor}";
+            string GetDescriminatorString () {
+                if (Descriminator > 0) {
+                    return $":{Descriminator}";
                 }
 
                 return "";
