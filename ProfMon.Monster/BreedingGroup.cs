@@ -22,8 +22,6 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class BreedingGroup : NamedProfObj {
-        public BreedingGroup () : base (null, null) { }
-
         public BreedingGroup (ID iD, string name) : base (iD, name) {
         }
     }

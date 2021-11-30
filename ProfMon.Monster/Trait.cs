@@ -22,8 +22,6 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class Trait : DescribedProfObj {
-        public Trait () : base (null, null, null) { }
-
         public Trait (ID iD, string name, string description) : base (iD, name, description) {
         }
     }

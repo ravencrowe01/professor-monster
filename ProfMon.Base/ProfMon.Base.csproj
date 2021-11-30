@@ -11,6 +11,7 @@
     <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
     <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

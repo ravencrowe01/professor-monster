@@ -32,8 +32,6 @@ namespace ProfMon.Player {
         public int TimesBoosted { get; protected set; }
         public int MaxBoosts { get; private set; }
 
-        public MoveMetadata () : base (null) { }
-
         public MoveMetadata (ID iD,
                              ID move,
                              ID ownerID,

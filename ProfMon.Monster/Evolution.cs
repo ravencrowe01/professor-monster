@@ -32,8 +32,6 @@ namespace ProfMon.Monster {
         public readonly Terrain TerrainRequired;
         public readonly IReadOnlyList<Species> PartnersRequired;
 
-        public Evolution () : base (null) { }
-
         public Evolution (ID iD,
                           Species targetSpecies,
                           int levelRequired,

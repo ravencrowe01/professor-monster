@@ -32,8 +32,6 @@ namespace ProfMon.Inventory {
         public readonly bool Stackable;
         public readonly int MaxStack;
 
-        public Item () : base (null, null, null) { }
-
         public Item (ID iD,
                      string name,
                      string description,

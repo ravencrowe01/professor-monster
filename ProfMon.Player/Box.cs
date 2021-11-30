@@ -40,8 +40,6 @@ namespace ProfMon.Player {
             _slots = monsters.ToArray ();
         }
 
-        public Box () : base (null, null) { }
-
         public Box (ID iD,
                     string name,
                     ID ownerID,

@@ -7,8 +7,6 @@ namespace ProfMon.Player {
         public readonly Box Parent;
         public PlayerMonster Monster { get; private set; }
 
-        public BoxSlot () : base (null) { }
-
         public BoxSlot (ID iD, Box parent, PlayerMonster monster) : this (iD, parent) {
             Monster = monster;
         }

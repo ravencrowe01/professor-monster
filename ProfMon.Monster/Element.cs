@@ -25,8 +25,6 @@ namespace ProfMon.Monster {
     public class Element : NamedProfObj {
         public readonly IReadOnlyList<ElementModifier> ElementModifiers;
 
-        public Element () : base (null, null) { }
-
         public Element (ID iD,
                        string name,
                        IEnumerable<ElementModifier> elementModifierIDs) : base (iD, name) {

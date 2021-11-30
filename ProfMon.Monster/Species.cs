@@ -48,45 +48,24 @@ namespace ProfMon.Monster {
         public readonly IReadOnlyList<BreedingGroup> BreedingGroups;
         public readonly float FemaleChance;
 
-        public Species () : base (null, null, null) { }
-
-        public Species (ID iD,
-                        string name,
-                        string description,
-                        bool starter,
-                        IEnumerable<Trait> traits,
-                        Element primaryElement,
-                        Element secondaryElement,
-                        float baseHealth,
-                        float basePhysicalAttack,
-                        float basePhysicalDefense,
-                        float baseNonphysicalAttack,
-                        float baseNonphysicalDefense,
-                        float baseSpeed,
-                        int trainingStat,
-                        float trainingAmount,
-                        IEnumerable<Evolution> evolutionList,
-                        IEnumerable<LeveledMove> leveledMoves,
-                        IEnumerable<Move> breedMoves,
-                        IEnumerable<BreedingGroup> breedingGroups,
-                        float femaleChance) : base (iD, name, description) {
-            Starter = starter;
-            Traits = (IReadOnlyList<Trait>) traits;
-            PrimaryElement = primaryElement;
-            SecondaryElement = secondaryElement;
-            BaseHealth = baseHealth;
-            BasePhysicalAttack = basePhysicalAttack;
-            BasePhysicalDefense = basePhysicalDefense;
-            BaseNonphysicalAttack = baseNonphysicalAttack;
-            BaseNonphysicalDefense = baseNonphysicalDefense;
-            BaseSpeed = baseSpeed;
-            TrainingStat = trainingStat;
-            TrainingAmount = trainingAmount;
-            EvolutionLists = (IReadOnlyList<Evolution>) evolutionList;
-            LeveledMoves = (IReadOnlyList<LeveledMove>) leveledMoves;
-            BreedMoves = (IReadOnlyList<Move>) breedMoves;
-            BreedingGroups = (IReadOnlyList<BreedingGroup>) breedingGroups;
-            FemaleChance = femaleChance;
+        public Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
+            Starter = config.Starter;
+            Traits = (IReadOnlyList<Trait>) config.Traits;
+            PrimaryElement = config.PrimaryElement;
+            SecondaryElement = config.SecondaryElement;
+            BaseHealth = config.BaseHealth;
+            BasePhysicalAttack = config.BasePhysicalAttack;
+            BasePhysicalDefense = config.BasePhysicalDefense;
+            BaseNonphysicalAttack = config.BaseNonphysicalAttack;
+            BaseNonphysicalDefense = config.BaseNonphysicalDefense;
+            BaseSpeed = config.BaseSpeed;
+            TrainingStat = config.TrainingStat;
+            TrainingAmount = config.TrainingAmount;
+            EvolutionLists = (IReadOnlyList<Evolution>) config.EvolutionLists;
+            LeveledMoves = (IReadOnlyList<LeveledMove>) config.LeveledMoves;
+            BreedMoves = (IReadOnlyList<Move>) config.BreedMoves;
+            BreedingGroups = (IReadOnlyList<BreedingGroup>) config.BreedingGroups;
+            FemaleChance = config.FemaleChance;
         }
     }
 }

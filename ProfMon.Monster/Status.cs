@@ -26,8 +26,6 @@ namespace ProfMon.Monster {
 
         public readonly bool IsMajor;
 
-        public Status () : base (null, null, null) { }
-
         public Status (ID iD,
                        string name,
                        string description,

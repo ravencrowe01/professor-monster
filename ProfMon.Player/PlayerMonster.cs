@@ -45,8 +45,6 @@ namespace ProfMon.Player {
         private MoveMetadata [] _moves;
         public IReadOnlyList<MoveMetadata> Moves => _moves;
 
-        public PlayerMonster () : base (null, null) { }
-
         public PlayerMonster (ID iD,
                               string name,
                               ID ownerID,

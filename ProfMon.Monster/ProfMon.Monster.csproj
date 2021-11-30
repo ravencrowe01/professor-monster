@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <None Include="..\LICENSE">
@@ -22,8 +22,9 @@
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
     <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <Version>0.8.0</Version>
+    <Version>1.9.0-alpha</Version>
     <Description>Professor Monster monster object library</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

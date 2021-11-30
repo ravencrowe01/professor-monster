@@ -33,8 +33,6 @@ namespace ProfMon.Monster {
         public readonly float Accurecy;
         public readonly float Dodge;
 
-        public StatChange () : base (null) { }
-
         public StatChange (ID iD,
                            float chance,
                            float physAtk,
