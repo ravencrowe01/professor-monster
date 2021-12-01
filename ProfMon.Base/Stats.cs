@@ -20,7 +20,7 @@
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Base {
-    public class Stats : BaseProfObj{
+    public class Stats {
         public float Health { get; private set; }
         public float PhysicalAttack { get; private set; }
         public float PhysicalDefense { get; private set; }
@@ -28,13 +28,12 @@ namespace ProfMon.Base {
         public float NonphysicalDefense { get; private set; }
         public float Speed { get; private set; }
 
-        public Stats (ID iD,
-                      float health,
+        public Stats (float health,
                       float physicalAttack,
                       float physicalDefense,
                       float nonphysicalAttack,
                       float nonphysicalDefense,
-                      float speed) : base(iD) {
+                      float speed) {
             Health = health;
             PhysicalAttack = physicalAttack;
             PhysicalDefense = physicalDefense;
@@ -43,42 +42,13 @@ namespace ProfMon.Base {
             Speed = speed;
         }
 
-        public void UpdateHealth(float delta) {
-            Health += delta;
-        }
-
-        public void UpdatePhysicalAttack(float delta) {
-            PhysicalAttack += delta;
-        }
-
-        public void UpdatePhysicalDefense(float delta) {
-            PhysicalDefense += delta;
-        }
-
-        public void UpdateNonphysicalAttack(float delta) {
-            NonphysicalAttack += delta;
-        }
-
-        public void UpdateNonphysicalDefense(float delta) {
-            NonphysicalDefense += delta;
-        }
-
-        public void UpdateSpeed(float delta) {
-            Speed += delta;
-        }
-
-        public void UpdateStats(float health,
-                                float physicalAttack,
-                                float physicalDefense,
-                                float nonphysicalAttack,
-                                float nonphysicalDefense,
-                                float speed) {
-            UpdateHealth(health);
-            UpdatePhysicalAttack(physicalAttack);
-            UpdatePhysicalDefense(physicalDefense);
-            UpdateNonphysicalAttack(nonphysicalAttack);
-            UpdateNonphysicalDefense(nonphysicalDefense);
-            UpdateSpeed(speed);
+        public static Stats operator + (Stats stats, Stats other) {
+            return new Stats(stats.Health + other.Health,
+                             stats.PhysicalAttack + other.PhysicalAttack,
+                             stats.PhysicalDefense + other.PhysicalDefense,
+                             stats.NonphysicalAttack + other.NonphysicalAttack,
+                             stats.NonphysicalDefense + other.NonphysicalDefense,
+                             stats.Speed + other.Speed);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ProfMon.Monster {
 
         public bool Starter { get; set; }
 
-        public IEnumerable<Trait> Traits { get; set; }
+        public IEnumerable<Ability> Abilities { get; set; }
 
         public Element PrimaryElement { get; set; }
         public Element SecondaryElement { get; set; }
@@ -24,7 +24,7 @@ namespace ProfMon.Monster {
         public int TrainingStat { get; set; }
         public float TrainingAmount { get; set; }
 
-        public IEnumerable<Evolution> EvolutionLists { get; set; }
+        public IEnumerable<Evolution> EvolutionList { get; set; }
 
         public IEnumerable<LeveledMove> LeveledMoves { get; set; }
         public IEnumerable<Move> BreedMoves { get; set; }

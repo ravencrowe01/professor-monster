@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace ProfMon.Player {
-    public class PlayerProfile : NamedProfObj {
+    public class Trainer : NamedProfObj {
         public object PlayerLock = new ();
         public float Currency { get; private set; }
 
@@ -37,7 +37,7 @@ namespace ProfMon.Player {
         private Box [] _monsterStorage;
         public IReadOnlyList<Box> MonsterStorage => _monsterStorage;
 
-        public PlayerProfile (ID iD,
+        public Trainer (ID iD,
                       string name,
                       float currency,
                       IDictionary<ID, IList<ItemMetadata>> inventory,
@@ -46,7 +46,7 @@ namespace ProfMon.Player {
             _monsterStorage = monsterStorage.ToArray ();
         }
 
-        public PlayerProfile (ID iD,
+        public Trainer (ID iD,
                       string name,
                       float currency,
                       IDictionary<ID, IList<ItemMetadata>> inventory,
@@ -67,7 +67,7 @@ namespace ProfMon.Player {
             }
         }
 
-        private PlayerProfile (ID iD,
+        private Trainer (ID iD,
                        string name,
                        float currency,
                        IDictionary<ID, IList<ItemMetadata>> inventory,
@@ -75,7 +75,7 @@ namespace ProfMon.Player {
             _party = party.ToArray ();
         }
 
-        private PlayerProfile (ID iD,
+        private Trainer (ID iD,
                        string name,
                        float currency,
                        IDictionary<ID, IList<ItemMetadata>> inventory,
@@ -83,14 +83,14 @@ namespace ProfMon.Player {
             _party = new PlayerMonster [partySize];
         }
 
-        private PlayerProfile (ID iD,
+        private Trainer (ID iD,
                        string name,
                        float currency,
                        IDictionary<ID, IList<ItemMetadata>> inventory) : this (iD, name, currency) {
             _inventory = (Dictionary<ID, IList<ItemMetadata>>) (inventory?.Count > 0 ? inventory : new Dictionary<ID, IList<ItemMetadata>> ());
         }
 
-        private PlayerProfile (ID iD,
+        private Trainer (ID iD,
                        string name,
                        float currency) : base (iD, name) {
             Currency = currency;

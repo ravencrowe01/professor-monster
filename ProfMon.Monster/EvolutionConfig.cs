@@ -18,16 +18,17 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.ProfObj;
+using ProfMon.Environment;
+using ProfMon.Inventory;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster {
-    public class ElementModifier : BaseProfObj {
-        public readonly Element Element;
-        public readonly float Modifier;
-
-        public ElementModifier (ID iD, Element element, float modifier) : base (iD) {
-            Element = element;
-            Modifier = modifier;
-        }
+    internal class EvolutionConfig : BaseConfig {
+        public Species TargetSpecies { get; set; }
+        public int LevelRequired { get; set; }
+        public Item ItemRequired { get; set; }
+        public Weather WeatherRequired { get; set; }
+        public Terrain TerrainRequired { get; set; }
+        public IEnumerable<Species> RequiredPartners { get; set; }
     }
 }

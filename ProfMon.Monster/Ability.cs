@@ -19,23 +19,17 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using System;
 
 namespace ProfMon.Monster {
-    public class Status : DescribedProfObj {
-        public readonly int TurnsActive;
+    public class Ability : DescribedProfObj {
+        public readonly AbilityTrigger AbilityTrigger;
+        public readonly Func<ISpeciesInstance, ISpeciesInstance> TriggerProcesser;
 
-        public readonly bool OverwritesMajor;
+        internal Ability (AbilityConfig config) : base (config.ID, config.Name, config.Description) {
+            AbilityTrigger = config.Trigger;
 
-        public readonly bool Stacks;
-        public readonly int MaxStacks;
-
-        public Status (ID iD,
-                       string name,
-                       string description,
-                       int turnsActive,
-                       bool isMajor) : base(iD, name, description) {
-            TurnsActive = turnsActive;
-            OverwritesMajor = isMajor;
+            TriggerProcesser = config.TriggerProcessor;
         }
     }
 }

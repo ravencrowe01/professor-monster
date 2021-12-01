@@ -17,20 +17,17 @@
  */
 #endregion
 
-using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
     public class LeveledMove : BaseProfObj {
         public readonly Move MoveLearned;
 
-        public readonly float LevelRequired;
+        public readonly int LevelRequired;
 
-        public LeveledMove (ID iD,
-                            Move moveLearned,
-                            float levelRequired) : base (iD) {
-            MoveLearned = moveLearned;
-            LevelRequired = levelRequired;
+        internal LeveledMove(LeveledMoveConfig config) : base(config.ID) {
+            MoveLearned = config.MoveLearned;
+            LevelRequired = config.LevelRequired;
         }
     }
 }

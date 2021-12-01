@@ -23,12 +23,10 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster {
     public class Element : NamedProfObj {
-        public readonly IReadOnlyList<ElementModifier> ElementModifiers;
+        public readonly IReadOnlyDictionary<ID, float> Modifiers;
 
-        public Element (ID iD,
-                       string name,
-                       IEnumerable<ElementModifier> elementModifierIDs) : base (iD, name) {
-            ElementModifiers = (IReadOnlyList<ElementModifier>) elementModifierIDs;
+        internal Element(ElementConfig config) : base(config.ID, config.Name) {
+            Modifiers = (IReadOnlyDictionary<ID, float>) config.Modifiers;
         }
     }
 }

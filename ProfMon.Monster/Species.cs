@@ -25,43 +25,39 @@ namespace ProfMon.Monster {
     public class Species : DescribedProfObj {
         public readonly bool Starter;
 
-        public readonly IReadOnlyList<Trait> Traits;
+        public readonly IReadOnlyList<Ability> Abilities;
 
         public readonly Element PrimaryElement;
         public readonly Element SecondaryElement;
 
-        public readonly float BaseHealth;
-        public readonly float BasePhysicalAttack;
-        public readonly float BasePhysicalDefense;
-        public readonly float BaseNonphysicalAttack;
-        public readonly float BaseNonphysicalDefense;
-        public readonly float BaseSpeed;
+        public readonly float CatchRate;
 
-        public readonly int TrainingStat;
-        public readonly float TrainingAmount;
+        public readonly float ExperienceYield;
 
-        public readonly IReadOnlyList<Evolution> EvolutionLists;
+        public readonly ReadonlyStats BaseStats;
+
+        public readonly ReadonlyStats TrainingYield;
+
+        public readonly IReadOnlyList<Evolution> EvolutionList;
 
         public readonly IReadOnlyList<LeveledMove> LeveledMoves;
         public readonly IReadOnlyList<Move> BreedMoves;
 
         public readonly IReadOnlyList<BreedingGroup> BreedingGroups;
+
+        public readonly int HatchTime;
+
         public readonly float FemaleChance;
 
-        public Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
+        public readonly float Height;
+        public readonly float Weight;
+
+        internal Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
             Starter = config.Starter;
-            Traits = (IReadOnlyList<Trait>) config.Traits;
+            Abilities = (IReadOnlyList<Ability>) config.Abilities;
             PrimaryElement = config.PrimaryElement;
             SecondaryElement = config.SecondaryElement;
-            BaseHealth = config.BaseHealth;
-            BasePhysicalAttack = config.BasePhysicalAttack;
-            BasePhysicalDefense = config.BasePhysicalDefense;
-            BaseNonphysicalAttack = config.BaseNonphysicalAttack;
-            BaseNonphysicalDefense = config.BaseNonphysicalDefense;
-            BaseSpeed = config.BaseSpeed;
-            TrainingStat = config.TrainingStat;
-            TrainingAmount = config.TrainingAmount;
-            EvolutionLists = (IReadOnlyList<Evolution>) config.EvolutionLists;
+            EvolutionList = (IReadOnlyList<Evolution>) config.EvolutionList;
             LeveledMoves = (IReadOnlyList<LeveledMove>) config.LeveledMoves;
             BreedMoves = (IReadOnlyList<Move>) config.BreedMoves;
             BreedingGroups = (IReadOnlyList<BreedingGroup>) config.BreedingGroups;

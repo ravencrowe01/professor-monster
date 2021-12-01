@@ -17,7 +17,6 @@
  */
 #endregion
 
-using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Environment;
 using ProfMon.Inventory;
@@ -30,21 +29,15 @@ namespace ProfMon.Monster {
         public readonly Item ItemRequired;
         public readonly Weather WeatherRequired;
         public readonly Terrain TerrainRequired;
-        public readonly IReadOnlyList<Species> PartnersRequired;
+        public readonly IReadOnlyList<Species> RequiredPartners;
 
-        public Evolution (ID iD,
-                          Species targetSpecies,
-                          int levelRequired,
-                          Item itemRequired,
-                          Weather weatherRequired,
-                          Terrain terrainRequired,
-                          IEnumerable<Species> partnersRequired) : base (iD) {
-            TargetSpecies = targetSpecies;
-            LevelRequired = levelRequired;
-            ItemRequired = itemRequired;
-            WeatherRequired = weatherRequired;
-            TerrainRequired = terrainRequired;
-            PartnersRequired = (IReadOnlyList<Species>) partnersRequired;
+        internal Evolution (EvolutionConfig config) : base (config.ID) {
+            TargetSpecies = config.TargetSpecies;
+            LevelRequired = config.LevelRequired;
+            ItemRequired = config.ItemRequired;
+            WeatherRequired = config.WeatherRequired;
+            TerrainRequired = config.TerrainRequired;
+            RequiredPartners = (IReadOnlyList<Species>) config.RequiredPartners;
         }
     }
 }

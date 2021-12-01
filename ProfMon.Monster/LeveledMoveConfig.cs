@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -18,11 +18,10 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
-    public class Trait : DescribedProfObj {
-        public Trait (ID iD, string name, string description) : base (iD, name, description) {
-        }
+    internal class LeveledMoveConfig : BaseConfig {
+        public Move MoveLearned { get; set; }
+        public int LevelRequired { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-#region copyright
+﻿#region copyright
 /** Raven Bot, a light-weight Discord bot using DSharp+ for gateway and command handling.
  *  Copyright (C) 2021 Raven Crowe
  *  
@@ -18,24 +18,22 @@
 #endregion
 
 using ProfMon.Base;
-using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
-    public class Status : DescribedProfObj {
-        public readonly int TurnsActive;
+    public class NatureBuilder : BaseBuilder<NatureBuilder, Nature> {
+        private Stats _statModifiers;
 
-        public readonly bool OverwritesMajor;
+        public NatureBuilder WithStatModifiers (Stats statModifiers) {
+            _statModifiers = statModifiers;
+            return this;
+        }
 
-        public readonly bool Stacks;
-        public readonly int MaxStacks;
-
-        public Status (ID iD,
-                       string name,
-                       string description,
-                       int turnsActive,
-                       bool isMajor) : base(iD, name, description) {
-            TurnsActive = turnsActive;
-            OverwritesMajor = isMajor;
+        public override Nature Build () {
+            return new Nature (new NatureConfig () { 
+                ID = _id,
+                Name = _name,
+                StatModifiers = _statModifiers
+            });
         }
     }
 }

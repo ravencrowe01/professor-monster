@@ -22,7 +22,28 @@ using ProfMon.Base.ProfObj;
 using System.Collections.Generic;
 
 namespace ProfMon.Player {
-    public class PlayerMonster : NamedProfObj {
+    public interface IPlayerMonster {
+        float CurrentHealth { get; }
+        float Happiness { get; }
+        float MaxHealth { get; }
+        IReadOnlyList<MoveMetadata> Moves { get; }
+        bool Nicknamed { get; }
+        Stats StatTraining { get; }
+
+        void AddMove (MoveMetadata newMove);
+        bool CanAddMove ();
+        bool CanRemoveMove ();
+        void Damage (float amount);
+        void Heal (float amount);
+        void RemoveMove (int index);
+        void Rename (string name);
+        void ReplaceMove (int index, MoveMetadata move);
+        void SwitchMoves (int from, int to);
+        void UpdateMoveBoosted (int index, int delta);
+        void UpdateMoveUses (int index, int delta);
+    }
+
+    public class PlayerMonster : NamedProfObj, IPlayerMonster {
         public readonly ID OwnerID;
 
         public readonly ID SpeciesID;
