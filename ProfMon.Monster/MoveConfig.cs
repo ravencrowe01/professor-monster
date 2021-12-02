@@ -18,9 +18,15 @@
 #endregion
 
 using ProfMon.Base;
+using System;
 
 namespace ProfMon.Monster {
-    public class NatureConfig : BaseConfig {
-        public Stats StatModifiers { get; set; }
+    public class MoveConfig : BaseConfig {
+        public Element Element { get; set; }
+
+        public float Power { get; set; }
+        public float Accurecy { get; set; }
+
+        public Func<ISpeciesInstance, MoveOutcome> OnUse { get; set; }
     }
 }

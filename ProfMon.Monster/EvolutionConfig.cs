@@ -23,7 +23,7 @@ using ProfMon.Inventory;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster {
-    internal class EvolutionConfig : BaseConfig {
+    public class EvolutionConfig : BaseConfig {
         public Species TargetSpecies { get; set; }
         public int LevelRequired { get; set; }
         public Item ItemRequired { get; set; }

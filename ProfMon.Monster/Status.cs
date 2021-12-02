@@ -17,7 +17,6 @@
  */
 #endregion
 
-using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
@@ -29,13 +28,11 @@ namespace ProfMon.Monster {
         public readonly bool Stacks;
         public readonly int MaxStacks;
 
-        public Status (ID iD,
-                       string name,
-                       string description,
-                       int turnsActive,
-                       bool isMajor) : base(iD, name, description) {
-            TurnsActive = turnsActive;
-            OverwritesMajor = isMajor;
+        internal Status (StatusConfig config) : base (config.ID, config.Name, config.Description) {
+            TurnsActive = config.TurnsActive;
+            OverwritesMajor = config.OverwritesMajor;
+            Stacks = config.Stacks;
+            MaxStacks = config.MaxStacks;
         }
     }
 }

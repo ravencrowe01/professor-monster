@@ -21,7 +21,7 @@ using ProfMon.Base;
 using System;
 
 namespace ProfMon.Monster {
-    internal class AbilityConfig : BaseConfig {
+    public class AbilityConfig : BaseConfig {
         public AbilityTrigger Trigger { get; set; }
 
         public Func<ISpeciesInstance, ISpeciesInstance> TriggerProcessor { get; set; }

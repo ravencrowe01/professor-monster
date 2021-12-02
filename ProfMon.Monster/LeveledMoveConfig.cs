@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster {
-    internal class LeveledMoveConfig : BaseConfig {
+    public class LeveledMoveConfig : BaseConfig {
         public Move MoveLearned { get; set; }
         public int LevelRequired { get; set; }
     }

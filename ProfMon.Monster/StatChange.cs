@@ -21,7 +21,7 @@ using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster {
-    public class StatChange : BaseProfObj {
+    public class StatChange {
         public readonly float Chance;
 
         public readonly float PhysAtk;
@@ -33,15 +33,14 @@ namespace ProfMon.Monster {
         public readonly float Accurecy;
         public readonly float Dodge;
 
-        public StatChange (ID iD,
-                           float chance,
+        public StatChange (float chance,
                            float physAtk,
                            float physDef,
                            float nonPhysAtk,
                            float nonPhysDef,
                            float speed,
                            float accurecy,
-                           float dodge) : base (iD) {
+                           float dodge) {
             Chance = chance;
             PhysAtk = physAtk;
             PhysDef = physDef;

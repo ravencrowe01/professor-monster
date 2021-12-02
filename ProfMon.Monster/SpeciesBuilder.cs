@@ -1,10 +1,13 @@
-namespace ProfMon.Monster {
-    public class SpeciesBuilder : BaseBuilder<Speciesbuilder, Species> {
-	private bool _isStarter;
+using ProfMon.Base;
+using System.Collections.Generic;
 
-	private IEnumerable<Abilities> _abilities;
+namespace ProfMon.Monster {
+    public class SpeciesBuilder : BaseBuilder<SpeciesBuilder, Species> {
+	private bool _starter;
+
+	private IEnumerable<Ability> _abilities;
 	
-	private Elememt _elementOne;
+	private Element _elementOne;
 	private Element _elementTwo;
 
 	private float _catchRate;
@@ -19,7 +22,7 @@ namespace ProfMon.Monster {
 
 	private IEnumerable<LeveledMove> _leveledMoves;
 
-	private IEnumerable<Move> _breedingMoves;
+	private IEnumerable<Move> _breedMoves;
 
 	private IEnumerable<BreedingGroup> _breedingGroups;
 
@@ -67,18 +70,18 @@ namespace ProfMon.Monster {
 		return this;
 	}
 
-	public SpeciesBuilder WithEvolutions(IEnumerable<Evolution> evolutioms){
-		_evolutikns = evolutions;
+	public SpeciesBuilder WithEvolutions(IEnumerable<Evolution> evolutions){
+		_evolutions = evolutions;
 		return this;
 	}
 
 	public SpeciesBuilder WithLeveledMoves(IEnumerable<LeveledMove> moves){
-		_leveledMoves = leveledMoves;
+		_leveledMoves = moves;
 		return this;
 	}
 
 	public SpeciesBuilder WithBreedingMoves(IEnumerable<Move> moves){
-		_breedingMoves = breedingMoves;
+		_breedMoves = moves;
 		return this;
 	}
 
@@ -116,7 +119,7 @@ namespace ProfMon.Monster {
 				Abilities = _abilities,
 				ElementOne = _elementOne,
 				ElementTwo = _elementTwo,
-				CatchRate = _catchRatch,
+				CatchRate = _catchRate,
 				ExperienceYield = _experienceYield,
 				BaseStats = _baseStats,
 				TrainingYield = _trainingYield,
@@ -126,8 +129,8 @@ namespace ProfMon.Monster {
 				BreedingGroups = _breedingGroups,
 				HatchTime = _hatchTime,
 				FemaleChance = _femaleChance,
-				Height = height,
-				Weight = weight
+				Height = _height,
+				Weight = _weight
 			});
 	}
     }

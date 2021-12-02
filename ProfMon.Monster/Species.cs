@@ -55,9 +55,9 @@ namespace ProfMon.Monster {
         internal Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
             Starter = config.Starter;
             Abilities = (IReadOnlyList<Ability>) config.Abilities;
-            PrimaryElement = config.PrimaryElement;
-            SecondaryElement = config.SecondaryElement;
-            EvolutionList = (IReadOnlyList<Evolution>) config.EvolutionList;
+            PrimaryElement = config.ElementOne;
+            SecondaryElement = config.ElementTwo;
+            EvolutionList = (IReadOnlyList<Evolution>) config.Evolutions;
             LeveledMoves = (IReadOnlyList<LeveledMove>) config.LeveledMoves;
             BreedMoves = (IReadOnlyList<Move>) config.BreedMoves;
             BreedingGroups = (IReadOnlyList<BreedingGroup>) config.BreedingGroups;

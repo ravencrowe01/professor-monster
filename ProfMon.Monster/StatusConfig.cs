@@ -20,7 +20,12 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster {
-    public class NatureConfig : BaseConfig {
-        public Stats StatModifiers { get; set; }
+    public class StatusConfig : BaseConfig {
+        public int TurnsActive { get; set; }
+
+        public bool OverwritesMajor { get; set; }
+
+        public bool Stacks { get; set; }
+        public int MaxStacks { get; set; }
     }
 }

@@ -17,8 +17,8 @@
  */
 #endregion
 
-using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using System;
 
 namespace ProfMon.Monster {
     public class Move : DescribedProfObj {
@@ -27,19 +27,13 @@ namespace ProfMon.Monster {
         public readonly float Power;
         public readonly float Accurecy;
 
-        public readonly StatChange StatChange;
+        public readonly Func<ISpeciesInstance, MoveOutcome> OnUse;
 
-        public Move (ID iD,
-                     string name,
-                     string description,
-                     Element element,
-                     float power,
-                     float accurecy,
-                     StatChange statChange) : base (iD, name, description) {
-            Element = element;
-            Power = power;
-            Accurecy = accurecy;
-            StatChange = statChange;
+        internal Move (MoveConfig config) : base (config.ID, config.Name, config.Description) {
+            Element = config.Element;
+            Power = config.Power;
+            Accurecy = config.Accurecy;
+            OnUse = config.OnUse;
         }
     }
 }
