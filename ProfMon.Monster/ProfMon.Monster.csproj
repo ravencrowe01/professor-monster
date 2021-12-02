@@ -22,7 +22,7 @@
     <RepositoryUrl>https://github.com/ravencrowe01/professor-monster</RepositoryUrl>
     <PackageTags>Game Development, Game Library</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <Version>1.9.0-alpha</Version>
+    <Version>2.0.0-alpha</Version>
     <Description>Professor Monster monster object library</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
