@@ -18,6 +18,7 @@
 #endregion
 
 using ProfMon.Base;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Statuses {
     public class StatusConfig : Config {
@@ -27,5 +28,7 @@ namespace ProfMon.Monster.Statuses {
 
         public bool Stacks { get; set; }
         public int MaxStacks { get; set; }
+
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }

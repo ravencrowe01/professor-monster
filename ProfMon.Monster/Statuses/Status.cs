@@ -17,10 +17,12 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Statuses {
-    public class Status : DescribedProfObj {
+    public class Status : DescribedProfObj, ITaggable<Tag> {
         public readonly int TurnsActive;
 
         public readonly bool OverwritesMajor;
@@ -28,11 +30,16 @@ namespace ProfMon.Monster.Statuses {
         public readonly bool Stacks;
         public readonly int MaxStacks;
 
+        private readonly List<Tag> _tags;
+
+        public IEnumerable<Tag> Tags => _tags;
+
         protected internal Status (StatusConfig config) : base (config.ID, config.Name, config.Description) {
             TurnsActive = config.TurnsActive;
             OverwritesMajor = config.OverwritesMajor;
             Stacks = config.Stacks;
             MaxStacks = config.MaxStacks;
+            _tags = (List<Tag>) config.Tags;
         }
     }
 }

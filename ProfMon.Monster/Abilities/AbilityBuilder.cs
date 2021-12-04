@@ -20,11 +20,15 @@
 using ProfMon.Base;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
     public class AbilityBuilder : Builder<AbilityBuilder, Ability> {
         private AbilityTrigger _trigger;
+
         private Func<ISpeciesInstance, ISpeciesInstance> _processor;
+
+        private IEnumerable<Tag> _tags;
 
         public AbilityBuilder WithTrigger (AbilityTrigger trigger) {
             _trigger = trigger;
@@ -36,13 +40,19 @@ namespace ProfMon.Monster.Abilities {
             return this;
         }
 
+        public AbilityBuilder WithTags (params Tag [] tags) {
+            _tags = tags;
+            return this;
+        }
+
         public override Ability Build () {
             return new Ability (new AbilityConfig () {
                 ID = _id,
                 Name = _name,
                 Description = _description,
                 Trigger = _trigger,
-                TriggerProcessor = _processor
+                TriggerProcessor = _processor,
+                Tags = _tags
             });
         }
     }

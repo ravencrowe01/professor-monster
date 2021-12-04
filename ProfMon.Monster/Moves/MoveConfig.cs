@@ -21,6 +21,7 @@ using ProfMon.Base;
 using ProfMon.Monster.Elements;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Moves {
     public class MoveConfig : Config {
@@ -30,5 +31,7 @@ namespace ProfMon.Monster.Moves {
         public float Accurecy { get; set; }
 
         public Func<ISpeciesInstance, MoveOutcome> OnUse { get; set; }
+
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }

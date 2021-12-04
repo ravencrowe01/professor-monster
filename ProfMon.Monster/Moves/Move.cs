@@ -17,13 +17,15 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Monster.Elements;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Moves {
-    public class Move : DescribedProfObj {
+    public class Move : DescribedProfObj, ITaggable<Tag> {
         public readonly Element Element;
 
         public readonly float Power;
@@ -31,11 +33,16 @@ namespace ProfMon.Monster.Moves {
 
         public readonly Func<ISpeciesInstance, MoveOutcome> OnUse;
 
+        private readonly List<Tag> _tags;
+
+        public IEnumerable<Tag> Tags => _tags;
+
         protected internal Move (MoveConfig config) : base (config.ID, config.Name, config.Description) {
             Element = config.Element;
             Power = config.Power;
             Accurecy = config.Accurecy;
             OnUse = config.OnUse;
+            _tags = (List<Tag>) config.Tags;
         }
     }
 }

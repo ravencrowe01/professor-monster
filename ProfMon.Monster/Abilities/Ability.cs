@@ -17,19 +17,28 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
-    public class Ability : DescribedProfObj {
+    public class Ability : DescribedProfObj, ITaggable<Tag> {
         public readonly AbilityTrigger AbilityTrigger;
+
         public readonly Func<ISpeciesInstance, ISpeciesInstance> TriggerProcesser;
+
+        private readonly List<Tag> _tags;
+
+        public IEnumerable<Tag> Tags => _tags;
 
         protected internal Ability (AbilityConfig config) : base (config.ID, config.Name, config.Description) {
             AbilityTrigger = config.Trigger;
 
             TriggerProcesser = config.TriggerProcessor;
+
+            _tags = (List<Tag>) config.Tags;
         }
     }
 }

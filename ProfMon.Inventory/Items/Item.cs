@@ -17,11 +17,13 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Inventory.Catagories;
+using System.Collections.Generic;
 
 namespace ProfMon.Inventory.Items {
-    public class Item : DescribedProfObj {
+    public class Item : DescribedProfObj, ITaggable  {
         public readonly ItemCatagory Catagory;
 
         public readonly float SellValue;
@@ -31,6 +33,8 @@ namespace ProfMon.Inventory.Items {
 
         public readonly bool Stackable;
         public readonly int MaxStack;
+
+        public IEnumerable<Tag> Tags { get; }
 
         protected internal Item (ItemConfig config) : base (config.ID, config.Name, config.Description) {
             Catagory = config.Catagory;

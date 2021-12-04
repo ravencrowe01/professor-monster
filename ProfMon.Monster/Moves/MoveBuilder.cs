@@ -21,6 +21,7 @@ using ProfMon.Base;
 using ProfMon.Monster.Elements;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Moves {
     public class MoveBuilder : Builder<MoveBuilder, Move> {
@@ -28,6 +29,8 @@ namespace ProfMon.Monster.Moves {
 
         private float _power;
         private float _accurecy;
+
+        private IEnumerable<Tag> _tags;
 
         private Func<ISpeciesInstance, MoveOutcome> _onUse;
 
@@ -51,6 +54,11 @@ namespace ProfMon.Monster.Moves {
             return this;
         }
 
+        public MoveBuilder WitTags (params Tag [] tags) { 
+            _tags = tags;
+            return this;
+        }
+
         public override Move Build () {
             return new Move (new MoveConfig () {
                 ID = _id,
@@ -59,7 +67,8 @@ namespace ProfMon.Monster.Moves {
                 Element = _element,
                 Power = _power,
                 Accurecy = _accurecy,
-                OnUse = _onUse
+                OnUse = _onUse,
+                Tags = _tags
             });
         }
     }

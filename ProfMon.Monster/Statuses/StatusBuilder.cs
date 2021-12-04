@@ -18,6 +18,7 @@
 #endregion
 
 using ProfMon.Base;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Statuses {
     public class StatusBuilder : Builder<StatusBuilder, Status> {
@@ -27,6 +28,8 @@ namespace ProfMon.Monster.Statuses {
 
         private bool _stacks;
         private int _maxStacks;
+
+        private IEnumerable<Tag> _tags;
 
         public StatusBuilder WithTurnsActive (int turnsActive) {
             _turnsActive = turnsActive;
@@ -48,6 +51,11 @@ namespace ProfMon.Monster.Statuses {
             return this;
         }
 
+        public StatusBuilder WithTags (params Tag [] tags) {
+            _tags = tags;
+            return this;
+        }
+
         public override Status Build () {
             return new Status (new StatusConfig () {
                 ID = _id,
@@ -56,7 +64,8 @@ namespace ProfMon.Monster.Statuses {
                 TurnsActive = _turnsActive,
                 OverwritesMajor = _overwritesMajor,
                 Stacks = _stacks,
-                MaxStacks = _maxStacks
+                MaxStacks = _maxStacks,
+                Tags = _tags
             });
         }
     }

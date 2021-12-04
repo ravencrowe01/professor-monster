@@ -20,11 +20,14 @@
 using ProfMon.Base;
 using ProfMon.Monster.MonsterSpecies;
 using System;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
     public class AbilityConfig : Config {
         public AbilityTrigger Trigger { get; set; }
 
         public Func<ISpeciesInstance, ISpeciesInstance> TriggerProcessor { get; set; }
+
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }

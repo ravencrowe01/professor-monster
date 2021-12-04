@@ -19,6 +19,7 @@
 
 using ProfMon.Base;
 using ProfMon.Inventory.Catagories;
+using System.Collections.Generic;
 
 namespace ProfMon.Inventory.Items {
     public class ItemBuilder : Builder<ItemBuilder, Item> {
@@ -31,6 +32,8 @@ namespace ProfMon.Inventory.Items {
 
         private bool _stackable;
         private int _maxStack;
+
+        private IEnumerable<Tag> _tags;
 
         public ItemBuilder WithCatagory (ItemCatagory catagory) {
             _catagory = catagory;
@@ -62,6 +65,11 @@ namespace ProfMon.Inventory.Items {
             return this;
         }
 
+        public ItemBuilder AddTags (params Tag [] tags) {
+            _tags = tags;
+            return this;
+        }
+
         public override Item Build () {
             return new Item (new ItemConfig () {
                 ID = _id,
@@ -72,7 +80,8 @@ namespace ProfMon.Inventory.Items {
                 BuyValue = _buyValue,
                 Sellable = _sellable,
                 Stackable = _stackable,
-                MaxStack = _maxStack
+                MaxStack = _maxStack,
+                Tags = _tags
             });
         }
     }

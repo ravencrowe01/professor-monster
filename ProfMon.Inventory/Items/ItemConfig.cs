@@ -19,6 +19,7 @@
 
 using ProfMon.Base;
 using ProfMon.Inventory.Catagories;
+using System.Collections.Generic;
 
 namespace ProfMon.Inventory.Items {
     public class ItemConfig : Config {
@@ -31,5 +32,7 @@ namespace ProfMon.Inventory.Items {
 
         public bool Stackable { get; set; }
         public int MaxStack { get; set; }
+
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }
