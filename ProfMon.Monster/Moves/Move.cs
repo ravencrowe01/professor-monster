@@ -31,7 +31,7 @@ namespace ProfMon.Monster.Moves {
         public readonly float Power;
         public readonly float Accurecy;
 
-        public readonly Func<ISpeciesInstance, MoveOutcome> OnUse;
+        public readonly Func<ISpeciesInstance, IOutcome> OnUse;
 
         private readonly List<Tag> _tags;
 

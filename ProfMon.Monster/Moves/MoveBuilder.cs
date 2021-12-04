@@ -32,7 +32,7 @@ namespace ProfMon.Monster.Moves {
 
         private IEnumerable<Tag> _tags;
 
-        private Func<ISpeciesInstance, MoveOutcome> _onUse;
+        private Func<ISpeciesInstance, IOutcome> _onUse;
 
         public MoveBuilder WithElement (Element element) {
             _element = element;
@@ -49,7 +49,7 @@ namespace ProfMon.Monster.Moves {
             return this;
         }
 
-        public MoveBuilder WithOnUse (Func<ISpeciesInstance, MoveOutcome> onUse) {
+        public MoveBuilder WithOnUse (Func<ISpeciesInstance, IOutcome> onUse) {
             _onUse = onUse;
             return this;
         }

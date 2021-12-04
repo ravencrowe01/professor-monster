@@ -30,7 +30,7 @@ namespace ProfMon.Monster.Moves {
         public float Power { get; set; }
         public float Accurecy { get; set; }
 
-        public Func<ISpeciesInstance, MoveOutcome> OnUse { get; set; }
+        public Func<ISpeciesInstance, IOutcome> OnUse { get; set; }
 
         public IEnumerable<Tag> Tags { get; set; }
     }
