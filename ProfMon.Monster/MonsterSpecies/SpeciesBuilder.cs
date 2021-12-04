@@ -26,7 +26,7 @@ using ProfMon.Monster.Moves;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster.MonsterSpecies {
-    public class SpeciesBuilder : BaseBuilder<SpeciesBuilder, Species> {
+    public class SpeciesBuilder : Builder<SpeciesBuilder, Species> {
         private bool _starter;
 
         private IEnumerable<Ability> _abilities;

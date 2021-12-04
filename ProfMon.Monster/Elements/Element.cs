@@ -25,7 +25,7 @@ namespace ProfMon.Monster.Elements {
     public class Element : NamedProfObj {
         public readonly IReadOnlyDictionary<ID, float> Modifiers;
 
-        internal Element(ElementConfig config) : base(config.ID, config.Name) {
+        protected internal Element(ElementConfig config) : base(config.ID, config.Name) {
             Modifiers = (IReadOnlyDictionary<ID, float>) config.Modifiers;
         }
     }

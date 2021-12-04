@@ -31,7 +31,7 @@ namespace ProfMon.Monster.Moves {
 
         public readonly Func<ISpeciesInstance, MoveOutcome> OnUse;
 
-        internal Move (MoveConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Move (MoveConfig config) : base (config.ID, config.Name, config.Description) {
             Element = config.Element;
             Power = config.Power;
             Accurecy = config.Accurecy;

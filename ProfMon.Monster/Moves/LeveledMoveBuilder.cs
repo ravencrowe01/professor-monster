@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Moves {
-    public class LeveledMoveBuilder : BaseBuilder<LeveledMoveBuilder, LeveledMove> {
+    public class LeveledMoveBuilder : Builder<LeveledMoveBuilder, LeveledMove> {
         private Move _moveLearned;
         private int _levelRequired;
 

@@ -21,7 +21,7 @@ using ProfMon.Base;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster.Elements {
-    public class ElementConfig : BaseConfig {
+    public class ElementConfig : Config {
         public IDictionary<ID, float> Modifiers { get; set; }
     }
 }

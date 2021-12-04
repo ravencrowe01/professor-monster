@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Natures {
-    public class NatureBuilder : BaseBuilder<NatureBuilder, Nature> {
+    public class NatureBuilder : Builder<NatureBuilder, Nature> {
         private Stats _statModifiers;
 
         public NatureBuilder WithStatModifiers (Stats statModifiers) {

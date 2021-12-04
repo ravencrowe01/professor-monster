@@ -21,7 +21,7 @@ using ProfMon.Base;
 using ProfMon.Inventory.Catagories;
 
 namespace ProfMon.Inventory.Items {
-    public class ItemConfig : BaseConfig {
+    public class ItemConfig : Config {
         public ItemCatagory Catagory { get; set; }
 
         public float SellValue { get; set; }

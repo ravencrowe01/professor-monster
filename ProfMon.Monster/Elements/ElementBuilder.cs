@@ -21,7 +21,7 @@ using ProfMon.Base;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster.Elements {
-    public class ElementBuilder : BaseBuilder<ElementBuilder, Element> {
+    public class ElementBuilder : Builder<ElementBuilder, Element> {
         private IDictionary<ID, float> _modifiers;
 
         public ElementBuilder WithModifiers (IDictionary<ID, float> modifiers) {

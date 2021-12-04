@@ -24,7 +24,7 @@ namespace ProfMon.Monster.Natures {
     public class Nature : NamedProfObj {
         public readonly ReadonlyStats StatModifiers;
 
-        internal Nature (NatureConfig config) : base (config.ID, config.Name) {
+        protected internal Nature (NatureConfig config) : base (config.ID, config.Name) {
             StatModifiers = config.StatModifiers;
         }
     }

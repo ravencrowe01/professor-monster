@@ -25,7 +25,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster.Evolutions {
-    public class EvolutionConfig : BaseConfig {
+    public class EvolutionConfig : Config {
         public Species TargetSpecies { get; set; }
         public int LevelRequired { get; set; }
         public Item ItemRequired { get; set; }

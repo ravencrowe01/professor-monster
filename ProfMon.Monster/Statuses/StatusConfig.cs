@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Statuses {
-    public class StatusConfig : BaseConfig {
+    public class StatusConfig : Config {
         public int TurnsActive { get; set; }
 
         public bool OverwritesMajor { get; set; }

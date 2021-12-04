@@ -32,7 +32,7 @@ namespace ProfMon.Inventory.Items {
         public readonly bool Stackable;
         public readonly int MaxStack;
 
-        internal Item (ItemConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Item (ItemConfig config) : base (config.ID, config.Name, config.Description) {
             Catagory = config.Catagory;
             SellValue = config.SellValue;
             BuyValue = config.BuyValue;

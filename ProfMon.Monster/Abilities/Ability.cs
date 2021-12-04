@@ -26,7 +26,7 @@ namespace ProfMon.Monster.Abilities {
         public readonly AbilityTrigger AbilityTrigger;
         public readonly Func<ISpeciesInstance, ISpeciesInstance> TriggerProcesser;
 
-        internal Ability (AbilityConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Ability (AbilityConfig config) : base (config.ID, config.Name, config.Description) {
             AbilityTrigger = config.Trigger;
 
             TriggerProcesser = config.TriggerProcessor;

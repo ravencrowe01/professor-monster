@@ -25,7 +25,7 @@ namespace ProfMon.Monster.Moves {
 
         public readonly int LevelRequired;
 
-        internal LeveledMove (LeveledMoveConfig config) : base (config.ID) {
+        protected internal LeveledMove (LeveledMoveConfig config) : base (config.ID) {
             MoveLearned = config.MoveLearned;
             LevelRequired = config.LevelRequired;
         }

@@ -20,9 +20,9 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.BreedingGroups {
-    public class BreedingGroupBuilder : BaseBuilder<BreedingGroupBuilder, BreedingGroup> {
+    public class BreedingGroupBuilder : Builder<BreedingGroupBuilder, BreedingGroup> {
         public override BreedingGroup Build () {
-            return new BreedingGroup (new BaseConfig () {
+            return new BreedingGroup (new Config () {
                 ID = _id,
                 Name = _name
             });

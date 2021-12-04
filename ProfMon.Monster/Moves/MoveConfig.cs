@@ -23,7 +23,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System;
 
 namespace ProfMon.Monster.Moves {
-    public class MoveConfig : BaseConfig {
+    public class MoveConfig : Config {
         public Element Element { get; set; }
 
         public float Power { get; set; }

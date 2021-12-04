@@ -22,7 +22,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System;
 
 namespace ProfMon.Monster.Abilities {
-    public class AbilityConfig : BaseConfig {
+    public class AbilityConfig : Config {
         public AbilityTrigger Trigger { get; set; }
 
         public Func<ISpeciesInstance, ISpeciesInstance> TriggerProcessor { get; set; }

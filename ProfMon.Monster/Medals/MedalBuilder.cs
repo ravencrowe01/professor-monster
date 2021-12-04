@@ -20,9 +20,9 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Medals {
-    public class MedalBuilder : BaseBuilder<MedalBuilder, Medal> {
+    public class MedalBuilder : Builder<MedalBuilder, Medal> {
         public override Medal Build () {
-            return new Medal (new BaseConfig () {
+            return new Medal (new Config () {
                 ID = _id,
                 Name = _name,
                 Description = _description

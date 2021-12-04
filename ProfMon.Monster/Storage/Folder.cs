@@ -9,7 +9,7 @@ namespace ProfMon.Monster.Storage {
             Background = background;
         }
 
-        public Folder(ID id, string name, ISpeciesInstance [] monsters, int background) : base(id, name, monsters) {
+        public Folder (ID id, string name, ISpeciesInstance [] monsters, int background) : base (id, name, monsters) {
             Background = background;
         }
 

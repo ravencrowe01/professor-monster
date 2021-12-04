@@ -18,7 +18,7 @@
 #endregion
 
 namespace ProfMon.Base {
-    public abstract class BaseBuilder<TBuilder, TOutput> where TBuilder : BaseBuilder<TBuilder, TOutput> where TOutput : class {
+    public abstract class Builder<TBuilder, TOutput> where TBuilder : Builder<TBuilder, TOutput> where TOutput : class {
         protected ID _id;
         protected string _name;
         protected string _description;

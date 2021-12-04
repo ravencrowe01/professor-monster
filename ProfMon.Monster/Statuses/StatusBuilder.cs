@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Statuses {
-    public class StatusBuilder : BaseBuilder<StatusBuilder, Status> {
+    public class StatusBuilder : Builder<StatusBuilder, Status> {
         private int _turnsActive;
 
         private bool _overwritesMajor;

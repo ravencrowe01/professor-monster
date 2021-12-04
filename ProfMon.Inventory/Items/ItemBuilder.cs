@@ -21,7 +21,7 @@ using ProfMon.Base;
 using ProfMon.Inventory.Catagories;
 
 namespace ProfMon.Inventory.Items {
-    public class ItemBuilder : BaseBuilder<ItemBuilder, Item> {
+    public class ItemBuilder : Builder<ItemBuilder, Item> {
         private ItemCatagory _catagory;
 
         private float _sellValue;

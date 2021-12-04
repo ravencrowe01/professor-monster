@@ -25,7 +25,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System.Collections.Generic;
 
 namespace ProfMon.Monster.Evolutions {
-    public class EvolutionBuilder : BaseBuilder<EvolutionBuilder, Evolution> {
+    public class EvolutionBuilder : Builder<EvolutionBuilder, Evolution> {
         private Species _targetSpecies;
         private int _levelRequired;
         private Item _itemRequired;

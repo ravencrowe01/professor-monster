@@ -33,7 +33,7 @@ namespace ProfMon.Monster.Evolutions {
         public readonly Terrain TerrainRequired;
         public readonly IReadOnlyList<Species> RequiredPartners;
 
-        internal Evolution (EvolutionConfig config) : base (config.ID) {
+        protected internal Evolution (EvolutionConfig config) : base (config.ID) {
             TargetSpecies = config.TargetSpecies;
             LevelRequired = config.LevelRequired;
             ItemRequired = config.ItemRequired;

@@ -22,7 +22,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System;
 
 namespace ProfMon.Monster.Abilities {
-    public class AbilityBuilder : BaseBuilder<AbilityBuilder, Ability> {
+    public class AbilityBuilder : Builder<AbilityBuilder, Ability> {
         private AbilityTrigger _trigger;
         private Func<ISpeciesInstance, ISpeciesInstance> _processor;
 

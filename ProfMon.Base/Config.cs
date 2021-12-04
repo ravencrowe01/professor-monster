@@ -1,5 +1,5 @@
 ﻿namespace ProfMon.Base {
-    public class BaseConfig {
+    public class Config {
         public ID ID { get; set; }
 
         public string Name { get; set; }

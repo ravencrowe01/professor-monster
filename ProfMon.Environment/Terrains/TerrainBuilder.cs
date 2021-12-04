@@ -20,9 +20,9 @@
 using ProfMon.Base;
 
 namespace ProfMon.Environment.Terrains {
-    public class TerrainBuilder : BaseBuilder<TerrainBuilder, Terrain> {
+    public class TerrainBuilder : Builder<TerrainBuilder, Terrain> {
         public override Terrain Build () {
-            return new Terrain (new BaseConfig () {
+            return new Terrain (new Config () {
                 ID = _id,
                 Name = _name,
                 Description = _description

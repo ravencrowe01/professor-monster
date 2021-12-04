@@ -22,7 +22,7 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Environment.Terrains {
     public class Terrain : DescribedProfObj {
-        internal Terrain (BaseConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Terrain (Config config) : base (config.ID, config.Name, config.Description) {
         }
     }
 }

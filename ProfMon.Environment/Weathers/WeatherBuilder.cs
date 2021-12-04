@@ -20,9 +20,9 @@
 using ProfMon.Base;
 
 namespace ProfMon.Environment.Weathers {
-    public class WeatherBuilder : BaseBuilder<WeatherBuilder, Weather> {
+    public class WeatherBuilder : Builder<WeatherBuilder, Weather> {
         public override Weather Build () {
-            return new Weather (new BaseConfig () {
+            return new Weather (new Config () {
                 ID = _id,
                 Name = _name,
                 Description = _description

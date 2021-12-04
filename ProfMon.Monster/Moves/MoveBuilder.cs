@@ -23,7 +23,7 @@ using ProfMon.Monster.MonsterSpecies;
 using System;
 
 namespace ProfMon.Monster.Moves {
-    public class MoveBuilder : BaseBuilder<MoveBuilder, Move> {
+    public class MoveBuilder : Builder<MoveBuilder, Move> {
         private Element _element;
 
         private float _power;

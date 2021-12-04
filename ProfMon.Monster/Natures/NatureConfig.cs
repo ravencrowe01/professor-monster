@@ -20,7 +20,7 @@
 using ProfMon.Base;
 
 namespace ProfMon.Monster.Natures {
-    public class NatureConfig : BaseConfig {
+    public class NatureConfig : Config {
         public Stats StatModifiers { get; set; }
     }
 }

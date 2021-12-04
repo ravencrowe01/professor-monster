@@ -57,7 +57,7 @@ namespace ProfMon.Monster.MonsterSpecies {
         public readonly float Height;
         public readonly float Weight;
 
-        internal Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
             Starter = config.Starter;
             Abilities = (IReadOnlyList<Ability>) config.Abilities;
             PrimaryElement = config.ElementOne;

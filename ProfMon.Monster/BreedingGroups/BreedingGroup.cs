@@ -22,7 +22,6 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Monster.BreedingGroups {
     public class BreedingGroup : NamedProfObj {
-        internal BreedingGroup (BaseConfig config) : base (config.ID, config.Name) {
-        }
+        protected internal BreedingGroup (Config config) : base (config.ID, config.Name) { }
     }
 }

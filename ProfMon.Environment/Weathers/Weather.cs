@@ -22,7 +22,7 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Environment.Weathers {
     public class Weather : DescribedProfObj {
-        internal Weather (BaseConfig config) : base (config.ID, config.Name, config.Description) {
+        protected internal Weather (Config config) : base (config.ID, config.Name, config.Description) {
         }
     }
 }
