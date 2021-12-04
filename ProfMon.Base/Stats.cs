@@ -17,8 +17,6 @@
  */
 #endregion
 
-using ProfMon.Base.ProfObj;
-
 namespace ProfMon.Base {
     public class Stats {
         public float Health { get; private set; }
@@ -43,7 +41,7 @@ namespace ProfMon.Base {
         }
 
         public static Stats operator + (Stats stats, Stats other) {
-            return new Stats(stats.Health + other.Health,
+            return new Stats (stats.Health + other.Health,
                              stats.PhysicalAttack + other.PhysicalAttack,
                              stats.PhysicalDefense + other.PhysicalDefense,
                              stats.NonphysicalAttack + other.NonphysicalAttack,

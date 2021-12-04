@@ -23,7 +23,7 @@ using ProfMon.Inventory.Catagories;
 using System.Collections.Generic;
 
 namespace ProfMon.Inventory.Items {
-    public class Item : DescribedProfObj, ITaggable  {
+    public class Item : DescribedProfObj, ITaggable<Tag>  {
         public readonly ItemCatagory Catagory;
 
         public readonly float SellValue;
