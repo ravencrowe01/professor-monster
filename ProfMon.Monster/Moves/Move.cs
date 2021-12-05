@@ -28,6 +28,8 @@ namespace ProfMon.Monster.Moves {
     public class Move : DescribedProfObj, ITaggable<Tag> {
         public readonly Element Element;
 
+        public readonly int Priority;
+
         public readonly float Power;
         public readonly float Accurecy;
 
@@ -39,6 +41,7 @@ namespace ProfMon.Monster.Moves {
 
         protected internal Move (MoveConfig config) : base (config.ID, config.Name, config.Description) {
             Element = config.Element;
+            Priority = config.Priority;
             Power = config.Power;
             Accurecy = config.Accurecy;
             OnUse = config.OnUse;

@@ -27,6 +27,8 @@ namespace ProfMon.Monster.Moves {
     public class MoveBuilder : Builder<MoveBuilder, Move> {
         private Element _element;
 
+        private int _priority;
+
         private float _power;
         private float _accurecy;
 
@@ -36,6 +38,11 @@ namespace ProfMon.Monster.Moves {
 
         public MoveBuilder WithElement (Element element) {
             _element = element;
+            return this;
+        }
+
+        public MoveBuilder WithPriority (int priority) {
+            _priority = priority;
             return this;
         }
 
@@ -65,6 +72,7 @@ namespace ProfMon.Monster.Moves {
                 Name = _name,
                 Description = _description,
                 Element = _element,
+                Priority = _priority,
                 Power = _power,
                 Accurecy = _accurecy,
                 OnUse = _onUse,

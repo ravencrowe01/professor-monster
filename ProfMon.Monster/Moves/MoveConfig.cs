@@ -27,6 +27,8 @@ namespace ProfMon.Monster.Moves {
     public class MoveConfig : Config {
         public Element Element { get; set; }
 
+        public int Priority { get; set; }
+
         public float Power { get; set; }
         public float Accurecy { get; set; }
 
