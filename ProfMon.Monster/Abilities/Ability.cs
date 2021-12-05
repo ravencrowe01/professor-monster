@@ -27,7 +27,7 @@ namespace ProfMon.Monster.Abilities {
     public class Ability : DescribedProfObj, ITaggable<Tag> {
         public readonly AbilityTrigger AbilityTrigger;
 
-        public readonly Func<ISpeciesInstance, ISpeciesInstance> TriggerProcesser;
+        public readonly Func<ISpeciesInstance, IOutcome> TriggerProcesser;
 
         private readonly List<Tag> _tags;
 

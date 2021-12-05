@@ -35,7 +35,7 @@ namespace ProfMon.Monster.Abilities {
             return this;
         }
 
-        public AbilityBuilder WithProcessor (Func<ISpeciesInstance, ISpeciesInstance> processor) {
+        public AbilityBuilder WithProcessor (Func<ISpeciesInstance, IOutcome> processor) {
             _processor = processor;
             return this;
         }

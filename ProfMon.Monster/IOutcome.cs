@@ -1,6 +1,6 @@
 using System;
 
-namespace ProfMon.Monster.Moves {
+namespace ProfMon.Monster {
 	public interface IOutcome {
     } 
 }
