@@ -57,6 +57,8 @@ namespace ProfMon.Monster.MonsterSpecies {
         public readonly float Height;
         public readonly float Weight;
 
+        public readonly int GrowthRate;
+
         protected internal Species (SpeciesConfig config) : base (config.ID, config.Name, config.Description) {
             Starter = config.Starter;
             Abilities = (IReadOnlyList<Ability>) config.Abilities;
@@ -67,6 +69,9 @@ namespace ProfMon.Monster.MonsterSpecies {
             BreedMoves = (IReadOnlyList<Move>) config.BreedMoves;
             BreedingGroups = (IReadOnlyList<BreedingGroup>) config.BreedingGroups;
             FemaleChance = config.FemaleChance;
+            Height = config.Height;
+            Weight = config.Weight;
+            GrowthRate = config.GrowthRate;
         }
     }
 }

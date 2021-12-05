@@ -36,6 +36,7 @@ namespace ProfMon.Monster.MonsterSpecies {
         string OriginalTrainerName { get; }
 
         ID OwnerID { get; }
+        string OwnerName { get; }
 
         bool Nicknamed { get; }
         string Name { get; }
@@ -67,7 +68,8 @@ namespace ProfMon.Monster.MonsterSpecies {
         Nature Nature { get; }
 
         ReadonlyStats StatTotals { get; }
-        ReadonlyStats StateModifiers { get; }
+        ReadonlyStats GeneticStats { get; }
+        ReadonlyStats StatTraining { get; }
 
         float CurrentHealth { get; }
 

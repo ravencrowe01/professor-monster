@@ -27,7 +27,7 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster.MonsterSpecies {
     public class SpeciesBuilder : Builder<SpeciesBuilder, Species> {
-        private bool _starter;
+        private bool _starter = false;
 
         private IEnumerable<Ability> _abilities;
 
@@ -57,6 +57,8 @@ namespace ProfMon.Monster.MonsterSpecies {
         private float _height;
 
         private float _weight;
+
+        private int _growthRate;
 
         public SpeciesBuilder IsStarter (bool starter) {
             _starter = starter;
@@ -134,6 +136,11 @@ namespace ProfMon.Monster.MonsterSpecies {
             return this;
         }
 
+        public SpeciesBuilder WithGrowthRate (int rate) {
+            _growthRate = rate;
+            return this;
+        }
+
         public override Species Build () {
             return new Species (new SpeciesConfig () {
                 ID = _id,
@@ -154,7 +161,8 @@ namespace ProfMon.Monster.MonsterSpecies {
                 HatchTime = _hatchTime,
                 FemaleChance = _femaleChance,
                 Height = _height,
-                Weight = _weight
+                Weight = _weight,
+                GrowthRate = _growthRate
             });
         }
     }

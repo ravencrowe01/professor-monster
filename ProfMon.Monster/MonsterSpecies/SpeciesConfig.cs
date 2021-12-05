@@ -61,8 +61,10 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         public float FemaleChance { get; set; }
 
-        public object Height { get; set; }
+        public float Height { get; set; }
 
-        public object Weight { get; set; }
+        public float Weight { get; set; }
+
+        public int GrowthRate { get; set; }
     }
 }
