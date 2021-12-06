@@ -19,6 +19,7 @@
 
 using ProfMon.Base;
 using ProfMon.Monster.MonsterSpecies;
+using System.Collections.Generic;
 
 namespace ProfMon.Monster.Storage {
     public class Folder : StorageUnit {
@@ -28,7 +29,7 @@ namespace ProfMon.Monster.Storage {
             Background = background;
         }
 
-        public Folder (ID id, string name, ISpeciesInstance [] monsters, int background) : base (id, name, monsters) {
+        public Folder (ID id, string name, List<ISpeciesInstance> monsters, int background) : base (id, name, monsters) {
             Background = background;
         }
 

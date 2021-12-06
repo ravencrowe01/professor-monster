@@ -21,19 +21,22 @@ using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Monster.MonsterSpecies;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProfMon.Monster.Storage {
     public class StorageUnit : NamedProfObj {
-        private ISpeciesInstance [] _monsters;
+        private List<ISpeciesInstance> _monsters;
         public IReadOnlyList<ISpeciesInstance> Monsters => _monsters;
 
-        public int Size => _monsters.Length;
+        public int Size { get; private set; }
 
         public StorageUnit (ID id, string name, int size) : this (id, name) {
-            _monsters = new ISpeciesInstance [size];
+            Size = size;
+            _monsters = new List<ISpeciesInstance> (Size);
         }
 
-        public StorageUnit (ID id, string name, ISpeciesInstance [] monsters) : this (id, name) {
+        public StorageUnit (ID id, string name, List<ISpeciesInstance> monsters) : this (id, name) {
+            Size = monsters.Count;
             _monsters = monsters;
         }
 
@@ -75,6 +78,10 @@ namespace ProfMon.Monster.Storage {
             var temp = _monsters [from];
             _monsters [from] = _monsters [to];
             _monsters [to] = temp;
+        }
+
+        public int GetEmptySlots () {
+            return _monsters.Where(m => m == null).Count ();
         }
     }
 }

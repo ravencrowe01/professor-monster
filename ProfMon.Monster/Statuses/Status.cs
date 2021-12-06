@@ -25,6 +25,8 @@ namespace ProfMon.Monster.Statuses {
     public class Status : DescribedProfObj, ITaggable<Tag> {
         public readonly int TurnsActive;
 
+        public readonly bool Hidden;
+
         public readonly bool OverwritesMajor;
 
         public readonly bool Stacks;
@@ -36,6 +38,7 @@ namespace ProfMon.Monster.Statuses {
 
         protected internal Status (StatusConfig config) : base (config.ID, config.Name, config.Description) {
             TurnsActive = config.TurnsActive;
+            Hidden = config.Hidden;
             OverwritesMajor = config.OverwritesMajor;
             Stacks = config.Stacks;
             MaxStacks = config.MaxStacks;

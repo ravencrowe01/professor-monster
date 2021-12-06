@@ -24,6 +24,8 @@ namespace ProfMon.Monster.Statuses {
     public class StatusBuilder : Builder<StatusBuilder, Status> {
         private int _turnsActive;
 
+        private bool _hidden;
+
         private bool _overwritesMajor;
 
         private bool _stacks;
@@ -33,6 +35,11 @@ namespace ProfMon.Monster.Statuses {
 
         public StatusBuilder WithTurnsActive (int turnsActive) {
             _turnsActive = turnsActive;
+            return this;
+        }
+
+        public StatusBuilder WithHidden (bool hidden) {
+            _hidden = hidden;
             return this;
         }
 
@@ -62,6 +69,7 @@ namespace ProfMon.Monster.Statuses {
                 Name = _name,
                 Description = _description,
                 TurnsActive = _turnsActive,
+                Hidden = _hidden,
                 OverwritesMajor = _overwritesMajor,
                 Stacks = _stacks,
                 MaxStacks = _maxStacks,

@@ -48,11 +48,12 @@ namespace ProfMon.Monster.MonsterSpecies {
         int Level { get; }
         int Experience { get; }
 
-        DateTime EggReceivedDate { get; }
-        ID EggReceivedLocation { get; }
-
         DateTime MetTime { get; }
         ID MetLocation { get; }
+
+        bool ReceivedAsEgg { get; }
+        DateTime EggReceivedDate { get; }
+        ID EggReceivedLocation { get; }
 
         bool FatefulEncounter { get; }
 
@@ -73,7 +74,7 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         float CurrentHealth { get; }
 
-        IEnumerable<Status> CurrentStatus { get; }
+        IEnumerable<IStatusInstance> CurrentStatuses { get; }
 
         IReadOnlyList<IMoveInstance> Moves { get; }
 

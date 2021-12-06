@@ -24,6 +24,8 @@ namespace ProfMon.Monster.Statuses {
     public class StatusConfig : Config {
         public int TurnsActive { get; set; }
 
+        public bool Hidden { get; set; }
+
         public bool OverwritesMajor { get; set; }
 
         public bool Stacks { get; set; }
