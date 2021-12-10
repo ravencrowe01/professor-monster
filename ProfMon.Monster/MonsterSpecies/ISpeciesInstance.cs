@@ -18,10 +18,13 @@
 #endregion
 
 using ProfMon.Base;
+using ProfMon.Environment.Locations;
+using ProfMon.Inventory.Items;
 using ProfMon.Monster.Abilities;
 using ProfMon.Monster.Medals;
 using ProfMon.Monster.Moves;
 using ProfMon.Monster.Natures;
+using ProfMon.Monster.Personalities;
 using ProfMon.Monster.Statuses;
 using System;
 using System.Collections.Generic;
@@ -41,6 +44,8 @@ namespace ProfMon.Monster.MonsterSpecies {
         bool Nicknamed { get; }
         string Name { get; }
 
+        Item HeldItem { get; }
+
         int Gender { get; }
 
         float Happiness { get; }
@@ -49,17 +54,17 @@ namespace ProfMon.Monster.MonsterSpecies {
         int Experience { get; }
 
         DateTime MetTime { get; }
-        ID MetLocation { get; }
+        Location MetLocation { get; }
 
         bool ReceivedAsEgg { get; }
         DateTime EggReceivedDate { get; }
-        ID EggReceivedLocation { get; }
+        Location EggReceivedLocation { get; }
 
         bool FatefulEncounter { get; }
 
-        ID Personality { get; }
+        Personality Personality { get; }
 
-        ID CaptureDevice { get; }
+        Item CaptureDevice { get; }
 
         bool IsAlternateForm { get; }
 

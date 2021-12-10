@@ -4,6 +4,9 @@ using ProfMon.Monster.Moves;
 using ProfMon.Monster.Natures;
 using ProfMon.Monster.Medals;
 using System;
+using ProfMon.Monster.Personalities;
+using ProfMon.Inventory.Items;
+using ProfMon.Environment.Locations;
 
 namespace ProfMon.Monster.MonsterSpecies {
     public interface ISpeciesInstanceBuilder {
@@ -19,15 +22,15 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         ISpeciesInstanceBuilder WithTimeMet(DateTime dateTime);
 
-        ISpeciesInstanceBuilder WithMetID(ID id);
+        ISpeciesInstanceBuilder WithMetID(Location location);
 
         ISpeciesInstanceBuilder WithEggReceivedTime(DateTime dateTime);
 
         ISpeciesInstanceBuilder WithEggReceivedLocationID(ID id);
 
-        ISpeciesInstanceBuilder WithPersonalityID(ID id);
+        ISpeciesInstanceBuilder WithPersonality(Personality personality);
 
-	ISpeciesInstanceBuilder WithCaptureDeviceID(ID id);
+	    ISpeciesInstanceBuilder WithCaptureDeviceID(Item device);
 
         ISpeciesInstanceBuilder WithMedals(params Medal[] medals);
 
