@@ -68,7 +68,7 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         bool IsAlternateForm { get; }
 
-        IEnumerable<Medal> Medals { get; }
+        IReadOnlyList<Medal> Medals { get; }
 
         Ability Ability { get; }
         Nature Nature { get; }
@@ -79,7 +79,7 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         float CurrentHealth { get; }
 
-        IEnumerable<IStatusInstance> CurrentStatuses { get; }
+        IReadOnlyList<IStatusInstance> CurrentStatuses { get; }
 
         IReadOnlyList<IMoveInstance> Moves { get; }
 

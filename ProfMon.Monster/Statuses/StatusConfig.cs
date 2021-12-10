@@ -26,6 +26,7 @@ namespace ProfMon.Monster.Statuses {
 
         public bool Hidden { get; set; }
 
+        public bool IsMajor { get; set; }
         public bool OverwritesMajor { get; set; }
 
         public bool Stacks { get; set; }

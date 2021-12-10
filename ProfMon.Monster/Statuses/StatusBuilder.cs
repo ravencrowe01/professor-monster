@@ -26,6 +26,7 @@ namespace ProfMon.Monster.Statuses {
 
         private bool _hidden;
 
+        private bool _isMajor;
         private bool _overwritesMajor;
 
         private bool _stacks;
@@ -40,6 +41,11 @@ namespace ProfMon.Monster.Statuses {
 
         public StatusBuilder WithHidden (bool hidden) {
             _hidden = hidden;
+            return this;
+        }
+
+        public StatusBuilder IsMajor(bool major) {
+            _isMajor = major;
             return this;
         }
 
@@ -70,6 +76,7 @@ namespace ProfMon.Monster.Statuses {
                 Description = _description,
                 TurnsActive = _turnsActive,
                 Hidden = _hidden,
+                IsMajor = _isMajor,
                 OverwritesMajor = _overwritesMajor,
                 Stacks = _stacks,
                 MaxStacks = _maxStacks,

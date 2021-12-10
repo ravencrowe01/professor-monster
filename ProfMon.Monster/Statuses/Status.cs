@@ -27,6 +27,7 @@ namespace ProfMon.Monster.Statuses {
 
         public readonly bool Hidden;
 
+        public readonly bool IsMajor;
         public readonly bool OverwritesMajor;
 
         public readonly bool Stacks;
@@ -39,6 +40,7 @@ namespace ProfMon.Monster.Statuses {
         protected internal Status (StatusConfig config) : base (config.ID, config.Name, config.Description) {
             TurnsActive = config.TurnsActive;
             Hidden = config.Hidden;
+            IsMajor = config.IsMajor;
             OverwritesMajor = config.OverwritesMajor;
             Stacks = config.Stacks;
             MaxStacks = config.MaxStacks;
