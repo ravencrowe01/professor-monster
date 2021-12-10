@@ -83,10 +83,6 @@ namespace ProfMon.Monster.MonsterSpecies {
 
         IReadOnlyList<IMoveInstance> Moves { get; }
 
-        void AddID (ID id);
-
-        void AddOriginalTrainer (ID id, string name);
-
         void Rename (string name);
 
         void UpdateHappiness (float amount);
@@ -103,7 +99,7 @@ namespace ProfMon.Monster.MonsterSpecies {
         void Damage (float amount);
         void Heal (float amount);
 
-        void UpdateStats (Stats stats);
+        void UpdateStatTraining (Stats stats);
 
         bool CanAddMove ();
         bool CanRemoveMove ();
