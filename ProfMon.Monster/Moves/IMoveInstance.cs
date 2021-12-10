@@ -26,5 +26,9 @@ namespace ProfMon.Monster.Moves {
 
         int TimesBoosted { get; }
         int MaxBoosts { get; }
+
+        void UpdateUses (int amount);
+
+        void UpdateBoosted (int amount);
     }
 }
