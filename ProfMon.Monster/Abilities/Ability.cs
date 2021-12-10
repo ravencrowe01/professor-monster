@@ -25,6 +25,8 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
     public class Ability : DescribedProfObj, ITaggable<Tag> {
+        public readonly ID AbilityType;
+
         public readonly AbilityTrigger AbilityTrigger;
 
         public readonly Func<ISpeciesInstance, IOutcome> TriggerProcesser;
@@ -34,6 +36,8 @@ namespace ProfMon.Monster.Abilities {
         public IEnumerable<Tag> Tags => _tags;
 
         protected internal Ability (AbilityConfig config) : base (config.ID, config.Name, config.Description) {
+            AbilityType = config.AbilityType;
+
             AbilityTrigger = config.Trigger;
 
             TriggerProcesser = config.TriggerProcessor;

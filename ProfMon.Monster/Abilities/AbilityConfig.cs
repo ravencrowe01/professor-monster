@@ -24,6 +24,8 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
     public class AbilityConfig : Config {
+        public ID AbilityType { get; set; }
+
         public AbilityTrigger Trigger { get; set; }
 
         public Func<ISpeciesInstance, IOutcome> TriggerProcessor { get; set; }

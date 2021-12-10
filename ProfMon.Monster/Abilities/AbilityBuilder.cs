@@ -24,11 +24,18 @@ using System.Collections.Generic;
 
 namespace ProfMon.Monster.Abilities {
     public class AbilityBuilder : Builder<AbilityBuilder, Ability> {
+        private ID _abilityType;
+
         private AbilityTrigger _trigger;
 
         private Func<ISpeciesInstance, IOutcome> _processor;
 
         private IEnumerable<Tag> _tags;
+
+        public AbilityBuilder WithAbilityType(ID type) {
+            _abilityType = type;
+            return this;
+        }
 
         public AbilityBuilder WithTrigger (AbilityTrigger trigger) {
             _trigger = trigger;
@@ -50,6 +57,7 @@ namespace ProfMon.Monster.Abilities {
                 ID = _id,
                 Name = _name,
                 Description = _description,
+                AbilityType = _abilityType,
                 Trigger = _trigger,
                 TriggerProcessor = _processor,
                 Tags = _tags
