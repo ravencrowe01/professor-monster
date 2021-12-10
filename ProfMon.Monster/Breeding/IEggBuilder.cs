@@ -1,4 +1,6 @@
 using ProfMon.Inventory.Items;
+using ProfMon.Monster.MonsterSpecies;
+using ProfMon.Base;
 
 namespace ProfMon.Monster.Breeding {
     public interface IEggBuilder {

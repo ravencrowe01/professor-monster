@@ -3,6 +3,7 @@ using ProfMon.Monster.Abilities;
 using ProfMon.Monster.Moves;
 using ProfMon.Monster.Natures;
 using ProfMon.Monster.Medals;
+using System;
 
 namespace ProfMon.Monster.MonsterSpecies {
     public interface ISpeciesInstanceBuilder {

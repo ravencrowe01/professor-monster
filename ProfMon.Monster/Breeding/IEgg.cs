@@ -1,4 +1,4 @@
-using ProfMon.Monster.Species;
+using ProfMon.Monster.MonsterSpecies;
 
 namespace ProfMon.Monster.Breeding {
 	public interface IEgg {
