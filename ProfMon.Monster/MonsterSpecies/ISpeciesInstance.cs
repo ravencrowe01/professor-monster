@@ -112,7 +112,7 @@ namespace ProfMon.Monster.MonsterSpecies {
         void UpdateMoveUses (int index, int delta);
 
         bool HasMajorStatus ();
-        void AddStatus (Status status);
+        void AddStatus (IStatusInstance status);
         void RemoveStatus (Status status);
     }
 }
