@@ -20,7 +20,7 @@
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
 using ProfMon.Monster.Abilities;
-using ProfMon.Monster.BreedingGroups;
+using ProfMon.Monster.Breeding;
 using ProfMon.Monster.Elements;
 using ProfMon.Monster.Evolutions;
 using ProfMon.Monster.Moves;
