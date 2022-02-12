@@ -91,9 +91,6 @@ namespace ProfMon.Monster.MonsterSpecies {
         bool CanLevelUp ();
         void LevelUp ();
 
-        bool CanEvolve ();
-        ISpeciesInstance Evolve ();
-
         void AddMedal (Medal medal);
 
         void Damage (float amount);

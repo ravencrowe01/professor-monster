@@ -40,6 +40,10 @@ namespace ProfMon.Base {
             Speed = speed;
         }
 
+        public float GetTotal() {
+            return Health + PhysicalAttack + PhysicalDefense + NonphysicalAttack + NonphysicalDefense + Speed;
+        }
+
         public static Stats operator + (Stats stats, Stats other) {
             return new Stats (stats.Health + other.Health,
                              stats.PhysicalAttack + other.PhysicalAttack,
