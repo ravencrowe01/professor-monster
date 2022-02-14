@@ -23,9 +23,9 @@ using ProfMon.Objects.Instances;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProfMon.Objects.MonStorage {
+namespace ProfMon.Objects.Storage {
     public class StorageUnit : NamedProfObject {
-        private List<ISpeciesInstance> _monsters;
+        private readonly List<ISpeciesInstance> _monsters;
         public IReadOnlyList<ISpeciesInstance> Monsters => _monsters;
 
         public int Size { get; private set; }
@@ -82,6 +82,10 @@ namespace ProfMon.Objects.MonStorage {
 
         public int GetEmptySlots () {
             return _monsters.Where (m => m == null).Count ();
+        }
+
+        public void Rename (string newName) {
+            Name = newName;
         }
     }
 }

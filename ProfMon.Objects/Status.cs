@@ -32,7 +32,7 @@ namespace ProfMon.Objects {
         public readonly bool Stacks;
         public readonly int MaxStacks;
 
-        protected internal Status (StatusConfig config) : base (config) {
+        public Status (StatusConfig config) : base (config) {
             TurnsActive = config.TurnsActive;
             Hidden = config.Hidden;
             IsMajor = config.IsMajor;

@@ -72,10 +72,8 @@ namespace ProfMon.Objects.Instances {
 
         float CurrentHealth { get; }
 
-        IReadOnlyList<IStatusInstance> CurrentStatuses { get; }
+        IReadOnlyList<StatusInstance> CurrentStatuses { get; }
 
         IReadOnlyList<IMoveInstance> Moves { get; }
-
-
     }
 }

@@ -22,6 +22,6 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Objects.Inventory {
     public class ItemCatagory : DescribedProfObject {
-        protected internal ItemCatagory (Config config) : base (config) { }
+        public ItemCatagory (Config config) : base (config) { }
     }
 }

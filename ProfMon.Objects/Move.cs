@@ -19,7 +19,6 @@
 
 using ProfMon.Base.ProfObj;
 using ProfMon.Objects.Configs;
-using System;
 
 namespace ProfMon.Objects {
     public class Move : DescribedProfObject {
@@ -30,7 +29,7 @@ namespace ProfMon.Objects {
         public readonly float Power;
         public readonly float Accurecy;
 
-        protected internal Move (MoveConfig config) : base (config) {
+        public Move (MoveConfig config) : base (config) {
             Element = config.Element;
             Priority = config.Priority;
             Power = config.Power;

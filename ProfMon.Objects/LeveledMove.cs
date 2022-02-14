@@ -26,7 +26,7 @@ namespace ProfMon.Objects {
 
         public readonly int LevelRequired;
 
-        protected internal LeveledMove (LeveledMoveConfig config) : base (config.ID) {
+        public LeveledMove (LeveledMoveConfig config) : base (config.ID) {
             MoveLearned = config.MoveLearned;
             LevelRequired = config.LevelRequired;
         }

@@ -24,7 +24,7 @@ using System.Linq;
 
 namespace ProfMon.Objects.Inventory {
     public class TrainerInventory : ProfObject {
-        private Dictionary<ItemCatagory, List<ItemStack>> _items;
+        private readonly Dictionary<ItemCatagory, List<ItemStack>> _items;
         public IReadOnlyDictionary<ItemCatagory, List<ItemStack>> Items => _items;
 
         public TrainerInventory (ID id, Dictionary<ItemCatagory, List<ItemStack>> items) : base (id) {

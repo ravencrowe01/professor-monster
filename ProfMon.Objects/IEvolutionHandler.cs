@@ -22,10 +22,12 @@ using ProfMon.Objects.Inventory;
 using System.Collections.Generic;
 
 namespace ProfMon.Objects {
-    public interface IEvolutionManager {
-        bool CanEvolve (ISpeciesInstance instance);
+    public interface IEvolutionHandler {
+        void AddMonster (ISpeciesInstance instance);
 
-        ISpeciesInstance Evolve (ISpeciesInstance instance);
+        bool CanEvolve ();
+
+        ISpeciesInstance Evolve ();
 
         void AddEvolveItem (Item item);
 

@@ -24,13 +24,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProfMon.Objects.MonStorage {
+namespace ProfMon.Objects.Storage {
     public class MonsterStorage : ProfObject {
-        private List<StorageUnit> _units;
+        private readonly List<StorageUnit> _units;
 
         public StorageUnit Party => _units [0];
 
-        public StorageUnit [] Folders => _units.Skip (1).ToArray ();
+        public IReadOnlyList<StorageUnit> Folders => _units.Skip (1).ToList ();
 
         public MonsterStorage (ID id, StorageUnit party, List<StorageUnit> folders) : base (id) {
             _units = new List<StorageUnit> { party };
@@ -44,7 +44,7 @@ namespace ProfMon.Objects.MonStorage {
 
             var config = new Config () {
                 ID = partyID,
-                Name = "party"
+                Name = "Party"
             };
 
             var party = new StorageUnit (config, partySize);
@@ -59,7 +59,7 @@ namespace ProfMon.Objects.MonStorage {
                     Name = $"Folder {i + 1}"
                 };
 
-                _units.Add (new Folder (folderConfig, folderSize, 1));
+                _units.Add (new StorageUnit (folderConfig, folderSize));
             }
         }
 

@@ -55,7 +55,7 @@ namespace ProfMon.Objects {
 
         public readonly int GrowthRate;
 
-        protected internal Species (SpeciesConfig config) : base (config) {
+        public Species (SpeciesConfig config) : base (config) {
             Starter = config.Starter;
             Abilities = (IReadOnlyList<Ability>) config.Abilities;
             PrimaryElement = config.ElementOne;

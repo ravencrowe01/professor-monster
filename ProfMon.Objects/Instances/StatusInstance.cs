@@ -17,24 +17,16 @@
  */
 #endregion
 
-using ProfMon.Base;
-using ProfMon.Objects.Instances;
-using System.Collections.Generic;
+namespace ProfMon.Objects.Instances {
+    public class StatusInstance {
+        public readonly Status Status;
 
-namespace ProfMon.Objects.MonStorage {
-    public class Folder : StorageUnit {
-        public int Background { get; private set; }
+        public int TurnsActive { get; private set; }
 
-        public Folder (Config config, int size, int background = 0) : base (config, size) {
-            Background = background;
+        public StatusInstance(Status status) {
+            Status = status;
         }
 
-        public Folder (Config config, List<ISpeciesInstance> monsters, int background) : base (config, monsters) {
-            Background = background;
-        }
-
-        public void ChangeBackground (int background) {
-            Background = background;
-        }
+        public void IncrementTurnsActive () => TurnsActive++;
     }
 }

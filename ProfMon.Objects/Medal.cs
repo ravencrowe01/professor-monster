@@ -22,6 +22,6 @@ using ProfMon.Base.ProfObj;
 
 namespace ProfMon.Objects {
     public class Medal : DescribedProfObject {
-        protected internal Medal (Config config) : base (config) { }
+        public Medal (Config config) : base (config) { }
     }
 }

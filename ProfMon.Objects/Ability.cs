@@ -27,7 +27,7 @@ namespace ProfMon.Objects {
 
         public readonly AbilityTrigger AbilityTrigger;
 
-        protected internal Ability (AbilityConfig config) : base (config) {
+        public Ability (AbilityConfig config) : base (config) {
             AbilityType = config.AbilityType;
 
             AbilityTrigger = config.Trigger;

@@ -25,13 +25,18 @@ using System.Collections.Generic;
 namespace ProfMon.Objects {
     public class Evolution : ProfObject {
         public readonly Species TargetSpecies;
+
         public readonly int LevelRequired;
+
         public readonly Item ItemRequired;
+
         public readonly Weather WeatherRequired;
+
         public readonly Terrain TerrainRequired;
+
         public readonly IReadOnlyList<Species> RequiredPartners;
 
-        protected internal Evolution (EvolutionConfig config) : base (config.ID) {
+        public Evolution (EvolutionConfig config) : base (config.ID) {
             TargetSpecies = config.TargetSpecies;
             LevelRequired = config.LevelRequired;
             ItemRequired = config.ItemRequired;

@@ -26,6 +26,8 @@ namespace ProfMon.Base {
         public float NonphysicalDefense { get; private set; }
         public float Speed { get; private set; }
 
+        public Stats () { }
+
         public Stats (float health,
                       float physicalAttack,
                       float physicalDefense,

@@ -23,59 +23,7 @@ using System;
 using System.Collections.Generic;
 
 namespace ProfMon.Objects.Instances {
-    public interface ISpeciesInstance {
-        Species Species { get; }
-
-        ID ID { get; }
-
-        ID OriginalTrainerID { get; }
-        string OriginalTrainerName { get; }
-
-        ID OwnerID { get; }
-        string OwnerName { get; }
-
-        bool Nicknamed { get; }
-        string Name { get; }
-
-        Item HeldItem { get; }
-
-        int Gender { get; }
-
-        float Happiness { get; }
-
-        int Level { get; }
-        int Experience { get; }
-
-        DateTime MetTime { get; }
-        Location MetLocation { get; }
-
-        bool ReceivedAsEgg { get; }
-        DateTime EggReceivedDate { get; }
-        Location EggReceivedLocation { get; }
-
-        bool FatefulEncounter { get; }
-
-        Personality Personality { get; }
-
-        Item CaptureDevice { get; }
-
-        bool IsAlternateForm { get; }
-
-        IReadOnlyList<Medal> Medals { get; }
-
-        Ability Ability { get; }
-        Nature Nature { get; }
-
-        ReadonlyStats StatTotals { get; }
-        ReadonlyStats GeneticStats { get; }
-        ReadonlyStats StatTraining { get; }
-
-        float CurrentHealth { get; }
-
-        IReadOnlyList<IStatusInstance> CurrentStatuses { get; }
-
-        IReadOnlyList<IMoveInstance> Moves { get; }
-
+    public interface ISpeciesInstance : IReadOnlySpeciesInstance {
         void Rename (string name);
 
         void UpdateHappiness (float amount);
@@ -102,7 +50,7 @@ namespace ProfMon.Objects.Instances {
         void UpdateMoveUses (int index, int delta);
 
         bool HasMajorStatus ();
-        void AddStatus (IStatusInstance status);
+        void AddStatus (StatusInstance status);
         void RemoveStatus (Status status);
     }
 }

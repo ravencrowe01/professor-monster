@@ -19,7 +19,7 @@
 
 namespace ProfMon.Base {
     public class ReadonlyStats {
-        private Stats _stats;
+        private readonly Stats _stats;
 
         public float Health => _stats.Health;
         public float PhysicalAttack => _stats.PhysicalAttack;
