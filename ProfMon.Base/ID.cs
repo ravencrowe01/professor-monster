@@ -1,5 +1,5 @@
 #region copyright
-/** Professors Monster, a library for creating monster collection style games.
+/** Professor Monster, a library for creating monster collection style games.
  *  Copyright (C) 2021 Raven Crowe
  *  
  *  This program is free software: you can redistribute it and/or modify
