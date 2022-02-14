@@ -17,8 +17,37 @@
  */
 #endregion
 
+using ProfMon.Objects.Instances;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace ProfMon.Objects.Combat {
-    public interface ICombatCalculator {
-        float CalculateBaseHPModifier (Move move, CombatMonster attacker, CombatMonster defender);
+    public class CombatState {
+        public int Turn { get; }
+
+        public Weather Weather { get; }
+
+        public Terrain Terrain { get; }
+
+        private List<CombatTeam> _teams;
+
+        private int _nextTeamID;
+
+        public CombatState () {
+            _teams = new List<CombatTeam> ();
+        }
+
+        public void AddTeam (List<ISpeciesInstance> team) {
+            _teams.Add (new CombatTeam (team, _nextTeamID));
+            _nextTeamID++;
+        }
+
+        private CombatTeam GetTeam (int id) {
+            return _teams.Where (team => team.Id == id).First ();
+        }
+
+        public CombatMonster GetMonster (int team, int slot) {
+            return GetTeam (team).GetMonster (slot);
+        }
     }
 }
