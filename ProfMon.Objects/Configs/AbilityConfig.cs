@@ -18,12 +18,11 @@
 #endregion
 
 using ProfMon.Base;
-using System;
 
 namespace ProfMon.Objects.Configs {
     public class AbilityConfig : Config {
         public ID AbilityType { get; set; }
 
-        public AbilityTrigger Trigger { get; set; }
+        public int CombatFlags { get; set; }
     }
 }

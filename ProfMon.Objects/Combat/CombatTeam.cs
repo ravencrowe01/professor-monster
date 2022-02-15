@@ -19,6 +19,7 @@
 
 using ProfMon.Objects.Instances;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProfMon.Objects.Combat {
     public class CombatTeam {
@@ -37,17 +38,26 @@ namespace ProfMon.Objects.Combat {
 
         private void BuildTeam (List<ISpeciesInstance> team) {
             _monsters = new List<CombatMonster> ();
-            foreach (var instance in team) {
-                _monsters.Add (new CombatMonster (instance));
+
+            for (int i = 0; i < team.Count; i++) {
+                _monsters.Add (new CombatMonster (i + 1, team[i]));
             }
         }
 
         public CombatMonster GetMonster (int slot) {
-            return _monsters [slot];
+            return _monsters.Where (monster => monster.Slot == slot).FirstOrDefault() ;
         }
 
-        public void AddStatus (Status status) {
+        public void AddTeamStatus (Status status) {
             _statuses.Add (new StatusInstance (status));
+        }
+
+        public void RemoveTeamStatus (Status status) {
+            var found = _statuses.Where (s => s.Status == status).FirstOrDefault ();
+
+            if (found != null) {
+                _statuses.Remove (found);
+            }
         }
     }
 }

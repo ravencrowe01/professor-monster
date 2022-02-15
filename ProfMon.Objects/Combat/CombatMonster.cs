@@ -23,6 +23,8 @@ using ProfMon.Objects.Inventory;
 
 namespace ProfMon.Objects.Combat {
     public class CombatMonster {
+        public int Slot { get; private set; }
+
         private readonly ISpeciesInstance _monster;
         public IReadOnlySpeciesInstance Monster => _monster;
 
@@ -42,12 +44,13 @@ namespace ProfMon.Objects.Combat {
         public Element PrimaryElement => _element ?? _monster.Species.PrimaryElement;
         public Element SecondaryElement => _element == null ? _monster.Species.SecondaryElement : null;
 
-        public CombatMonster (ISpeciesInstance monster) {
+        public CombatMonster (int slot, ISpeciesInstance monster) {
+            Slot = slot;
             _monster = monster;
             _stats = new Stats ();
         }
 
-        public void ApplyAction (ICombatCalculator calculator, Action action) {
+        public void ApplyAction (ICombatCalculator calculator, CombatEvent action) {
             var dmg = action.Damage.CalculcateHPModifier (calculator);
 
             if (dmg > 0) {

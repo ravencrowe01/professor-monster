@@ -25,12 +25,11 @@ namespace ProfMon.Objects {
     public class Ability : DescribedProfObject {
         public readonly ID AbilityType;
 
-        public readonly AbilityTrigger AbilityTrigger;
+        public readonly int CombatFlags;
 
         public Ability (AbilityConfig config) : base (config) {
             AbilityType = config.AbilityType;
-
-            AbilityTrigger = config.Trigger;
+            CombatFlags = config.CombatFlags;
         }
     }
 }

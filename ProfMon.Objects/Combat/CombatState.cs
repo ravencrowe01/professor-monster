@@ -17,6 +17,7 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Objects.Instances;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,32 @@ namespace ProfMon.Objects.Combat {
 
         public Terrain Terrain { get; }
 
+        private int _monstersActive;
+
         private List<CombatTeam> _teams;
 
         private int _nextTeamID;
 
-        public CombatState () {
+        private List<Order> _orderQueue;
+        private List<CombatEvent> _actionQueue;
+
+        private IHandlerCollection<Ability> _abilityHandlers;
+        private IHandlerCollection<Move> _moveHandlers;
+        private IHandlerCollection<ID> _orderHandlers;
+
+        public CombatState (int monstersActive,
+                            IHandlerCollection<Ability> abilityHandlers,
+                            IHandlerCollection<Move> moveHandlers,
+                            IHandlerCollection<ID> orderHandlers) {
+            _monstersActive = monstersActive;
             _teams = new List<CombatTeam> ();
+
+            _orderQueue = new List<Order> ();
+            _actionQueue = new List<CombatEvent> ();
+
+            _abilityHandlers = abilityHandlers;
+            _moveHandlers = moveHandlers;
+            _orderHandlers = orderHandlers;
         }
 
         public void AddTeam (List<ISpeciesInstance> team) {
@@ -48,6 +69,14 @@ namespace ProfMon.Objects.Combat {
 
         public CombatMonster GetMonster (int team, int slot) {
             return GetTeam (team).GetMonster (slot);
+        }
+
+        public void AddOrder(Order order) {
+            _orderQueue.Add (order);
+        }
+
+        public void BeginRound() {
+
         }
     }
 }

@@ -18,7 +18,7 @@
 #endregion
 
 namespace ProfMon.Objects.Combat {
-    public class MoveHPModifier {
+    public class ActionHPModifier {
         public Move Move { get; set; }
 
         public CombatMonster Actor { get; set; }

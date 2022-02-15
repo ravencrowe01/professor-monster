@@ -21,47 +21,34 @@ using ProfMon.Base;
 using ProfMon.Objects.Instances;
 using ProfMon.Objects.Inventory;
 using System.Collections.Generic;
-/** Professors Monster, a library for creating monster collection style games.
-*  Copyright (C) 2021 Raven Crowe
-*  
-*  This program is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU Affero General Public License as published
-*  by the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*  
-*  This program is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU Affero General Public License for more details.
-*  
-*  You should have received a copy of the GNU Affero General Public License
-*  along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+
 namespace ProfMon.Objects.Combat {
-    public class Action {
-        public CombatTeam ActorTeam { get; set; }
+    public class CombatEvent {
+        public int EventType { get; }
 
         private CombatMonster _actor;
         public CombatMonster Actor {
             get => _actor;
-            set {
+            private set {
                 _actor = value;
                 Damage.Actor = _actor;
                 Healing.Actor = _actor;
             }
         }
 
-        public CombatTeam TargetTeam { get; set; }
+        public CombatTeam ActorTeam { get; set; }
 
         private CombatMonster _target;
-        public CombatMonster Target { 
+        public CombatMonster Target {
             get => _target;
-            set {
+            private set {
                 _target = value;
                 Damage.Target = _target;
                 Healing.Target = _target;
             }
         }
+
+        public CombatTeam TargetTeam { get; set; }
 
         public int Priority { get; set; }
 
@@ -75,9 +62,9 @@ namespace ProfMon.Objects.Combat {
             }
         }
 
-        public MoveHPModifier Damage { get; set; }
+        public ActionHPModifier Damage { get; } = new ActionHPModifier ();
 
-        public MoveHPModifier Healing { get; set; }
+        public ActionHPModifier Healing { get; } = new ActionHPModifier ();
 
         public ISpeciesInstance FormApplied { get; set; }
 
@@ -97,9 +84,16 @@ namespace ProfMon.Objects.Combat {
 
         public Element NewElement { get; set; }
 
-        public Action() {
-            Damage = new MoveHPModifier();
-            Healing = new MoveHPModifier();
+        public Status TeamStatusApplied { get; set; }
+
+        public Weather WeatherApplied { get; set; }
+
+        public Terrain TerrainApplied { get; set; }
+
+        public CombatEvent (int eventType, CombatMonster actor, CombatMonster target) {
+            EventType = eventType;
+            Actor = actor;
+            Target = target;
         }
     }
 }
