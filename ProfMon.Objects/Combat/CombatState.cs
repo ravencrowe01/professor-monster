@@ -24,34 +24,46 @@ using System.Linq;
 
 namespace ProfMon.Objects.Combat {
     public class CombatState {
-        public int Turn { get; }
+        public struct Round {
+            public int ID { get; }
+            public List<CombatEvent> Events { get; }
+
+            public Round (int id) {
+                ID = id;
+                Events = new List<CombatEvent> ();
+            }
+        }
+
+        private Round _currentRound;
+
+        private int _currentRoundID;
 
         public Weather Weather { get; }
 
         public Terrain Terrain { get; }
 
-        private int _monstersActive;
+        private int _activeMemebers;
 
         private List<CombatTeam> _teams;
 
         private int _nextTeamID;
 
         private List<Order> _orderQueue;
-        private List<CombatEvent> _actionQueue;
+        public List<Round> RoundHistory { get; }
 
-        private IHandlerCollection<Ability> _abilityHandlers;
-        private IHandlerCollection<Move> _moveHandlers;
-        private IHandlerCollection<ID> _orderHandlers;
+        private IHandlerCollection<Ability, CombatEvent> _abilityHandlers;
+        private IHandlerCollection<Move, CombatEvent> _moveHandlers;
+        private IHandlerCollection<ID, CombatEvent> _orderHandlers;
 
         public CombatState (int monstersActive,
-                            IHandlerCollection<Ability> abilityHandlers,
-                            IHandlerCollection<Move> moveHandlers,
-                            IHandlerCollection<ID> orderHandlers) {
-            _monstersActive = monstersActive;
+                            IHandlerCollection<Ability, CombatEvent> abilityHandlers,
+                            IHandlerCollection<Move, CombatEvent> moveHandlers,
+                            IHandlerCollection<ID, CombatEvent> orderHandlers) {
+            _activeMemebers = monstersActive;
             _teams = new List<CombatTeam> ();
 
             _orderQueue = new List<Order> ();
-            _actionQueue = new List<CombatEvent> ();
+            RoundHistory = new List<Round> ();
 
             _abilityHandlers = abilityHandlers;
             _moveHandlers = moveHandlers;
@@ -59,7 +71,7 @@ namespace ProfMon.Objects.Combat {
         }
 
         public void AddTeam (List<ISpeciesInstance> team) {
-            _teams.Add (new CombatTeam (team, _nextTeamID));
+            _teams.Add (new CombatTeam (_nextTeamID, _activeMemebers, team));
             _nextTeamID++;
         }
 
@@ -71,12 +83,47 @@ namespace ProfMon.Objects.Combat {
             return GetTeam (team).GetMonster (slot);
         }
 
-        public void AddOrder(Order order) {
+        public void AddOrder (Order order) {
             _orderQueue.Add (order);
         }
 
-        public void BeginRound() {
+        private void ProcessEvents (IEnumerable<CombatEvent> events) {
+            foreach (var evnt in events) {
+                ProcessEvent (evnt);
+            }
+        }
 
+        private void ProcessEvent (CombatEvent evnt) {
+            //TODO Process event
+        }
+
+        public void BeginRound () {
+            _currentRoundID++;
+            _currentRound = new Round (_currentRoundID);
+
+            _currentRound.Events.Add (new CombatEvent (CombatEventFlag.StartOfRound));
+
+            foreach (var team in _teams) {
+                var events = team.BeginRound (this, _abilityHandlers);
+
+                ProcessEvents (team.BeginRound (this, _abilityHandlers));
+
+                _currentRound.Events.AddRange (events);
+            }
+        }
+
+        public void EndRound () {
+            _currentRound.Events.Add (new CombatEvent (CombatEventFlag.EndOfRound));
+
+            foreach (var team in _teams) {
+                var events = team.EndRound (this, _abilityHandlers);
+
+                ProcessEvents (team.EndRound (this, _abilityHandlers));
+
+                _currentRound.Events.AddRange (events);
+            }
+
+            RoundHistory.Add (_currentRound);
         }
     }
 }

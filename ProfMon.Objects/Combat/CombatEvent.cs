@@ -24,7 +24,7 @@ using System.Collections.Generic;
 
 namespace ProfMon.Objects.Combat {
     public class CombatEvent {
-        public int EventType { get; }
+        public CombatEventFlag EventType { get; }
 
         private CombatMonster _actor;
         public CombatMonster Actor {
@@ -90,10 +90,8 @@ namespace ProfMon.Objects.Combat {
 
         public Terrain TerrainApplied { get; set; }
 
-        public CombatEvent (int eventType, CombatMonster actor, CombatMonster target) {
+        public CombatEvent (CombatEventFlag eventType) {
             EventType = eventType;
-            Actor = actor;
-            Target = target;
         }
     }
 }

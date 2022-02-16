@@ -1,9 +1,9 @@
 ﻿namespace ProfMon.Base {
-    public interface IHandlerCollection<T> {
-        void AddHandler (T key, IHandler handler);
+    public interface IHandlerCollection<TKey, THandlerOut> {
+        void AddHandler (TKey key, IHandler<THandlerOut> handler);
 
-        void RemoveHandler (T key);
+        void RemoveHandler (TKey key);
 
-        IHandler GetHandler (T key);
+        IHandler<THandlerOut> GetHandler (TKey key);
     }
 }

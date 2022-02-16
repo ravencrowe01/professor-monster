@@ -21,33 +21,18 @@ using System;
 
 namespace ProfMon.Objects.Combat {
     [Flags]
-    public enum CombatEventFlags {
-        StartOfTurn = 1,
-        EndOfTurn = 1 << 1,
-        StartOfRound = 1 << 2,
-        EndOfRound = 1 << 3,
+    public enum CombatEventFlag {
+        StartOfRound = 1,
+        EndOfRound = 1 << 1,
+        StartOfTurn = 1 << 2,
+        EndOfTurn = 1 << 3,
         SwitchIn = 1 << 4,
         SwitchOut = 1 << 5,
-        OpponentSwitchIn = 1 << 6,
-        OpponentSwitchOut = 1 << 7,
-        AllySwitchIn = 1 << 8,
-        AllySwitchOut = 1 << 9,
-        Attack = 1 << 10,
-        OpponentAttack = 1 << 11,
-        AllyAttack = 1 << 12,
-        PhysicalAttack = 1 << 13,
-        OpponentPhysicalAttack = 1 << 14,
-        AllyPhysicalAttack = 1 << 15,
-        NonpyhsicalAttack = 1 << 16,
-        OpponentNonphysicalAttack = 1 << 17,
-        AllyNonphysicalAttack = 1 << 18,
-        Attacked = 1 << 19,
-        OpponentAttacked = 1 << 20,
-        AllyAttacked = 1 << 21,
-        WeatherChanged = 1 << 22,
-        TerrainChanged = 1 << 23,
-        KnockedOut = 1 << 24,
-        OpponentKnockedOut = 1 << 25,
-        AllyKnockedOut = 1 << 26
+        Attack = 1 << 6,
+        PhysicalAttack = 1 << 7,
+        WeatherChanged = 1 << 8,
+        TerrainChanged = 1 << 9,
+        KnockedOut = 1 << 10,
+        Item = 1 << 11
     }
 }

@@ -1,5 +1,5 @@
 ﻿namespace ProfMon.Base {
-    public interface IHandler {
-        T Handle<T> (params object [] args);
+    public interface IHandler<T> {
+        T Handle (params object [] args);
     }
 }

@@ -19,13 +19,14 @@
 
 using ProfMon.Base;
 using ProfMon.Base.ProfObj;
+using ProfMon.Objects.Combat;
 using ProfMon.Objects.Configs;
 
 namespace ProfMon.Objects {
     public class Ability : DescribedProfObject {
         public readonly ID AbilityType;
 
-        public readonly int CombatFlags;
+        public readonly CombatEventFlag CombatFlags;
 
         public Ability (AbilityConfig config) : base (config) {
             AbilityType = config.AbilityType;

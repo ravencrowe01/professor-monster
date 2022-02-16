@@ -17,6 +17,7 @@
  */
 #endregion
 
+using ProfMon.Base;
 using ProfMon.Objects.Instances;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,13 @@ namespace ProfMon.Objects.Combat {
         private List<CombatMonster> _monsters;
 
         private List<StatusInstance> _statuses;
-        public IReadOnlyList<StatusInstance> Statuses;
+        public IReadOnlyList<StatusInstance> Statuses => _statuses;
 
-        public CombatTeam (List<ISpeciesInstance> team, int id) {
+        private int _activeMemebers;
+
+        public CombatTeam (int id, int activeMembers, List<ISpeciesInstance> team) {
             Id = id;
+            _activeMemebers = activeMembers;
             BuildTeam (team);
             _statuses = new List<StatusInstance> ();
         }
@@ -48,6 +52,16 @@ namespace ProfMon.Objects.Combat {
             return _monsters.Where (monster => monster.Slot == slot).FirstOrDefault() ;
         }
 
+        public IEnumerable<CombatMonster> GetActiveMembers () {
+            var members = new List<CombatMonster> ();
+
+            for (int i = 1; i < _activeMemebers; i++) {
+                members.Add (GetMonster (i));
+            }
+
+            return members;
+        }
+
         public void AddTeamStatus (Status status) {
             _statuses.Add (new StatusInstance (status));
         }
@@ -58,6 +72,34 @@ namespace ProfMon.Objects.Combat {
             if (found != null) {
                 _statuses.Remove (found);
             }
+        }
+
+        public IEnumerable<CombatEvent> BeginRound (CombatState combat, IHandlerCollection<Ability, CombatEvent> handlers) {
+            var events = new List<CombatEvent> ();
+
+            for (int i = 0; i < _activeMemebers; i++) {
+                var member = GetMonster (i + 1);
+
+                if (member.Ability.CombatFlags.HasFlag(CombatEventFlag.StartOfRound)) {
+                    events.Add (handlers.GetHandler (member.Ability).Handle(combat));
+                }
+            }
+
+            return events;
+        }
+
+        public IEnumerable<CombatEvent> EndRound (CombatState combat, IHandlerCollection<Ability, CombatEvent> handlers) {
+            var events = new List<CombatEvent> ();
+
+            for (int i = 0; i < _activeMemebers; i++) {
+                var member = GetMonster (i + 1);
+
+                if (member.Ability.CombatFlags.HasFlag (CombatEventFlag.EndOfRound)) {
+                    events.Add (handlers.GetHandler (member.Ability).Handle (combat));
+                }
+            }
+
+            return events;
         }
     }
 }
