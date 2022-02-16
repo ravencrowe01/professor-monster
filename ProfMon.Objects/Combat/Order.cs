@@ -4,6 +4,8 @@ namespace ProfMon.Objects.Combat {
     public class Order {
         public int OrderType { get; set; }
 
+        public int Priority { get; set; }
+
         public CombatMonster Actor { get; set; }
         public CombatTeam ActorTeam { get; set; }
 

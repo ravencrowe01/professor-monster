@@ -24,6 +24,6 @@ namespace ProfMon.Objects.Configs {
     public class AbilityConfig : Config {
         public ID AbilityType { get; set; }
 
-        public CombatEventFlag CombatFlags { get; set; }
+        public int Triggers { get; set; }
     }
 }

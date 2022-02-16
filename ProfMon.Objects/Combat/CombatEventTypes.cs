@@ -21,7 +21,7 @@ using System;
 
 namespace ProfMon.Objects.Combat {
     [Flags]
-    public enum CombatEventFlag {
+    public enum CombatEventTypes {
         StartOfRound = 1,
         EndOfRound = 1 << 1,
         StartOfTurn = 1 << 2,
@@ -33,6 +33,8 @@ namespace ProfMon.Objects.Combat {
         WeatherChanged = 1 << 8,
         TerrainChanged = 1 << 9,
         KnockedOut = 1 << 10,
-        Item = 1 << 11
+        Item = 1 << 11,
+        Ability = 1 << 12,
+        Order = 1 << 13
     }
 }

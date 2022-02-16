@@ -23,6 +23,7 @@ using ProfMon.Objects.Inventory;
 
 namespace ProfMon.Objects.Combat {
     public class CombatMonster {
+        public readonly CombatTeam Team;
         public int Slot { get; private set; }
 
         private readonly ISpeciesInstance _monster;
@@ -44,42 +45,47 @@ namespace ProfMon.Objects.Combat {
         public Element PrimaryElement => _element ?? _monster.Species.PrimaryElement;
         public Element SecondaryElement => _element == null ? _monster.Species.SecondaryElement : null;
 
-        public CombatMonster (int slot, ISpeciesInstance monster) {
+        public CombatMonster (CombatTeam team, int slot, ISpeciesInstance monster) {
+            Team = team;
             Slot = slot;
             _monster = monster;
             _stats = new Stats ();
         }
 
-        public void ApplyAction (ICombatCalculator calculator, CombatEvent action) {
-            var dmg = action.Damage.CalculcateHPModifier (calculator);
+        public void ApplyEvent (ICombatCalculator calculator, CombatEvent @event) {
+            var hpDelta = @event.Damage.CalculcateHPDelta (calculator);
 
-            if (dmg > 0) {
-                _monster.Damage (dmg);
+            if (hpDelta < 0) {
+                _monster.Damage (hpDelta);
             }
 
-            _stats += action.StatChanges;
+            if (hpDelta > 0) {
+                _monster.Heal (hpDelta);
+            }
 
-            action.StatusesApplied.ForEach (status => _monster.AddStatus (new StatusInstance (status)));
-            action.StatusesRemoved.ForEach (status => _monster.RemoveStatus (status));
+            _stats += @event.StatChanges;
 
-            if (action.RemovedItem) {
+            @event.StatusesApplied.ForEach (status => _monster.AddStatus (new StatusInstance (status)));
+            @event.StatusesRemoved.ForEach (status => _monster.RemoveStatus (status));
+
+            if (@event.RemovedItem) {
                 _item = null;
             }
 
-            if (action.NewItem != null) {
-                _item = action.NewItem;
+            if (@event.NewItem != null) {
+                _item = @event.NewItem;
             }
 
-            if (action.NewAbility != null) {
-                _ability = action.NewAbility;
+            if (@event.NewAbility != null) {
+                _ability = @event.NewAbility;
             }
 
-            if (action.NewElement != null) {
-                _element = action.NewElement;
+            if (@event.NewElement != null) {
+                _element = @event.NewElement;
             }
 
-            if (action.FormApplied != null) {
-                _form = action.FormApplied;
+            if (@event.FormApplied != null) {
+                _form = @event.FormApplied;
             }
         }
     }

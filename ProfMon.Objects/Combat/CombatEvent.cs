@@ -24,7 +24,9 @@ using System.Collections.Generic;
 
 namespace ProfMon.Objects.Combat {
     public class CombatEvent {
-        public CombatEventFlag EventType { get; }
+        public CombatEventTypes EventType { get; }
+
+        public CombatEvent Parent { get; }
 
         private CombatMonster _actor;
         public CombatMonster Actor {
@@ -62,9 +64,9 @@ namespace ProfMon.Objects.Combat {
             }
         }
 
-        public ActionHPModifier Damage { get; } = new ActionHPModifier ();
+        public ActionHPDelta Damage { get; } = new ActionHPDelta ();
 
-        public ActionHPModifier Healing { get; } = new ActionHPModifier ();
+        public ActionHPDelta Healing { get; } = new ActionHPDelta ();
 
         public ISpeciesInstance FormApplied { get; set; }
 
@@ -90,8 +92,9 @@ namespace ProfMon.Objects.Combat {
 
         public Terrain TerrainApplied { get; set; }
 
-        public CombatEvent (CombatEventFlag eventType) {
+        public CombatEvent (CombatEventTypes eventType, CombatEvent parent) {
             EventType = eventType;
+            Parent = parent;
         }
     }
 }

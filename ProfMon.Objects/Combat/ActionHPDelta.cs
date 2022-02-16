@@ -18,7 +18,7 @@
 #endregion
 
 namespace ProfMon.Objects.Combat {
-    public class ActionHPModifier {
+    public class ActionHPDelta {
         public Move Move { get; set; }
 
         public CombatMonster Actor { get; set; }
@@ -47,10 +47,10 @@ namespace ProfMon.Objects.Combat {
 
         public float ItemModifier { get; set; } = 1f;
 
-        public float CalculcateHPModifier (ICombatCalculator calculator) {
-            float damage = calculator.CalculateBaseHPModifier (Move, Actor, Target);
+        public float CalculcateHPDelta (ICombatCalculator calculator) {
+            float delta = calculator.CalculateBaseHPDelta (Move, Actor, Target);
 
-            return damage
+            return delta
                 * CritModifier
                 * (IsStrongAttack ? StrongAttackModifier : 1f)
                 * (IsWeakAttack ? WeakAttackModifier : 1f)
