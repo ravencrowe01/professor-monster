@@ -28,6 +28,10 @@ namespace ProfMon.Objects.Combat {
 
         public CombatEvent Parent { get; }
 
+        public List<CombatEvent> Children { get; }
+
+        public bool ModifiesParent { get; set; }
+
         private CombatMonster _actor;
         public CombatMonster Actor {
             get => _actor;
@@ -64,9 +68,9 @@ namespace ProfMon.Objects.Combat {
             }
         }
 
-        public ActionHPDelta Damage { get; } = new ActionHPDelta ();
+        public ActionHPDelta Damage { get; private set; } = new ActionHPDelta ();
 
-        public ActionHPDelta Healing { get; } = new ActionHPDelta ();
+        public ActionHPDelta Healing { get; private set; } = new ActionHPDelta ();
 
         public ISpeciesInstance FormApplied { get; set; }
 
@@ -78,15 +82,14 @@ namespace ProfMon.Objects.Combat {
         public bool ForcedSwitch { get; set; }
         public int SwitchTarget { get; set; } = -1;
 
-        public bool RemovedItem { get; set; }
-        public bool RemovedConsumableItem { get; set; }
         public Item NewItem { get; set; }
 
         public Ability NewAbility { get; set; }
 
         public Element NewElement { get; set; }
 
-        public Status TeamStatusApplied { get; set; }
+        public List<Status> TeamStatusesApplied { get; set; }
+        public List<Status> TeamStatusesRemoved { get; set; }
 
         public Weather WeatherApplied { get; set; }
 
@@ -95,6 +98,102 @@ namespace ProfMon.Objects.Combat {
         public CombatEvent (CombatEventTypes eventType, CombatEvent parent) {
             EventType = eventType;
             Parent = parent;
+        }
+
+        public CombatEvent (CombatEvent @event) {
+            EventType = @event.EventType;
+            Parent = @event.Parent;
+            Children = @event.Children;
+            ModifiesParent = @event.ModifiesParent;
+            _actor = @event.Actor;
+            ActorTeam = @event.ActorTeam;
+            _target = @event.Target;
+            TargetTeam = @event.TargetTeam;
+            Priority = @event.Priority;
+            _move = @event.Move;
+            Damage = @event.Damage;
+            Healing = @event.Healing;
+            FormApplied = @event.FormApplied;
+            StatChanges = @event.StatChanges;
+            StatusesApplied = @event.StatusesApplied;
+            StatusesRemoved = @event.StatusesRemoved;
+            ForcedSwitch = @event.ForcedSwitch;
+            SwitchTarget = @event.SwitchTarget;
+            NewItem = @event.NewItem;
+            NewAbility = @event.NewAbility;
+            NewElement = @event.NewElement;
+            TeamStatusesApplied = @event.TeamStatusesApplied;
+            TeamStatusesRemoved = @event.TeamStatusesRemoved;
+            WeatherApplied = @event.WeatherApplied;
+            TerrainApplied = @event.TerrainApplied;
+        }
+
+        public void OverwriteWithChildren () {
+            var children = new List<CombatEvent> (Children);
+            children.Reverse ();
+
+            foreach (var child in children) {
+                if(child.ModifiesParent) {
+                    Overwrite (child);
+                }
+            }
+        }
+
+        private void Overwrite (CombatEvent by) {
+            Damage = by.Damage;
+            Healing = by.Healing;
+
+            if (by.FormApplied != null) {
+                FormApplied = by.FormApplied;
+            }
+
+            if(by.StatChanges != null) {
+                StatChanges = by.StatChanges;
+            }
+
+            if(by.StatusesApplied != null && by.StatusesApplied.Count > 0) {
+                StatusesApplied = by.StatusesApplied;
+            }
+
+            if(by.StatusesRemoved != null && by.StatusesRemoved.Count > 0) {
+                StatusesRemoved = by.StatusesRemoved;
+            }
+
+            ForcedSwitch = by.ForcedSwitch;
+
+            SwitchTarget = by.SwitchTarget;
+
+            if(by.NewItem != null) {
+                NewItem = by.NewItem;
+            }
+
+            if(by.NewAbility != null) {
+                NewAbility = by.NewAbility;
+            }
+
+            if (by.NewElement != null) {
+                NewElement = by.NewElement;
+            }
+
+            if(by.TeamStatusesApplied != null && by.TeamStatusesApplied.Count > 0) { 
+                TeamStatusesApplied = by.TeamStatusesApplied;
+            }
+
+            if(by.TeamStatusesRemoved != null & by.TeamStatusesRemoved.Count > 0) {
+                TeamStatusesRemoved = by.TeamStatusesRemoved;
+            }
+
+            if(by.WeatherApplied != null) {
+                WeatherApplied = by.WeatherApplied;
+            }
+
+            if(by.TerrainApplied != null) {
+                TerrainApplied = by.TerrainApplied;
+            }
+        }
+
+        public CombatEvent Copy () {
+            return new (this);
         }
     }
 }
