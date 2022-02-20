@@ -73,10 +73,8 @@ namespace ProfMon.Objects.Combat {
             }
         }
 
-        public IEnumerable<CombatEvent> ProcessEvent (CombatEvent @event, CombatState combat) {
+        public IEnumerable<CombatEvent> DispatchEvent (CombatEvent @event, CombatState combat) {
             var events = new List<CombatEvent> ();
-
-            var active = GetActiveMonsters ();
 
             foreach (var monster in GetActiveMonsters ()) {
                 var evnt = monster.TriggerItemHandler (@event, combat);
