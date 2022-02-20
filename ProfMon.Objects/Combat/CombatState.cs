@@ -55,12 +55,14 @@ namespace ProfMon.Objects.Combat {
         public IDictionary<Ability, ICombatTriggerHandler> AbilityHandlers { get; }
         public IDictionary<Move, ICombatTriggerHandler> MoveHandlers { get; }
         public IDictionary<Item, ICombatTriggerHandler> ItemHandlers { get; }
+        public IDictionary<Status, ICombatTriggerHandler> StatusHandlers { get; }
         public IDictionary<ID, ICombatTriggerHandler> OrderHandlers { get; }
 
         public CombatState (int monstersActive,
                             IDictionary<Ability, ICombatTriggerHandler> abilityHandlers,
                             IDictionary<Move, ICombatTriggerHandler> moveHandlers,
                             IDictionary<Item, ICombatTriggerHandler> itemHandlers,
+                            IDictionary<Status, ICombatTriggerHandler> statusHandlers,
                             IDictionary<ID, ICombatTriggerHandler> orderHandlers) {
             _activeMonsters = monstersActive;
             _teams = new List<CombatTeam> ();
@@ -71,6 +73,7 @@ namespace ProfMon.Objects.Combat {
             AbilityHandlers = abilityHandlers;
             MoveHandlers = moveHandlers;
             ItemHandlers = itemHandlers;
+            StatusHandlers = statusHandlers;
             OrderHandlers = orderHandlers;
         }
 

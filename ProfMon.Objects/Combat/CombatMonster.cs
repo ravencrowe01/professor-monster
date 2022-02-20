@@ -20,6 +20,7 @@
 using ProfMon.Base;
 using ProfMon.Objects.Instances;
 using ProfMon.Objects.Inventory;
+using System.Collections.Generic;
 
 namespace ProfMon.Objects.Combat {
     public class CombatMonster {
@@ -68,10 +69,6 @@ namespace ProfMon.Objects.Combat {
             @event.StatusesApplied.ForEach (status => _monster.AddStatus (new StatusInstance (status)));
             @event.StatusesRemoved.ForEach (status => _monster.RemoveStatus (status));
 
-            if (@event.RemovedItem) {
-                _item = null;
-            }
-
             if (@event.NewItem != null) {
                 _item = @event.NewItem;
             }
@@ -87,6 +84,32 @@ namespace ProfMon.Objects.Combat {
             if (@event.FormApplied != null) {
                 _form = @event.FormApplied;
             }
+        }
+
+        public CombatEvent TriggerAbilityHandler (CombatEvent @event, CombatState combat) => TriggerEventHandler (@event, combat, this, combat.AbilityHandlers, Ability);
+
+        public CombatEvent TriggerItemHandler (CombatEvent @event, CombatState combat) => TriggerEventHandler (@event, combat, this, combat.ItemHandlers, Item);
+
+        public List<CombatEvent> TriggerStatusHandlers (CombatEvent @event, CombatState combat) {
+            var events = new List<CombatEvent> ();
+
+            foreach (var status in _monster.CurrentStatuses) {
+                var evnt = TriggerEventHandler (@event, combat, this, combat.StatusHandlers, status.Status);
+
+                if (evnt != null) {
+                    events.Add (evnt);
+                }
+            }
+
+            return events;
+        }
+
+        private static CombatEvent TriggerEventHandler<T> (CombatEvent @event, CombatState combat, CombatMonster monster, IDictionary<T, ICombatTriggerHandler> handlers, T key) {
+            var handler = handlers.ContainsKey (key) ? handlers [key] : null;
+
+            var canTrigger = handler != null && handler.CanTrigger (@event, combat, monster);
+
+            return canTrigger ? handler.Trigger (@event, combat, monster) : null;
         }
     }
 }

@@ -17,10 +17,7 @@
  */
 #endregion
 
-using ProfMon.Base;
 using ProfMon.Objects.Instances;
-using ProfMon.Objects.Inventory;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,12 +43,12 @@ namespace ProfMon.Objects.Combat {
             _monsters = new List<CombatMonster> ();
 
             for (int i = 0; i < team.Count; i++) {
-                _monsters.Add (new CombatMonster (this, i + 1, team[i]));
+                _monsters.Add (new CombatMonster (this, i + 1, team [i]));
             }
         }
 
         public CombatMonster GetMonster (int slot) {
-            return _monsters.Where (monster => monster.Slot == slot).FirstOrDefault() ;
+            return _monsters.Where (monster => monster.Slot == slot).FirstOrDefault ();
         }
 
         public IEnumerable<CombatMonster> GetActiveMonsters () {
@@ -81,32 +78,27 @@ namespace ProfMon.Objects.Combat {
 
             var active = GetActiveMonsters ();
 
-            foreach (var monster in active) {
-                events.Add (TriggerAbilityHandler(@event, combat, monster));
-                events.Add (TriggerItemHandler(@event, combat, monster));
+            foreach (var monster in GetActiveMonsters ()) {
+                var evnt = monster.TriggerItemHandler (@event, combat);
+
+                if (evnt != null) {
+                    events.Add (evnt);
+                }
+
+                evnt = monster.TriggerAbilityHandler (@event, combat);
+
+                if (evnt != null) {
+                    events.Add (evnt);
+                }
+
+                var evnts = monster.TriggerStatusHandlers (@event, combat);
+
+                if(evnts != null && evnts.Count > 0) {
+                    events.AddRange (evnts);
+                }
             }
 
             return events;
-        }
-
-        private static CombatEvent TriggerAbilityHandler (CombatEvent @event, CombatState combat, CombatMonster monster) {
-            var ability = monster.Ability;
-
-            var abilityHandler = combat.AbilityHandlers.ContainsKey(ability) ? combat.AbilityHandlers [ability] : null;
-
-            var canTrigger = abilityHandler != null && abilityHandler.CanTrigger (@event, combat, monster);
-
-            return canTrigger ? abilityHandler.Trigger (@event, combat, monster) : null;
-        }
-
-        private static CombatEvent TriggerItemHandler(CombatEvent @event, CombatState combat, CombatMonster monster) {
-            var item = monster.Item;
-
-            var itemHandler = combat.ItemHandlers.ContainsKey(item) ? combat.ItemHandlers [item] : null;
-
-            var canTrigger = itemHandler != null && itemHandler.CanTrigger (@event, combat, monster);
-
-            return canTrigger ? itemHandler.Trigger (@event, combat, monster) : null;
         }
     }
 }

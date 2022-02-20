@@ -32,6 +32,8 @@ namespace ProfMon.Objects.Combat {
 
         public bool ModifiesParent { get; set; }
 
+        public bool Hidden { get; set; }
+
         private CombatMonster _actor;
         public CombatMonster Actor {
             get => _actor;
